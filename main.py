@@ -1,7 +1,8 @@
 import json
 import sys
 
-from src.utils import highlight_landmarks
+from src.utils import highlight_landmarks, read_steps_from_logs, verify_step_completion_and_map_subgoals, \
+    generate_structured_output
 from src.visualize import visualize_area
 from src.data_loader import get_data_by_instruction
 
@@ -10,14 +11,14 @@ data_split = "unseen"
 with open(f'results/main_test_{data_split}.json', 'r') as f:
     test_results = json.loads(f.read())
 
-instruction_id = 6018
+instruction_id = 2296
 split_file = f"test_{data_split}.json"
 
 # Get the data, expanding the neighborhood by 20 degrees
 area_data = get_data_by_instruction(
     instruction_id,
     split_file,
-    base_path='/Users/fuzzy/Projects/sisu/data/map2seq/',
+    base_path='./data/map2seq/',
     neighbor_degrees=20
 )
 
@@ -45,21 +46,12 @@ visualize_area(
 image_url = f"https://a3s.fi/swift/v1/AUTH_7cb48c21b32644c19940b85807a2f91a/GeoR2LLM_data_paper1/map2seq_processed_data/map_images_test_{data_split}/route_{instruction_id}.png"
 
 # 5. Get reasoning for each step alongside the sub-goals
+results = read_steps_from_logs(data_split, instruction_id)
 
-results = []
+# Verify step completion and map to sub-goals
+step_subgoal_mapping = verify_step_completion_and_map_subgoals(results, sub_goals)
 
-for i in range(1, 11):
-    with open(f"./paper_results/main_results_{data_split}/step{i}_json.jsonl", 'r') as f:
-        for line in f:
-            line = json.loads(line)
-            if line['key'] == str(instruction_id):
-                results.append(line)
-                continue
+# Generate and print structured output
+structured_output = generate_structured_output(step_subgoal_mapping, sub_goals)
 
-for idx, result in enumerate(results):
-    candidate_text = ""
-    for candidate in result['response']['candidates']:
-        for part in candidate["content"]["parts"]:
-            candidate_text += f"{part['text']}\n"
-
-    print(f"Step {idx+1}: {candidate_text}")
+print(structured_output)
