@@ -1,0 +1,1 @@
+osmconvert planet-171204.osm --verbose -b=-74.006,40.706,-73.975,40.766 --complete-ways --complete-multipolygons --complete-boundaries -o=map2seq_new_york-171204.osm

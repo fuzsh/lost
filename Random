@@ -1,0 +1,15 @@
+unseen -- 6018 --
+    -- OSM doesn't contain the node Museum of African Art but the map tile contains the museum
+    -- Lights sometimes doesn't detect based on the similarity scores -- name inconsistencies -- traffic signals and light
+
+
+
+
+# 3. Find all the errors and generate the path with the visualization
+# 5. Get reasoning for each step alongside the sub-goals
+# 6. Create a schema over this
+# 7. Create an application, probably HTML one
+# 8. Annotation session --> Kim & Seyed
+# 9. Annotation & data fix
+# 10. Inter-annotator agreement and all I need for the paper writing
+# 11. Cross relations table data generation.

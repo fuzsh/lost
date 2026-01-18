@@ -1,0 +1,14 @@
+.idea/
+.vscode
+data/map2seq/osm/map_tiles/map_tiles.zip
+
+full.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+
+api_key
+step2_results/
