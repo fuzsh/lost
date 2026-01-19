@@ -1,0 +1,117 @@
+{
+  "fleiss_kappa": {
+    "dimension": {
+      "kappa": 0.0,
+      "stats": {
+        "n_instances": 1,
+        "n_raters": 2,
+        "n_categories": 2,
+        "categories": [
+          "A",
+          "T"
+        ],
+        "observed_agreement": 2.0,
+        "expected_agreement": 2.0,
+        "category_proportions": {
+          "A": 1.0,
+          "T": 1.0
+        }
+      }
+    },
+    "category": {
+      "kappa": 0.0,
+      "stats": {
+        "n_instances": 1,
+        "n_raters": 2,
+        "n_categories": 2,
+        "categories": [
+          "A5",
+          "T1"
+        ],
+        "observed_agreement": 2.0,
+        "expected_agreement": 2.0,
+        "category_proportions": {
+          "A5": 1.0,
+          "T1": 1.0
+        }
+      }
+    },
+    "subcategory": {
+      "kappa": 1.0,
+      "stats": {
+        "n_instances": 1,
+        "n_raters": 2,
+        "n_categories": 3,
+        "categories": [
+          "A5c",
+          "A5d",
+          "T1a"
+        ],
+        "observed_agreement": 1.0,
+        "expected_agreement": 1.5,
+        "category_proportions": {
+          "A5c": 0.5,
+          "A5d": 0.5,
+          "T1a": 1.0
+        }
+      }
+    }
+  },
+  "pairwise_kappa": {
+    "kim_vs_farzad": {
+      "dimension": {
+        "kappa": 1.0,
+        "stats": {
+          "n_instances": 1,
+          "observed_agreement": 1.0,
+          "expected_agreement": 1.0,
+          "exact_set_agreement": 1.0
+        }
+      },
+      "category": {
+        "kappa": 1.0,
+        "stats": {
+          "n_instances": 1,
+          "observed_agreement": 1.0,
+          "expected_agreement": 1.0,
+          "exact_set_agreement": 1.0
+        }
+      },
+      "subcategory": {
+        "kappa": 0.0,
+        "stats": {
+          "n_instances": 1,
+          "observed_agreement": 0.0,
+          "expected_agreement": 0.0,
+          "exact_set_agreement": 0.0
+        }
+      }
+    }
+  },
+  "disagreement_analysis": {
+    "complete_agreement": [],
+    "leaf_level_disagreement": [
+      "seen_6211"
+    ],
+    "mid_level_disagreement": [],
+    "top_level_disagreement": []
+  },
+  "resolution": {
+    "complete_agreement_count": 0,
+    "ancestor_resolved_count": 1,
+    "adjudicator_required_count": 0,
+    "resolved_labels": [
+      {
+        "instance_id": "seen_6211",
+        "original_subcategories": [
+          "T1a",
+          "A5c",
+          "T1a",
+          "A5d"
+        ],
+        "resolved_to": "MULTI"
+      }
+    ],
+    "adjudicator_cases": []
+  }
+}
