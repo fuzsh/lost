@@ -1,1243 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Instruction Annotation Tool</title>
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --success-color: #16a34a;
-            --warning-color: #ca8a04;
-            --danger-color: #dc2626;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
-            transition: width 0.3s ease;
-        }
-
-        .stats {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .stat-value {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .nav-controls {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .btn-primary { background: var(--primary-color); color: white; }
-        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
-        .btn-secondary { background: var(--border-color); color: var(--text-primary); }
-        .btn-secondary:hover:not(:disabled) { background: #cbd5e1; }
-        .btn-success { background: var(--success-color); color: white; }
-        .btn-warning { background: var(--warning-color); color: white; }
-        .btn-danger { background: var(--danger-color); color: white; }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .jump-input {
-            width: 80px;
-            padding: 8px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.875rem;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 1200px) {
-            .main-content { grid-template-columns: 1fr; }
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .card-title .badge {
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 500;
-        }
-
-        .badge-primary { background: #dbeafe; color: #1e40af; }
-        .badge-success { background: #dcfce7; color: #166534; }
-        .badge-warning { background: #fef3c7; color: #92400e; }
-        .badge-danger { background: #fee2e2; color: #991b1b; }
-        .badge-info { background: #e0e7ff; color: #3730a3; }
-
-        .instruction-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            padding: 15px;
-            background: #f1f5f9;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .instruction-text mark.landmark {
-            background: #fef08a;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-weight: 500;
-        }
-
-        .subgoals-list { list-style: none; }
-
-        .subgoal-item {
-            padding: 12px;
-            margin-bottom: 8px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border-left: 3px solid var(--border-color);
-        }
-
-        .subgoal-item.completed { border-left-color: var(--success-color); background: #f0fdf4; }
-        .subgoal-item.in-progress { border-left-color: var(--warning-color); background: #fffbeb; }
-
-        .subgoal-number {
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-right: 8px;
-        }
-
-        .subgoal-status {
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 8px;
-        }
-
-        .reasoning-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .step-reasoning {
-            padding: 12px;
-            margin-bottom: 10px;
-            background: #fefce8;
-            border-radius: 8px;
-            border-left: 4px solid var(--warning-color);
-        }
-
-        .step-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .step-status {
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .step-status.completed { background: #dcfce7; color: #166534; }
-        .step-status.incomplete { background: #fee2e2; color: #991b1b; }
-
-        .step-subgoal {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .step-reasoning-text {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        .images-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        @media (max-width: 800px) {
-            .images-container { grid-template-columns: 1fr; }
-        }
-
-        .image-wrapper {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .image-label {
-            padding: 8px 12px;
-            background: #f1f5f9;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            cursor: zoom-in;
-        }
-
-        .image-placeholder {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8fafc;
-            color: var(--text-secondary);
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .annotation-panel { position: sticky; top: 20px; }
-
-        .taxonomy-selector {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .dimension-tabs {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .dimension-tab {
-            padding: 10px 20px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.2s;
-            background: white;
-        }
-
-        .dimension-tab:hover { border-color: var(--primary-color); }
-        .dimension-tab.active { border-color: var(--primary-color); background: #eff6ff; color: var(--primary-color); }
-        .dimension-tab.L { border-left: 4px solid #3b82f6; }
-        .dimension-tab.T { border-left: 4px solid #10b981; }
-        .dimension-tab.A { border-left: 4px solid #f59e0b; }
-        .dimension-tab.E { border-left: 4px solid #ef4444; }
-
-        .category-list {
-            max-height: 250px;
-            overflow-y: auto;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        .category-item {
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .category-item:last-child { border-bottom: none; }
-        .category-item:hover { background: #f8fafc; }
-        .category-item.active { background: #eff6ff; }
-
-        .category-code { font-weight: 600; margin-right: 8px; }
-
-        .subcategory-list {
-            margin-top: 10px;
-            padding: 10px;
-            background: #f8fafc;
-            border-radius: 8px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .subcategory-item {
-            padding: 8px 12px;
-            margin-bottom: 5px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-            font-size: 0.875rem;
-        }
-
-        .subcategory-item:hover { background: #e2e8f0; }
-        .subcategory-item.selected { background: var(--primary-color); color: white; }
-
-        .annotations-list { margin-top: 15px; }
-
-        .annotation-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 12px;
-            margin: 4px;
-            background: #dbeafe;
-            color: #1e40af;
-            border-radius: 20px;
-            font-size: 0.875rem;
-        }
-
-        .annotation-tag .remove-btn {
-            background: none;
-            border: none;
-            color: #1e40af;
-            cursor: pointer;
-            padding: 0;
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
-        .annotation-tag .remove-btn:hover { color: var(--danger-color); }
-
-        .notes-textarea {
-            width: 100%;
-            min-height: 80px;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.875rem;
-            resize: vertical;
-        }
-
-        .notes-textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .modal h2 { margin-bottom: 20px; }
-
-        .modal input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .modal label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .image-modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1001;
-            cursor: zoom-out;
-        }
-
-        .image-modal-overlay.active { display: flex; }
-        .image-modal-overlay img { max-width: 95%; max-height: 95%; object-fit: contain; }
-
-        .file-input-wrapper { margin-bottom: 20px; }
-        .file-input-wrapper label { display: block; margin-bottom: 8px; font-weight: 500; }
-
-        .file-drop-zone {
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .file-drop-zone:hover { border-color: var(--primary-color); background: #f8fafc; }
-        .file-drop-zone.loaded { border-color: var(--success-color); background: #f0fdf4; }
-
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            background: #1e293b;
-            color: white;
-            border-radius: 8px;
-            z-index: 1002;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s;
-        }
-
-        .toast.show { opacity: 1; transform: translateY(0); }
-
-        .loading-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-        }
-
-        .loading-overlay.hidden { display: none; }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--border-color);
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .error-message {
-            color: var(--danger-color);
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description"
+          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems.">
+    <meta property="og:title"
+          content="When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation"/>
+    <meta property="og:description"
+          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems."/>
+    <meta property="og:url" content="https://kimia-abedini.github.io/Genom-Agent/"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/image/GenomAgent.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="500"/>
+
+
+    <meta name="twitter:title"
+          content="When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation">
+    <meta name="twitter:description"
+          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems.">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/GenomAgent.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords"
+          content="GeneGPT, Genomic Question Answering, Large Language Models, GeneTuring, Multi-Agent Systems, Bioinformatics, Genomics, AI in Healthcare, Biomedical Research">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner"></div>
-        <p style="margin-top: 20px; color: var(--text-secondary);">Loading annotation data...</p>
-    </div>
 
-    <div class="modal-overlay" id="setupModal">
-        <div class="modal">
-            <h2>Start Annotation Session</h2>
-            <div>
-                <label>Your Name *</label>
-                <input type="text" id="annotatorName" placeholder="Enter your name" />
-            </div>
-            <div class="file-input-wrapper">
-                <label>Load Previous Annotations (Optional)</label>
-                <div class="file-drop-zone" id="annotationsDropZone">
-                    <p>Click to load previous annotations</p>
-                    <input type="file" id="annotationsFileInput" accept=".json" style="display: none;" />
-                </div>
-            </div>
-            <button class="btn btn-primary" onclick="startSession()" style="width: 100%;">Start Annotating</button>
-        </div>
-    </div>
 
-    <div class="image-modal-overlay" id="imageModal" onclick="closeImageModal()">
-        <img id="modalImage" src="" alt="Enlarged image" />
-    </div>
-
-    <div class="toast" id="toast"></div>
-
-    <div class="container" id="mainContainer" style="display: none;">
-        <div class="header">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <h1>Navigation Instruction Annotation Tool</h1>
-                <div>
-                    <button class="btn btn-primary" onclick="downloadAnnotations()">Download Annotations</button>
-                    <button class="btn btn-secondary" onclick="exportFullData()">Export Full Data</button>
-                    <button class="btn btn-danger" onclick="resetSession()">Reset Session</button>
-                </div>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <span>Annotator:</span>
-                    <span class="stat-value" id="annotatorDisplay">-</span>
-                </div>
-                <div class="stat-item">
-                    <span>Progress:</span>
-                    <span class="stat-value"><span id="currentIndex">0</span> / <span id="totalCount">0</span></span>
-                </div>
-                <div class="stat-item">
-                    <span>Completed:</span>
-                    <span class="stat-value" id="completedCount">0</span>
-                </div>
-                <div class="stat-item">
-                    <span>Skipped:</span>
-                    <span class="stat-value" id="skippedCount">0</span>
-                </div>
-            </div>
-            <div class="nav-controls">
-                <button class="btn btn-secondary" id="prevBtn" onclick="navigate(-1)">Previous</button>
-                <button class="btn btn-primary" id="nextBtn" onclick="navigate(1)">Next</button>
-                <span style="margin-left: 10px;">Jump to:</span>
-                <input type="number" class="jump-input" id="jumpInput" min="1" onkeypress="handleJumpKeypress(event)" />
-                <button class="btn btn-secondary" onclick="jumpToInstruction()">Go</button>
-                <span style="margin-left: 20px;">Instruction ID:</span>
-                <input type="text" class="jump-input" id="jumpIdInput" style="width: 150px;" placeholder="e.g., seen_12163" onkeypress="handleJumpIdKeypress(event)" />
-                <button class="btn btn-secondary" onclick="jumpToInstructionById()">Go</button>
-            </div>
-        </div>
-
-        <div class="main-content">
-            <div class="left-column">
-                <div class="card">
-                    <div class="card-title">
-                        Navigation Instruction
-                        <span class="badge badge-primary" id="instructionIdBadge">ID: -</span>
-                        <span class="badge badge-info" id="splitBadge">Split: -</span>
-                        <span class="badge" id="statusBadge">Not Started</span>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">From Single to Multi-Agent Reasoning: Advancing GeneGPT for
+                        Genomics QA</h1>
+                    <div class="is-size-5 publication-authors">
+                        <!-- Paper authors -->
+                        <span class="author-block">
+                            <a href="https://www.linkedin.com/in//"
+                               target="_blank">Farzad Shami<sup>1</sup></a>,</span>
+                        <span class="author-block">
+                            <a href="https://www.linkedin.com/in/farzad-shami/" target="_blank">Farzad Shami<sup>2</sup></a>,</span>
+                        <span class="author-block">
+                            <a href="https://www.dei.unipd.it/~henrikki/" target="_blank">Henrikki<sup>1</sup></a></span>
                     </div>
-                    <div class="instruction-text" id="instructionText">Loading instruction...</div>
-                </div>
 
-                <!-- Images Card (moved up) -->
-                <div class="card">
-                    <div class="card-title">Images</div>
-                    <div class="images-container">
-                        <div class="image-wrapper">
-                            <div class="image-label">Online Source (Route Map)</div>
-                            <div id="onlineImageContainer">
-                                <div class="image-placeholder">Loading image...</div>
-                            </div>
-                        </div>
-                        <div class="image-wrapper">
-                            <div class="image-label">Visualize Area (Generated)</div>
-                            <div id="visualizeImageContainer">
-                                <div class="image-placeholder">Loading image...</div>
-                            </div>
-                        </div>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>University of Padova,</span>
+                        <span class="author-block"><sup>2</sup>Aalto University</span>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title">Step-by-Step Reasoning</div>
-                    <div class="reasoning-container" id="reasoningContainer"></div>
-                </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- Arxiv PDF link -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2601.10581" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+                            <!-- Github link -->
+                            <span class="link-block">
+                                <a href="https://github.com/fuzsh/lost" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://fuzsh.github.io/lost/explorer-tool" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Data Explore</span>
+                                </a>
+                            </span>
 
-                <!-- Sub-goals Card (moved down) -->
-                <div class="card">
-                    <div class="card-title">Sub-Goals</div>
-                    <ul class="subgoals-list" id="subgoalsList"></ul>
-                </div>
+                            <span class="link-block">
+                                <a href="https://fuzsh.github.io/lost/annotation-tool" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Annotation</span>
+                                </a>
+                            </span>
 
-            </div>
-
-            <div class="right-column">
-                <div class="card annotation-panel">
-                    <div class="card-title">Annotation Panel</div>
-                    <div class="taxonomy-selector">
-                        <div class="dimension-tabs">
-                            <div class="dimension-tab L" data-dimension="L" onclick="selectDimension('L')">
-                                <strong>L</strong> Linguistic
-                            </div>
-                            <div class="dimension-tab T" data-dimension="T" onclick="selectDimension('T')">
-                                <strong>T</strong> Topological
-                            </div>
-                            <div class="dimension-tab A" data-dimension="A" onclick="selectDimension('A')">
-                                <strong>A</strong> Agent
-                            </div>
-                            <div class="dimension-tab E" data-dimension="E" onclick="selectDimension('E')">
-                                <strong>E</strong> Execution
-                            </div>
                         </div>
-                        <div id="categoryContainer" style="display: none;">
-                            <label style="font-weight: 500; margin-bottom: 8px; display: block;">Select Category:</label>
-                            <div class="category-list" id="categoryList"></div>
-                        </div>
-                        <div id="subcategoryContainer" style="display: none;">
-                            <label style="font-weight: 500; margin-bottom: 8px; display: block;">Select Subcategory:</label>
-                            <div class="subcategory-list" id="subcategoryList"></div>
-                        </div>
-                    </div>
-                    <div class="annotations-list">
-                        <label style="font-weight: 500; margin-bottom: 8px; display: block;">Current Annotations:</label>
-                        <div id="currentAnnotations">
-                            <span style="color: var(--text-secondary); font-size: 0.875rem;">No annotations yet</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 15px;">
-                        <label style="font-weight: 500; margin-bottom: 8px; display: block;">Notes (Optional):</label>
-                        <textarea class="notes-textarea" id="annotationNotes" placeholder="Add any additional notes..."></textarea>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn btn-success" onclick="saveAndNext()">Save & Next</button>
-                        <button class="btn btn-warning" onclick="skipInstruction()">Skip</button>
-                        <button class="btn btn-secondary" onclick="saveAnnotation()">Save Only</button>
-                        <button class="btn btn-danger" onclick="clearAnnotations()">Clear</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <script>
-        const DATA_PATH = 'annotation_data/annotation_data.json';
-        const IMAGES_BASE_PATH = 'annotation_data/';
+<!-- Teaser Image-->
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <img src="static/images/GenomAgent.png" alt="An overview of our method"/>
+            <h2 class="subtitle has-text-centered">
+                We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by
+                overcoming the rigidity and scalability limitations of single-agent systems.
+                We achieve superior accuracy in complex tasks like sequence alignment while significantly reducing
+                computational costs compared to existing state-of-the-art methods.
+            </h2>
+        </div>
+    </div>
+</section>
+<!-- End teaser Image -->
 
-        const TAXONOMY = {
-            L: {
-                name: "Linguistic",
-                categories: [
-                    { code: "L1", name: "Under-specification", subcategories: [
-                        { code: "L1a", name: "Spatial under-specification", description: "e.g., 'Turn at the intersection' when multiple exist" },
-                        { code: "L1b", name: "Landmark under-specification", description: "Ambiguous landmark reference" },
-                        { code: "L1c", name: "Missing stopping criteria", description: "No clear indication when to stop" }
-                    ]},
-                    { code: "L2", name: "Over-specification", subcategories: [
-                        { code: "L2a", name: "Visual-only features", description: "e.g., 'red building' not in OSM" },
-                        { code: "L2b", name: "Transient objects", description: "e.g., 'food truck'" }
-                    ]},
-                    { code: "L3", name: "Temporal ambiguity", subcategories: [
-                        { code: "L3a", name: "Overlapping spatial regions", description: "Regions that overlap in space" },
-                        { code: "L3b", name: "Implicit sequencing", description: "Actions requiring inferred order" },
-                        { code: "L3c", name: "Conditional dependencies", description: "e.g., 'If X then Y'" }
-                    ]},
-                    { code: "L4", name: "Numerical inconsistency", subcategories: [
-                        { code: "L4a", name: "Numerical mismatch", description: "e.g., 'Third traffic light' when only two exist" },
-                        { code: "L4b", name: "Distance quantification", description: "e.g., 'About 100 meters' that is actually 300m" }
-                    ]},
-                    { code: "L5", name: "Referential complexity", subcategories: [
-                        { code: "L5a", name: "Deictic references", description: "e.g., 'Turn there'" },
-                        { code: "L5b", name: "Implicit reference", description: "References that require context" }
-                    ]},
-                    { code: "L6", name: "Negation confusion", subcategories: [
-                        { code: "L6a", name: "Action negation", description: "Negated action instructions" },
-                        { code: "L6b", name: "Landmark negation", description: "e.g., 'Not the first intersection but the second'" },
-                        { code: "L6c", name: "Double negation", description: "e.g., 'Don't skip the light'" }
-                    ]},
-                    { code: "L7", name: "Directional ambiguity", subcategories: [
-                        { code: "L7a", name: "Relative direction confusion", description: "e.g., 'Bear left' vs 'slight left'" },
-                        { code: "L7b", name: "Conflicting cues", description: "Conflicting directional information" },
-                        { code: "L7c", name: "Cardinal-relative mismatch", description: "Mismatch between cardinal and relative directions" }
-                    ]},
-                    { code: "L8", name: "Scale/Distance vagueness", subcategories: [
-                        { code: "L8a", name: "Temporal vagueness", description: "e.g., 'Walk for a bit'" },
-                        { code: "L8b", name: "Perceptual scale", description: "e.g., 'Just ahead' when target is 200m away" }
-                    ]},
-                    { code: "L9", name: "Landmark co-reference", subcategories: [
-                        { code: "L9a", name: "Synonym variation", description: "Same landmark referred to differently" },
-                        { code: "L9b", name: "Partial references", description: "Incomplete landmark references" }
-                    ]}
-                ]
-            },
-            T: {
-                name: "Topological",
-                categories: [
-                    { code: "T1", name: "Path ambiguity", subcategories: [
-                        { code: "T1a", name: "Parallel routes", description: "Multiple streets reach same destination" },
-                        { code: "T1b", name: "Loop alternatives", description: "Alternative loop paths available" }
-                    ]},
-                    { code: "T2", name: "Landmark displacement", subcategories: [
-                        { code: "T2a", name: "Premature mention", description: "Landmark mentioned before it's relevant" },
-                        { code: "T2b", name: "Post-turn reference", description: "Landmark visible only after turn" },
-                        { code: "T2c", name: "Opposite-side displacement", description: "Landmark on wrong side for turn" }
-                    ]},
-                    { code: "T3", name: "Scale mismatch", subcategories: [
-                        { code: "T3a", name: "Distance underestimation", description: "e.g., 'Quick walk' for 1km route" },
-                        { code: "T3b", name: "Landmark density", description: "Unexpected landmark density" }
-                    ]},
-                    { code: "T4", name: "Stop-location errors", subcategories: [
-                        { code: "T4a", name: "Stop-too-late (overshoot)", description: "Stopping past the target" },
-                        { code: "T4b", name: "Stop-too-early (undershoot)", description: "Stopping before the target" },
-                        { code: "T4c", name: "Missed stopping cue", description: "Fails to recognize stop landmark" }
-                    ]},
-                    { code: "T5", name: "Junction complexity", subcategories: [
-                        { code: "T5a", name: "Five-way or more intersections", description: "Complex multi-way junctions" },
-                        { code: "T5b", name: "Offset intersections", description: "Non-aligned intersections" },
-                        { code: "T5c", name: "Roundabout navigation", description: "Circular geometry issues" }
-                    ]},
-                    { code: "T6", name: "Visual-topological mismatch", subcategories: [
-                        { code: "T6a", name: "Merged/split streets", description: "OSM shows single street, reality has divided lanes" }
-                    ]}
-                ]
-            },
-            A: {
-                name: "Agent Limitations",
-                categories: [
-                    { code: "A1", name: "POI grounding failure", subcategories: [
-                        { code: "A1a", name: "POI similarity failure", description: "Similarity threshold issues" }
-                    ]},
-                    { code: "A2", name: "Heading initialization", subcategories: [
-                        { code: "A2a", name: "Compass calibration", description: "Compass calibration errors" },
-                        { code: "A2b", name: "Map orientation mismatch", description: "Map vs actual orientation mismatch" }
-                    ]},
-                    { code: "A3", name: "Sub-goal segmentation", subcategories: [
-                        { code: "A3a", name: "Over-segmentation", description: "Too many sub-goals" },
-                        { code: "A3b", name: "Under-segmentation", description: "Merges distinct actions" },
-                        { code: "A3c", name: "Incorrect action primitives", description: "Wrong action types" }
-                    ]},
-                    { code: "A4", name: "Context window saturation", subcategories: [
-                        { code: "A4a", name: "Token overflow", description: "Exceeds context window" },
-                        { code: "A4b", name: "Information overload", description: "Too many POIs cause confusion" },
-                        { code: "A4c", name: "Visibility threshold miscalibration", description: "Wrong visibility thresholds" }
-                    ]},
-                    { code: "A5", name: "Perception failures", subcategories: [
-                        { code: "A5a", name: "Spatial relation errors", description: "Incorrect spatial relationships" },
-                        { code: "A5b", name: "Object hallucination", description: "Detecting non-existent objects" }
-                    ]},
-                    { code: "A6", name: "Planning and reasoning", subcategories: [
-                        { code: "A6a", name: "Goal confusion", description: "Continues wrong sequence" },
-                        { code: "A6b", name: "Cascading failures", description: "Error propagation" },
-                        { code: "A6c", name: "Premature termination", description: "Incorrectly determines complete" }
-                    ]},
-                    { code: "A7", name: "Memory and state tracking", subcategories: [
-                        { code: "A7a", name: "Visited location amnesia", description: "Forgets visited locations" },
-                        { code: "A7b", name: "Sub-goal state loss", description: "Forgets completed actions" },
-                        { code: "A7c", name: "Instruction forgetting", description: "Loses track of instruction" }
-                    ]},
-                    { code: "A8", name: "Multi-agent coordination", subcategories: [
-                        { code: "A8a", name: "Incompatible formats", description: "Format incompatibility" },
-                        { code: "A8b", name: "Status misalignment", description: "Misunderstood progress flags" }
-                    ]}
-                ]
-            },
-            E: {
-                name: "Execution",
-                categories: [
-                    { code: "E1", name: "Looping behavior", subcategories: [
-                        { code: "E1a", name: "Immediate loops", description: "Returns to previous node" },
-                        { code: "E1b", name: "Cycle loops", description: "Cycles through same nodes" },
-                        { code: "E1c", name: "Area circling", description: "Circling around an area" }
-                    ]},
-                    { code: "E2", name: "Exploration inefficiency", subcategories: [
-                        { code: "E2a", name: "Random walk", description: "Random movement patterns" },
-                        { code: "E2b", name: "Boundary avoidance", description: "Avoids certain boundaries" }
-                    ]},
-                    { code: "E3", name: "Action execution errors", subcategories: [
-                        { code: "E3a", name: "Turn angle errors", description: "e.g., 45° instead of 90°" },
-                        { code: "E3b", name: "Distance errors", description: "Overshoot/undershoot waypoints" }
-                    ]},
-                    { code: "E4", name: "Timing and temporal", subcategories: [
-                        { code: "E4a", name: "Premature actions", description: "Turns before reaching point" },
-                        { code: "E4b", name: "Delayed actions", description: "Misses turn, must backtrack" },
-                        { code: "E4c", name: "Simultaneous action conflicts", description: "Conflicting actions" }
-                    ]},
-                    { code: "E5", name: "Verification failures", subcategories: [
-                        { code: "E5a", name: "False positive completion", description: "Declares success prematurely" },
-                        { code: "E5b", name: "False negative completion", description: "Continues despite reaching goal" },
-                        { code: "E5c", name: "No verification", description: "Fails to check completion" }
-                    ]}
-                ]
-            }
-        };
 
-        let state = {
-            annotatorName: '',
-            sessionStarted: null,
-            currentIndex: 0,
-            data: null,
-            instructionKeys: [],
-            annotations: {},
-            selectedDimension: null,
-            selectedCategory: null
-        };
+<!-- Paper abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Comprehending genomic information is essential for biomedical research, yet extracting data from
+                        complex distributed databases remains challenging.
+                        Large language models (LLMs) offer potential for genomic Question Answering (QA) but face
+                        limitations due to restricted access to domain-specific databases.
+                        GeneGPT is the current state-of-the-art system that enhances LLMs by utilizing specialized API
+                        calls, though it is constrained by rigid API dependencies and limited adaptability.
+                        We replicate GeneGPT and propose GenomAgent, a multi-agent framework that efficiently
+                        coordinates specialized agents for complex genomics queries.
+                        Evaluated on nine tasks from the GeneTuring benchmark, GenomAgent outperforms GeneGPT by 12% on
+                        average, and its flexible architecture extends beyond genomics to various scientific domains
+                        needing expert knowledge extraction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End paper abstract -->
 
-        document.addEventListener('DOMContentLoaded', async () => {
-            const savedMeta = localStorage.getItem('annotationSessionMeta');
-            const savedAnnotations = localStorage.getItem('annotationSessionAnnotations');
 
-            if (savedMeta) {
-                try {
-                    const meta = JSON.parse(savedMeta);
-                    state.annotatorName = meta.annotatorName || '';
-                    state.currentIndex = meta.currentIndex || 0;
-                    state.sessionStarted = meta.sessionStarted;
-                } catch (e) {}
-            }
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-vcentered">
+            <!-- Text Section (Left) -->
+            <div class="column is-full">
+                <div class="content">
+                    <h2 class="title is-3">Task & Motivation</h2>
+                    <p>
+                        The objective is to enable LLMs to comprehend and extract expert knowledge from complex,
+                        distributed genomic databases to answer natural language queries.
+                    </p>
+                    <p>
+                        The work motivated by several limitations inherent in standard LLMs and the current
+                        state-of-the-art system, <i>GeneGPT</i>:
+                    </p>
+                    <p>
+                        1. <strong>Complexity of Genomic Data:</strong> Extracting data from distributed biomedical
+                        databases remains a significant challenge for researchers. Standard LLMs struggle with this
+                        because they have restricted access to domain-specific databases.<br>
+                        2. <strong>Fragility of Existing Systems (GeneGPT):</strong> While GeneGPT is effective, it
+                        relies on a single-agent architecture with rigid dependencies on specific API formats. This
+                        makes the system fragile when interfacing with evolving tools.<br>
+                        3. <strong>Context and Focus Issues:</strong> GeneGPT relies on extensive context windows, which
+                        can lead to "attention dilution" where the model loses focus on the original query.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            if (savedAnnotations) {
-                try {
-                    state.annotations = JSON.parse(savedAnnotations);
-                } catch (e) {}
-            }
 
-            try {
-                const response = await fetch(DATA_PATH);
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                state.data = await response.json();
-                state.instructionKeys = Object.keys(state.data.instructions || {});
+<section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full">
+                <div class="content">
+                    <h2 class="title is-3">Experiments</h2>
+                    <div class="level-set has-text-justified">
+                        <p>
+                        <p>
+                            Here, we report the performance and cost of <strong>GenomAgent</strong> in GeneTuring tasks
+                            compared to GeneGPT's main results.
+                            <strong>GenomAgent</strong> achieves substantial improvements in both performance and
+                            computational efficiency.
+                            Our model attains an average score of 0.93, exceeding the best-performing GeneGPT model
+                            (0.83).
+                        </p>
 
-                document.getElementById('loadingOverlay').classList.add('hidden');
+                        <p>
+                            In simple tasks (nomenclature and genomic location), our system achieves near-perfect
+                            performance with a score of 0.98, surpassing GeneGPT-slim's scores of 0.92 for nomenclature
+                            and 0.88 for genomic location.
+                            Most notably, in alignment tasks, which are the most challenging task for GeneGPT, we
+                            achieve a remarkable 28.8% improvement.
+                        </p>
 
-                if (state.annotatorName) {
-                    document.getElementById('annotatorName').value = state.annotatorName;
-                }
-
-                document.getElementById('setupModal').classList.add('active');
-                setupFileInputs();
-
-            } catch (err) {
-                document.getElementById('loadingOverlay').innerHTML = `
-                    <div class="error-message">
-                        <h2>Failed to load annotation data</h2>
-                        <p>${err.message}</p>
-                        <p>Make sure <code>${DATA_PATH}</code> exists.</p>
+                        <p>
+                            Computational cost analysis reveals even more striking improvements.
+                            <strong>GenomAgent</strong> costs only $2.11 total in all tasks (79.0% reduction from
+                            best-performing GeneGPT ($10.06)).
+                        </p>
                     </div>
-                `;
-            }
-        });
+                </div>
+            </div>
+        </div>
 
-        function setupFileInputs() {
-            const annotationsDropZone = document.getElementById('annotationsDropZone');
-            const annotationsFileInput = document.getElementById('annotationsFileInput');
+        <div class="hero-body">
+            <img src="static/images/results.png" alt="A figure showing our ProbeLog logit descriptors"/>
+        </div>
 
-            annotationsDropZone.onclick = () => annotationsFileInput.click();
-            annotationsFileInput.onchange = (e) => handleAnnotationsFile(e.target.files[0]);
-        }
+    </div>
+</section>
 
-        function handleAnnotationsFile(file) {
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const loaded = JSON.parse(e.target.result);
-                    if (loaded.annotations) state.annotations = loaded.annotations;
-                    if (loaded.session?.currentIndex !== undefined) state.currentIndex = loaded.session.currentIndex;
-                    if (loaded.session?.annotatorName) {
-                        state.annotatorName = loaded.session.annotatorName;
-                        document.getElementById('annotatorName').value = loaded.session.annotatorName;
-                    }
-                    document.getElementById('annotationsDropZone').classList.add('loaded');
-                    document.getElementById('annotationsDropZone').innerHTML = `<p style="color: var(--success-color);">✓ Loaded ${Object.keys(state.annotations).length} annotations</p>`;
-                } catch (err) {
-                    alert('Failed to parse annotations file');
-                }
-            };
-            reader.readAsText(file);
-        }
 
-        function startSession() {
-            const name = document.getElementById('annotatorName').value.trim();
-            if (!name) { alert('Please enter your name'); return; }
-            if (!state.data || state.instructionKeys.length === 0) { alert('No data loaded'); return; }
+<section class="section hero is-small">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full">
+                <div class="content">
+                    <h2 class="title is-3">Performance-cost tradeoff on GeneTuring.</h2>
+                    <div class="level-set has-text-justified">
+                        <p>
+                            In addition, we show <strong>GenomAgent</strong> is the optimal selection, as it achieves a
+                            high score at minimal computational expense.
+                            Bubble size shows normalized cost and High Value Region shows optimal performance at minimal
+                            cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            state.annotatorName = name;
-            if (!state.sessionStarted) state.sessionStarted = new Date().toISOString();
+        <div class="hero-body">
+            <img src="static/images/trade_off.png"
+                 alt="A figure showing our zero-shot ProbeLog logit descriptors"
+                 style="display: block; margin-left: auto; margin-right: auto; width: 75%; height: auto;"
+            />
+        </div>
 
-            state.instructionKeys.forEach(key => {
-                if (!state.annotations[key]) {
-                    state.annotations[key] = { status: 'not_started', annotations: [], notes: '', lastModified: null };
-                }
-            });
+    </div>
+</section>
 
-            document.getElementById('setupModal').classList.remove('active');
-            document.getElementById('mainContainer').style.display = 'block';
-            saveState();
-            updateDisplay();
-        }
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@misc{.....,
+      title={When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation}, 
+      author={......},
+      year={2026},
+      eprint={2601.10581},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={.......},
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
 
-        function saveState() {
-            localStorage.setItem('annotationSessionAnnotations', JSON.stringify(state.annotations));
-            localStorage.setItem('annotationSessionMeta', JSON.stringify({
-                annotatorName: state.annotatorName,
-                currentIndex: state.currentIndex,
-                sessionStarted: state.sessionStarted
-            }));
-        }
 
-        function updateDisplay() {
-            if (!state.data || state.instructionKeys.length === 0) return;
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
 
-            const key = state.instructionKeys[state.currentIndex];
-            const instruction = state.data.instructions[key];
-            const annotation = state.annotations[key];
+                    <p>
+                        This website is adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>,
+                        licensed under a <a rel="license"
+                                            href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                            target="_blank">Creative Commons Attribution-ShareAlike 4.0 International
+                        License</a>.
+                    </p>
 
-            document.getElementById('annotatorDisplay').textContent = state.annotatorName;
-            document.getElementById('currentIndex').textContent = state.currentIndex + 1;
-            document.getElementById('totalCount').textContent = state.instructionKeys.length;
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-            let completed = 0, skipped = 0;
-            Object.values(state.annotations).forEach(a => {
-                if (a.status === 'completed') completed++;
-                if (a.status === 'skipped') skipped++;
-            });
-            document.getElementById('completedCount').textContent = completed;
-            document.getElementById('skippedCount').textContent = skipped;
-            document.getElementById('progressFill').style.width = `${((completed + skipped) / state.instructionKeys.length) * 100}%`;
 
-            document.getElementById('prevBtn').disabled = state.currentIndex === 0;
-            document.getElementById('nextBtn').disabled = state.currentIndex >= state.instructionKeys.length - 1;
-
-            document.getElementById('instructionIdBadge').textContent = `ID: ${instruction.instruction_id}`;
-            document.getElementById('splitBadge').textContent = `Split: ${instruction.data_split}`;
-            document.getElementById('instructionText').innerHTML = instruction.instruction_highlighted || instruction.instruction_text;
-
-            const statusBadge = document.getElementById('statusBadge');
-            statusBadge.textContent = annotation.status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-            statusBadge.className = 'badge';
-            if (annotation.status === 'completed') statusBadge.classList.add('badge-success');
-            else if (annotation.status === 'in_progress') statusBadge.classList.add('badge-warning');
-            else if (annotation.status === 'skipped') statusBadge.classList.add('badge-danger');
-            else statusBadge.classList.add('badge-primary');
-
-            const subgoalsList = document.getElementById('subgoalsList');
-            subgoalsList.innerHTML = '';
-            (instruction.sub_goals || []).forEach((sub, idx) => {
-                const li = document.createElement('li');
-                li.className = 'subgoal-item';
-                if (sub.status === 'COMPLETED') li.classList.add('completed');
-                else if (sub.status === 'IN_PROGRESS') li.classList.add('in-progress');
-                const statusClass = sub.status === 'COMPLETED' ? 'badge-success' : sub.status === 'IN_PROGRESS' ? 'badge-warning' : 'badge-primary';
-                li.innerHTML = `<span class="subgoal-number">${idx + 1}.</span>${sub.description}${sub.status ? `<span class="badge ${statusClass} subgoal-status">${sub.status}</span>` : ''}`;
-                subgoalsList.appendChild(li);
-            });
-
-            const reasoningContainer = document.getElementById('reasoningContainer');
-            reasoningContainer.innerHTML = '';
-            const steps = instruction.step_reasoning || [];
-            if (steps.length === 0) {
-                reasoningContainer.innerHTML = '<p style="color: var(--text-secondary);">No reasoning data.</p>';
-            } else {
-                steps.forEach(step => {
-                    const div = document.createElement('div');
-                    div.className = 'step-reasoning';
-                    div.innerHTML = `
-                        <div class="step-header">
-                            <span>Step ${step.step_number}</span>
-                            <span class="step-status ${step.is_completed ? 'completed' : 'incomplete'}">${step.status || (step.is_completed ? 'COMPLETED' : 'INCOMPLETE')}</span>
-                        </div>
-                        <div class="step-subgoal">Sub-goal [${step.sub_goal_index + 1}]: ${step.sub_goal}</div>
-                        ${step.next_place ? `<div class="step-subgoal">Target: ${step.next_place}</div>` : ''}
-                        ${step.reasoning ? `<div class="step-reasoning-text">${step.reasoning.substring(0, 500)}${step.reasoning.length > 500 ? '...' : ''}</div>` : ''}
-                    `;
-                    reasoningContainer.appendChild(div);
-                });
-            }
-
-            updateImages(instruction);
-
-            document.getElementById('annotationNotes').value = annotation.notes || '';
-            state.selectedDimension = null;
-            state.selectedCategory = null;
-            document.querySelectorAll('.dimension-tab').forEach(t => t.classList.remove('active'));
-            document.getElementById('categoryContainer').style.display = 'none';
-            document.getElementById('subcategoryContainer').style.display = 'none';
-            renderCurrentAnnotations();
-        }
-
-        function updateImages(instruction) {
-            const onlineContainer = document.getElementById('onlineImageContainer');
-            const visualizeContainer = document.getElementById('visualizeImageContainer');
-
-            const onlineUrl = instruction.images?.online_url;
-            if (onlineUrl) {
-                onlineContainer.innerHTML = `<img src="${onlineUrl}" alt="Route map" onclick="openImageModal(this.src)" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Failed to load</div>'" />`;
-            } else {
-                onlineContainer.innerHTML = '<div class="image-placeholder">No image</div>';
-            }
-
-            const visualizePath = instruction.images?.visualize_path;
-            if (visualizePath) {
-                const fullPath = IMAGES_BASE_PATH + visualizePath;
-                visualizeContainer.innerHTML = `<img src="${fullPath}" alt="Visualization" onclick="openImageModal(this.src)" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Failed to load</div>'" />`;
-            } else {
-                visualizeContainer.innerHTML = '<div class="image-placeholder">No image</div>';
-            }
-        }
-
-        function navigate(dir) {
-            const newIdx = state.currentIndex + dir;
-            if (newIdx >= 0 && newIdx < state.instructionKeys.length) {
-                state.currentIndex = newIdx;
-                saveState();
-                updateDisplay();
-            }
-        }
-
-        function jumpToInstruction() {
-            const idx = parseInt(document.getElementById('jumpInput').value) - 1;
-            if (idx >= 0 && idx < state.instructionKeys.length) {
-                state.currentIndex = idx;
-                saveState();
-                updateDisplay();
-            }
-            document.getElementById('jumpInput').value = '';
-        }
-
-        function jumpToInstructionById() {
-            const id = document.getElementById('jumpIdInput').value.trim();
-            let idx = state.instructionKeys.indexOf(id);
-            if (idx < 0) idx = state.instructionKeys.findIndex(k => k.includes(id));
-            if (idx >= 0) { state.currentIndex = idx; saveState(); updateDisplay(); }
-            document.getElementById('jumpIdInput').value = '';
-        }
-
-        function handleJumpKeypress(e) { if (e.key === 'Enter') jumpToInstruction(); }
-        function handleJumpIdKeypress(e) { if (e.key === 'Enter') jumpToInstructionById(); }
-
-        function selectDimension(dim) {
-            state.selectedDimension = dim;
-            state.selectedCategory = null;
-            document.querySelectorAll('.dimension-tab').forEach(t => t.classList.toggle('active', t.dataset.dimension === dim));
-            const list = document.getElementById('categoryList');
-            list.innerHTML = '';
-            TAXONOMY[dim].categories.forEach(cat => {
-                const div = document.createElement('div');
-                div.className = 'category-item';
-                div.innerHTML = `<span class="category-code">${cat.code}</span>${cat.name}`;
-                div.onclick = () => selectCategory(cat);
-                list.appendChild(div);
-            });
-            document.getElementById('categoryContainer').style.display = 'block';
-            document.getElementById('subcategoryContainer').style.display = 'none';
-        }
-
-        function selectCategory(cat) {
-            state.selectedCategory = cat;
-            document.querySelectorAll('.category-item').forEach(i => i.classList.toggle('active', i.querySelector('.category-code').textContent === cat.code));
-            const list = document.getElementById('subcategoryList');
-            list.innerHTML = '';
-            cat.subcategories.forEach(sub => {
-                const div = document.createElement('div');
-                div.className = 'subcategory-item';
-                div.innerHTML = `<strong>${sub.code}</strong>: ${sub.name}${sub.description ? `<br><small style="color: var(--text-secondary);">${sub.description}</small>` : ''}`;
-                div.onclick = () => addAnnotation(sub);
-                list.appendChild(div);
-            });
-            document.getElementById('subcategoryContainer').style.display = 'block';
-        }
-
-        function addAnnotation(sub) {
-            const key = state.instructionKeys[state.currentIndex];
-            const ann = state.annotations[key];
-            if (ann.annotations.some(a => a.subcategory === sub.code)) { showToast('Already added'); return; }
-            ann.annotations.push({
-                dimension: state.selectedDimension,
-                category: state.selectedCategory.code,
-                subcategory: sub.code,
-                subcategoryName: sub.name,
-                timestamp: new Date().toISOString()
-            });
-            ann.status = 'in_progress';
-            ann.lastModified = new Date().toISOString();
-            saveState();
-            renderCurrentAnnotations();
-            updateDisplay();
-            showToast('Annotation added');
-        }
-
-        function renderCurrentAnnotations() {
-            const key = state.instructionKeys[state.currentIndex];
-            const ann = state.annotations[key];
-            const container = document.getElementById('currentAnnotations');
-            if (ann.annotations.length === 0) {
-                container.innerHTML = '<span style="color: var(--text-secondary);">No annotations yet</span>';
-            } else {
-                container.innerHTML = ann.annotations.map((a, i) => `
-                    <span class="annotation-tag">${a.dimension}${a.category.slice(1)} - ${a.subcategoryName}<button class="remove-btn" onclick="removeAnnotation(${i})">×</button></span>
-                `).join('');
-            }
-        }
-
-        function removeAnnotation(idx) {
-            const key = state.instructionKeys[state.currentIndex];
-            state.annotations[key].annotations.splice(idx, 1);
-            if (state.annotations[key].annotations.length === 0) state.annotations[key].status = 'not_started';
-            saveState();
-            renderCurrentAnnotations();
-            updateDisplay();
-        }
-
-        function saveAnnotation() {
-            const key = state.instructionKeys[state.currentIndex];
-            state.annotations[key].notes = document.getElementById('annotationNotes').value;
-            state.annotations[key].lastModified = new Date().toISOString();
-            if (state.annotations[key].annotations.length > 0) state.annotations[key].status = 'completed';
-            saveState();
-            updateDisplay();
-            showToast('Saved');
-        }
-
-        function saveAndNext() { saveAnnotation(); if (state.currentIndex < state.instructionKeys.length - 1) navigate(1); }
-
-        function skipInstruction() {
-            const key = state.instructionKeys[state.currentIndex];
-            state.annotations[key].status = 'skipped';
-            state.annotations[key].notes = document.getElementById('annotationNotes').value;
-            saveState();
-            if (state.currentIndex < state.instructionKeys.length - 1) navigate(1); else updateDisplay();
-            showToast('Skipped');
-        }
-
-        function clearAnnotations() {
-            if (!confirm('Clear annotations?')) return;
-            const key = state.instructionKeys[state.currentIndex];
-            state.annotations[key] = { status: 'not_started', annotations: [], notes: '', lastModified: new Date().toISOString() };
-            saveState();
-            updateDisplay();
-        }
-
-        function downloadAnnotations() {
-            const data = {
-                schema_version: '1.0.0',
-                session: { annotatorName: state.annotatorName, sessionStarted: state.sessionStarted, exportedAt: new Date().toISOString(), currentIndex: state.currentIndex },
-                summary: {
-                    completed: Object.values(state.annotations).filter(a => a.status === 'completed').length,
-                    skipped: Object.values(state.annotations).filter(a => a.status === 'skipped').length,
-                    total: state.instructionKeys.length
-                },
-                annotations: state.annotations
-            };
-            downloadJSON(data, `annotations_${state.annotatorName}_${new Date().toISOString().replace(/[:]/g, '-').split('.')[0]}.json`);
-        }
-
-        function exportFullData() {
-            const data = { schema_version: '1.0.0', session: { annotatorName: state.annotatorName, exportedAt: new Date().toISOString() }, annotated_instructions: {} };
-            state.instructionKeys.forEach(key => { data.annotated_instructions[key] = { ...state.data.instructions[key], annotation: state.annotations[key] }; });
-            downloadJSON(data, `full_data_${state.annotatorName}_${new Date().toISOString().split('T')[0]}.json`);
-        }
-
-        function downloadJSON(data, filename) {
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = filename;
-            a.click();
-        }
-
-        function resetSession() {
-            if (!confirm('Reset session? All progress will be lost.')) return;
-            localStorage.removeItem('annotationSessionAnnotations');
-            localStorage.removeItem('annotationSessionMeta');
-            location.reload();
-        }
-
-        function openImageModal(src) { document.getElementById('modalImage').src = src; document.getElementById('imageModal').classList.add('active'); }
-        function closeImageModal() { document.getElementById('imageModal').classList.remove('active'); }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.textContent = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2000);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            if (e.key === 'ArrowLeft') navigate(-1);
-            if (e.key === 'ArrowRight') navigate(1);
-            if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveAnnotation(); }
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); saveAndNext(); }
-            if (e.key === 'Escape') closeImageModal();
-        });
-    </script>
 </body>
 </html>
