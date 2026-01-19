@@ -124,6 +124,7 @@ def visualize_area(area_data, focused_node_id=None, landmarks=None,output_name="
 
     # plt.show()
     plt.savefig(output_name, dpi=300)
+    plt.close()
 
 # Run with your data (assuming 'data' is your dictionary variable)
 # visualize_area(data, focused_node_id=focused_node_id)

@@ -1196,7 +1196,7 @@
                 },
                 annotations: state.annotations
             };
-            downloadJSON(data, `annotations_${state.annotatorName}_${new Date().toISOString().split('T')[0]}.json`);
+            downloadJSON(data, `annotations_${state.annotatorName}_${new Date().toISOString().replace(/[:]/g, '-').split('.')[0]}.json`);
         }
 
         function exportFullData() {

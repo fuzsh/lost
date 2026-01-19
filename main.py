@@ -15,9 +15,15 @@ IMAGES_DIR = os.path.join(OUTPUT_DIR, 'images')
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(IMAGES_DIR, exist_ok=True)
 
+with open('results/failed_seen.json', 'r') as fs:
+    seen = json.loads(fs.read())
+
+with open('results/failed_unseen.json', 'r') as fu:
+    unseen = json.loads(fu.read())
+
 wrongly_predicated_instructions = {
-    'unseen': [6018, 2296],
-    'seen': [12163]
+    'seen': seen,
+    'unseen': unseen,
 }
 
 # Collect all annotation data
@@ -31,6 +37,7 @@ annotation_data = {
 }
 
 from datetime import datetime
+
 annotation_data['metadata']['generated_at'] = datetime.now().isoformat()
 
 for wpi_category, wpi_items in wrongly_predicated_instructions.items():
@@ -116,7 +123,7 @@ output_file = os.path.join(OUTPUT_DIR, 'annotation_data.json')
 with open(output_file, 'w') as f:
     json.dump(annotation_data, f, indent=2)
 
-print(f"\n{'='*50}")
+print(f"\n{'=' * 50}")
 print(f"Annotation data generated successfully!")
 print(f"  - Output file: {output_file}")
 print(f"  - Total instructions: {annotation_data['metadata']['total_instructions']}")
