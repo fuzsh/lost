@@ -8,14 +8,11 @@ This script calculates inter-annotator agreement at three hierarchical levels:
 - Subcategory (leaf-level): e.g., L1a, L1b, T1a, T1b, etc.
 
 Metrics computed:
-- Fleiss' Kappa for multi-annotator agreement
 - Pairwise Cohen's Kappa between annotator pairs
 - Agreement percentages and disagreement analysis
 
 Usage:
     python inter-annotator.py                  # Run with real annotations
-    python inter-annotator.py --simulate       # Run with simulated data
-    python inter-annotator.py --simulate -n 1000  # Simulate with 1000 instances
 
 Reference:
     Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement
@@ -25,8 +22,6 @@ Reference:
 import json
 import glob
 import os
-import argparse
-import random
 from collections import defaultdict
 from typing import Dict, List, Set, Tuple, Optional
 from itertools import combinations
@@ -43,15 +38,15 @@ TAXONOMY = {
         'T2': ['T2a', 'T2b', 'T2c'],  # Path following
     },
     'A': {  # Alignment Errors
-        'A1': ['A1a', 'A1b'],         # Spatial reference
-        'A2': ['A2a', 'A2b'],         # Temporal reference
-        'A3': ['A3a', 'A3b'],         # Landmark reference
-        'A4': ['A4a', 'A4b'],         # Direction errors
+        'A1': ['A1a', 'A1b'],  # Spatial reference
+        'A2': ['A2a', 'A2b'],  # Temporal reference
+        'A3': ['A3a', 'A3b'],  # Landmark reference
+        'A4': ['A4a', 'A4b'],  # Direction errors
         'A5': ['A5a', 'A5b', 'A5c'],  # Hallucination
     },
     'E': {  # Execution Errors
-        'E1': ['E1a', 'E1b'],         # Action errors
-        'E2': ['E2a', 'E2b'],         # Completion errors
+        'E1': ['E1a', 'E1b'],  # Action errors
+        'E2': ['E2a', 'E2b'],  # Completion errors
     },
 }
 
@@ -121,131 +116,10 @@ def get_labels_for_instance(annotations: List[Dict], level: str) -> Set[str]:
     return labels
 
 
-def compute_fleiss_kappa(instances: Dict[str, Dict[str, List[Dict]]],
-                         annotator_names: List[str],
-                         level: str) -> Tuple[float, Dict]:
-    """
-    Compute Fleiss' Kappa for multi-annotator agreement at a given hierarchical level.
-
-    For multi-label annotations, we use a set-based approach:
-    - Each unique combination of labels is treated as a distinct category
-    - This properly handles cases where annotators can assign multiple labels
-
-    Args:
-        instances: Dictionary of instance_id -> annotator_name -> annotations
-        annotator_names: List of annotator names
-        level: 'dimension', 'category', or 'subcategory'
-
-    Returns:
-        Tuple of (kappa value, detailed statistics)
-    """
-    n_raters = len(annotator_names)
-
-    # Collect instances where all annotators provided annotations
-    common_instances = []
-    for instance_id, annotator_data in instances.items():
-        if len(annotator_data) == n_raters:
-            common_instances.append(instance_id)
-
-    if not common_instances:
-        # Fall back to instances with at least 2 annotators
-        for instance_id, annotator_data in instances.items():
-            if len(annotator_data) >= 2:
-                common_instances.append(instance_id)
-        n_raters = 2 if common_instances else 0
-
-    if not common_instances:
-        return float('nan'), {'error': 'No common instances found'}
-
-    n_instances = len(common_instances)
-
-    # For multi-label annotations, convert each annotator's label SET to a single category
-    # This way, {A, T} is one category, {A} is another, etc.
-    all_label_sets = set()
-    instance_label_sets = {}  # instance_id -> annotator -> frozenset of labels
-
-    for instance_id in common_instances:
-        annotator_data = instances[instance_id]
-        instance_label_sets[instance_id] = {}
-        raters_for_instance = list(annotator_data.keys())[:n_raters]
-
-        for annotator in raters_for_instance:
-            labels = get_labels_for_instance(annotator_data[annotator], level)
-            label_set = frozenset(labels)
-            instance_label_sets[instance_id][annotator] = label_set
-            all_label_sets.add(label_set)
-
-    # Convert label sets to category indices
-    all_categories = sorted([tuple(sorted(ls)) for ls in all_label_sets])
-    category_to_idx = {cat: idx for idx, cat in enumerate(all_categories)}
-    n_categories = len(all_categories)
-
-    if n_categories == 0:
-        return float('nan'), {'error': 'No categories found'}
-
-    # Build the matrix n_ij: number of raters who assigned category j to instance i
-    matrix = np.zeros((n_instances, n_categories))
-
-    for i, instance_id in enumerate(common_instances):
-        raters_for_instance = list(instance_label_sets[instance_id].keys())[:n_raters]
-        for annotator in raters_for_instance:
-            label_set = instance_label_sets[instance_id][annotator]
-            cat_tuple = tuple(sorted(label_set))
-            if cat_tuple in category_to_idx:
-                matrix[i, category_to_idx[cat_tuple]] += 1
-
-    # Compute Fleiss' Kappa
-    # n = number of raters per instance (assumed constant)
-    n = n_raters
-
-    # P_i = proportion of agreeing pairs for instance i
-    # P_i = (1 / (n*(n-1))) * sum_j(n_ij * (n_ij - 1))
-    P_i = np.zeros(n_instances)
-    for i in range(n_instances):
-        row_sum = 0
-        for j in range(n_categories):
-            row_sum += matrix[i, j] * (matrix[i, j] - 1)
-        if n * (n - 1) > 0:
-            P_i[i] = row_sum / (n * (n - 1))
-        else:
-            P_i[i] = 1.0
-
-    # P_bar = mean of P_i
-    P_bar = np.mean(P_i)
-
-    # p_j = proportion of all assignments that were category j
-    total_assignments = n_instances * n
-    p_j = np.sum(matrix, axis=0) / total_assignments if total_assignments > 0 else np.zeros(n_categories)
-
-    # P_e = sum of p_j^2 (expected agreement by chance)
-    P_e = np.sum(p_j ** 2)
-
-    # Fleiss' Kappa
-    if 1 - P_e > 0:
-        kappa = (P_bar - P_e) / (1 - P_e)
-    else:
-        kappa = 1.0 if P_bar == 1.0 else 0.0
-
-    # Get individual labels for reporting
-    individual_labels = sorted(get_all_labels(instances, level))
-
-    stats = {
-        'n_instances': n_instances,
-        'n_raters': n_raters,
-        'n_categories': n_categories,
-        'categories': [list(cat) for cat in all_categories],
-        'individual_labels': individual_labels,
-        'observed_agreement': P_bar,
-        'expected_agreement': P_e,
-    }
-
-    return float(kappa), stats
-
-
 def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
-                                   annotator1: str,
-                                   annotator2: str,
-                                   level: str) -> Tuple[float, Dict]:
+                                  annotator1: str,
+                                  annotator2: str,
+                                  level: str) -> Tuple[float, Dict]:
     """
     Compute Cohen's Kappa between two annotators at a given level.
 
@@ -336,9 +210,9 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
 
 
 def compute_per_annotation_kappa(instances: Dict[str, Dict[str, List[Dict]]],
-                                  annotator1: str,
-                                  annotator2: str,
-                                  level: str) -> Tuple[float, Dict]:
+                                 annotator1: str,
+                                 annotator2: str,
+                                 level: str) -> Tuple[float, Dict]:
     """
     Compute Cohen's Kappa between two annotators at a given level using
     per-annotation comparison (rather than set-based).
@@ -532,7 +406,7 @@ def get_deepest_common_ancestor(subcats: List[str]) -> str:
             # Find where the category ends (number followed by letter)
             cat = ""
             for i, c in enumerate(sub):
-                if c.isalpha() and i > 0 and sub[i-1].isdigit():
+                if c.isalpha() and i > 0 and sub[i - 1].isdigit():
                     break
                 cat += c
             categories.add(cat if cat else sub[:2])
@@ -558,7 +432,7 @@ def resolve_disagreements(disagreement_analysis: Dict,
         'complete_agreement_count': len(disagreement_analysis['complete_agreement']),
         'ancestor_resolved_count': len(disagreement_analysis['leaf_level_disagreement']),
         'adjudicator_required_count': len(disagreement_analysis['mid_level_disagreement']) +
-                                       len(disagreement_analysis['top_level_disagreement']),
+                                      len(disagreement_analysis['top_level_disagreement']),
         'resolved_labels': [],
         'adjudicator_cases': []
     }
@@ -579,14 +453,14 @@ def resolve_disagreements(disagreement_analysis: Dict,
 
     # Cases requiring adjudicator
     for instance_id in (disagreement_analysis['mid_level_disagreement'] +
-                       disagreement_analysis['top_level_disagreement']):
+                        disagreement_analysis['top_level_disagreement']):
         resolved['adjudicator_cases'].append(instance_id)
 
     return resolved
 
 
 def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
-                                disagreement_analysis: Dict) -> Dict:
+                               disagreement_analysis: Dict) -> Dict:
     """
     Generate detailed disagreement information showing what each annotator said.
 
@@ -646,7 +520,7 @@ def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
             annotators = list(ann_by_annotator.keys())
             if len(annotators) >= 2:
                 for i, ann1_name in enumerate(annotators):
-                    for ann2_name in annotators[i+1:]:
+                    for ann2_name in annotators[i + 1:]:
                         anns1 = ann_by_annotator[ann1_name]
                         anns2 = ann_by_annotator[ann2_name]
                         for a1 in anns1:
@@ -656,7 +530,8 @@ def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
                                         'dimension': dim,
                                         ann1_name: f"{a1['category']}/{a1['subcategory']}",
                                         ann2_name: f"{a2['category']}/{a2['subcategory']}",
-                                        'conflict_level': 'subcategory' if a1['category'] == a2['category'] else 'category'
+                                        'conflict_level': 'subcategory' if a1['category'] == a2[
+                                            'category'] else 'category'
                                     })
 
         details['leaf_level'].append(case)
@@ -693,7 +568,7 @@ def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
             annotators = list(ann_by_annotator.keys())
             if len(annotators) >= 2:
                 for i, ann1_name in enumerate(annotators):
-                    for ann2_name in annotators[i+1:]:
+                    for ann2_name in annotators[i + 1:]:
                         anns1 = ann_by_annotator[ann1_name]
                         anns2 = ann_by_annotator[ann2_name]
                         for a1 in anns1:
@@ -735,7 +610,7 @@ def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
         annotators = list(dims_by_annotator.keys())
         if len(annotators) >= 2:
             for i, ann1_name in enumerate(annotators):
-                for ann2_name in annotators[i+1:]:
+                for ann2_name in annotators[i + 1:]:
                     dims1 = dims_by_annotator[ann1_name]
                     dims2 = dims_by_annotator[ann2_name]
                     only_in_1 = dims1 - dims2
@@ -774,160 +649,8 @@ def interpret_kappa(kappa: float) -> str:
         return "Almost Perfect (0.81-1.00)"
 
 
-def generate_latex_table(results: Dict) -> str:
-    """Generate LaTeX table for the paper."""
-    latex = r"""
-\begin{table}[h]
-\centering
-\caption{Inter-Annotator Agreement Across Hierarchical Levels}
-\label{tab:agreement_levels}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Level} & \textbf{Fleiss' $\kappa$} & \textbf{Agreement \%} & \textbf{Interpretation} \\
-\midrule
-"""
-    for level in ['dimension', 'category', 'subcategory']:
-        level_data = results['fleiss_kappa'][level]
-        kappa = level_data['kappa']
-        agreement = level_data['stats'].get('observed_agreement', 0) * 100
-        interpretation = interpret_kappa(kappa)
-
-        level_display = level.capitalize()
-        if level == 'dimension':
-            level_display = "Top-level (Dimension)"
-        elif level == 'category':
-            level_display = "Mid-level (Category)"
-        else:
-            level_display = "Leaf-level (Subcategory)"
-
-        latex += f"{level_display} & {kappa:.2f} & {agreement:.1f}\\% & {interpretation} \\\\\n"
-
-    latex += r"""\bottomrule
-\end{tabular}
-\end{table}
-"""
-    return latex
-
-
-def generate_resolution_latex_table(resolution: Dict, total: int) -> str:
-    """Generate LaTeX for disagreement resolution statistics."""
-    complete = resolution['complete_agreement_count']
-    ancestor = resolution['ancestor_resolved_count']
-    adjudicator = resolution['adjudicator_required_count']
-
-    complete_pct = (complete / total * 100) if total > 0 else 0
-    ancestor_pct = (ancestor / total * 100) if total > 0 else 0
-    adjudicator_pct = (adjudicator / total * 100) if total > 0 else 0
-
-    latex = f"""
-Disagreement Resolution Summary:
-- Complete agreement: {complete} instances ({complete_pct:.0f}%)
-- Resolved by deepest common ancestor: {ancestor} instances ({ancestor_pct:.0f}%)
-- Required adjudicator: {adjudicator} instances ({adjudicator_pct:.0f}%)
-"""
-    return latex
-
-
-def generate_simulated_annotations(n_instances: int = 1000,
-                                    n_annotators: int = 3,
-                                    agreement_rate: float = 0.85) -> Dict[str, Dict[str, List[Dict]]]:
-    """
-    Generate simulated annotation data for testing the inter-annotator agreement calculator.
-
-    Args:
-        n_instances: Number of instances to generate
-        n_annotators: Number of annotators
-        agreement_rate: Probability of annotators agreeing (0.0 to 1.0)
-
-    Returns:
-        Dictionary of instance_id -> annotator_name -> annotations
-    """
-    random.seed(42)  # For reproducibility
-    np.random.seed(42)
-
-    # Get all possible subcategories
-    all_subcategories = []
-    for dim, categories in TAXONOMY.items():
-        for cat, subcats in categories.items():
-            for subcat in subcats:
-                all_subcategories.append({
-                    'dimension': dim,
-                    'category': cat,
-                    'subcategory': subcat
-                })
-
-    annotator_names = [f"annotator_{i+1}" for i in range(n_annotators)]
-    instances = defaultdict(lambda: defaultdict(list))
-
-    for i in range(n_instances):
-        instance_id = f"simulated_{i}"
-
-        # First annotator picks a random annotation
-        base_ann = random.choice(all_subcategories)
-
-        for annotator in annotator_names:
-            if annotator == annotator_names[0] or random.random() < agreement_rate:
-                # Agree with base annotation
-                ann = base_ann.copy()
-            else:
-                # Disagree - choose a different annotation
-                # Decide at which level to disagree
-                disagree_level = random.choices(
-                    ['subcategory', 'category', 'dimension'],
-                    weights=[0.5, 0.3, 0.2]  # More likely to disagree at leaf level
-                )[0]
-
-                if disagree_level == 'subcategory':
-                    # Same category, different subcategory
-                    dim = base_ann['dimension']
-                    cat = base_ann['category']
-                    other_subcats = [s for s in TAXONOMY[dim][cat] if s != base_ann['subcategory']]
-                    if other_subcats:
-                        new_subcat = random.choice(other_subcats)
-                        ann = {'dimension': dim, 'category': cat, 'subcategory': new_subcat}
-                    else:
-                        ann = base_ann.copy()
-                elif disagree_level == 'category':
-                    # Same dimension, different category
-                    dim = base_ann['dimension']
-                    other_cats = [c for c in TAXONOMY[dim].keys() if c != base_ann['category']]
-                    if other_cats:
-                        new_cat = random.choice(other_cats)
-                        new_subcat = random.choice(TAXONOMY[dim][new_cat])
-                        ann = {'dimension': dim, 'category': new_cat, 'subcategory': new_subcat}
-                    else:
-                        ann = base_ann.copy()
-                else:
-                    # Different dimension entirely
-                    other_dims = [d for d in TAXONOMY.keys() if d != base_ann['dimension']]
-                    if other_dims:
-                        new_dim = random.choice(other_dims)
-                        new_cat = random.choice(list(TAXONOMY[new_dim].keys()))
-                        new_subcat = random.choice(TAXONOMY[new_dim][new_cat])
-                        ann = {'dimension': new_dim, 'category': new_cat, 'subcategory': new_subcat}
-                    else:
-                        ann = base_ann.copy()
-
-            ann['subcategoryName'] = f"{ann['subcategory']}_name"
-            ann['timestamp'] = "2026-01-19T00:00:00.000Z"
-            instances[instance_id][annotator].append(ann)
-
-    print(f"Generated {n_instances} simulated instances with {n_annotators} annotators")
-    print(f"  Agreement rate: {agreement_rate:.0%}")
-
-    return instances
-
-
 def main():
     """Main function to compute and report inter-annotator agreement."""
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Calculate inter-annotator agreement for navigation error annotations')
-    parser.add_argument('--simulate', action='store_true', help='Generate simulated data for testing')
-    parser.add_argument('-n', '--n-instances', type=int, default=1000, help='Number of instances to simulate (default: 1000)')
-    parser.add_argument('--n-annotators', type=int, default=2, help='Number of annotators to simulate (default: 3)')
-    parser.add_argument('--agreement-rate', type=float, default=0.85, help='Agreement rate for simulation (default: 0.85)')
-    args = parser.parse_args()
-
     # Configuration
     script_dir = os.path.dirname(os.path.abspath(__file__))
     annotations_dir = os.path.join(script_dir, "annotations")
@@ -937,35 +660,23 @@ def main():
     print("=" * 70)
     print()
 
-    if args.simulate:
-        # Use simulated data
-        print("Running in SIMULATION mode")
-        print("-" * 70)
-        instances = generate_simulated_annotations(
-            n_instances=args.n_instances,
-            n_annotators=args.n_annotators,
-            agreement_rate=args.agreement_rate
-        )
-        annotator_names = [f"annotator_{i+1}" for i in range(args.n_annotators)]
-        print()
-    else:
-        # Load real annotation files
-        print("Loading annotation files...")
-        annotators = load_annotation_files(annotations_dir)
+    # Load real annotation files
+    print("Loading annotation files...")
+    annotators = load_annotation_files(annotations_dir)
 
-        if not annotators:
-            print("No annotation files found!")
-            print(f"Looking in: {annotations_dir}")
-            print("Expected file pattern: annotations_*.json")
-            return
+    if not annotators:
+        print("No annotation files found!")
+        print(f"Looking in: {annotations_dir}")
+        print("Expected file pattern: annotations_*.json")
+        return
 
-        annotator_names = list(annotators.keys())
-        print(f"\nFound {len(annotators)} annotator(s): {', '.join(annotator_names)}")
+    annotator_names = list(annotators.keys())
+    print(f"\nFound {len(annotators)} annotator(s): {', '.join(annotator_names)}")
 
-        # Extract annotations per instance
-        print("\nExtracting annotations...")
-        instances = extract_annotations_per_instance(annotators)
-        print(f"Found {len(instances)} annotated instances")
+    # Extract annotations per instance
+    print("\nExtracting annotations...")
+    instances = extract_annotations_per_instance(annotators)
+    print(f"Found {len(instances)} annotated instances")
 
     # Count instances by number of annotators
     annotator_counts = defaultdict(int)
@@ -1024,13 +735,13 @@ def main():
 
     print(f"\nTotal annotated instances with 2+ annotators: {total_instances}")
     print(f"  Complete agreement: {len(disagreement_analysis['complete_agreement'])} " +
-          f"({len(disagreement_analysis['complete_agreement'])/total_instances*100:.1f}%)" if total_instances > 0 else "")
+          f"({len(disagreement_analysis['complete_agreement']) / total_instances * 100:.1f}%)" if total_instances > 0 else "")
     print(f"  Leaf-level disagreement: {len(disagreement_analysis['leaf_level_disagreement'])} " +
-          f"({len(disagreement_analysis['leaf_level_disagreement'])/total_instances*100:.1f}%)" if total_instances > 0 else "")
+          f"({len(disagreement_analysis['leaf_level_disagreement']) / total_instances * 100:.1f}%)" if total_instances > 0 else "")
     print(f"  Mid-level disagreement: {len(disagreement_analysis['mid_level_disagreement'])} " +
-          f"({len(disagreement_analysis['mid_level_disagreement'])/total_instances*100:.1f}%)" if total_instances > 0 else "")
+          f"({len(disagreement_analysis['mid_level_disagreement']) / total_instances * 100:.1f}%)" if total_instances > 0 else "")
     print(f"  Top-level disagreement: {len(disagreement_analysis['top_level_disagreement'])} " +
-          f"({len(disagreement_analysis['top_level_disagreement'])/total_instances*100:.1f}%)" if total_instances > 0 else "")
+          f"({len(disagreement_analysis['top_level_disagreement']) / total_instances * 100:.1f}%)" if total_instances > 0 else "")
 
     # Resolve disagreements
     print("\n" + "=" * 70)
