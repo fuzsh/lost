@@ -127,8 +127,9 @@ def compute_fleiss_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     """
     Compute Fleiss' Kappa for multi-annotator agreement at a given hierarchical level.
 
-    Fleiss' Kappa handles the case where multiple annotators can assign multiple labels
-    to each instance. We treat each label assignment as a binary decision.
+    For multi-label annotations, we use a set-based approach:
+    - Each unique combination of labels is treated as a distinct category
+    - This properly handles cases where annotators can assign multiple labels
 
     Args:
         instances: Dictionary of instance_id -> annotator_name -> annotations
@@ -138,15 +139,6 @@ def compute_fleiss_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     Returns:
         Tuple of (kappa value, detailed statistics)
     """
-    # Get all possible labels at this level
-    all_labels = sorted(get_all_labels(instances, level))
-
-    if not all_labels:
-        return float('nan'), {'error': 'No labels found'}
-
-    # Build the rating matrix
-    # For each instance and label, count how many annotators assigned that label
-    n_instances = 0
     n_raters = len(annotator_names)
 
     # Collect instances where all annotators provided annotations
@@ -166,23 +158,41 @@ def compute_fleiss_kappa(instances: Dict[str, Dict[str, List[Dict]]],
         return float('nan'), {'error': 'No common instances found'}
 
     n_instances = len(common_instances)
-    n_categories = len(all_labels)
 
-    # Create label to index mapping
-    label_to_idx = {label: idx for idx, label in enumerate(all_labels)}
+    # For multi-label annotations, convert each annotator's label SET to a single category
+    # This way, {A, T} is one category, {A} is another, etc.
+    all_label_sets = set()
+    instance_label_sets = {}  # instance_id -> annotator -> frozenset of labels
+
+    for instance_id in common_instances:
+        annotator_data = instances[instance_id]
+        instance_label_sets[instance_id] = {}
+        raters_for_instance = list(annotator_data.keys())[:n_raters]
+
+        for annotator in raters_for_instance:
+            labels = get_labels_for_instance(annotator_data[annotator], level)
+            label_set = frozenset(labels)
+            instance_label_sets[instance_id][annotator] = label_set
+            all_label_sets.add(label_set)
+
+    # Convert label sets to category indices
+    all_categories = sorted([tuple(sorted(ls)) for ls in all_label_sets])
+    category_to_idx = {cat: idx for idx, cat in enumerate(all_categories)}
+    n_categories = len(all_categories)
+
+    if n_categories == 0:
+        return float('nan'), {'error': 'No categories found'}
 
     # Build the matrix n_ij: number of raters who assigned category j to instance i
     matrix = np.zeros((n_instances, n_categories))
 
     for i, instance_id in enumerate(common_instances):
-        annotator_data = instances[instance_id]
-        raters_for_instance = list(annotator_data.keys())[:n_raters]
-
+        raters_for_instance = list(instance_label_sets[instance_id].keys())[:n_raters]
         for annotator in raters_for_instance:
-            labels = get_labels_for_instance(annotator_data[annotator], level)
-            for label in labels:
-                if label in label_to_idx:
-                    matrix[i, label_to_idx[label]] += 1
+            label_set = instance_label_sets[instance_id][annotator]
+            cat_tuple = tuple(sorted(label_set))
+            if cat_tuple in category_to_idx:
+                matrix[i, category_to_idx[cat_tuple]] += 1
 
     # Compute Fleiss' Kappa
     # n = number of raters per instance (assumed constant)
@@ -216,14 +226,17 @@ def compute_fleiss_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     else:
         kappa = 1.0 if P_bar == 1.0 else 0.0
 
+    # Get individual labels for reporting
+    individual_labels = sorted(get_all_labels(instances, level))
+
     stats = {
         'n_instances': n_instances,
         'n_raters': n_raters,
         'n_categories': n_categories,
-        'categories': all_labels,
+        'categories': [list(cat) for cat in all_categories],
+        'individual_labels': individual_labels,
         'observed_agreement': P_bar,
         'expected_agreement': P_e,
-        'category_proportions': {label: float(p_j[label_to_idx[label]]) for label in all_labels}
     }
 
     return float(kappa), stats
@@ -237,8 +250,8 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     Compute Cohen's Kappa between two annotators at a given level.
 
     For multi-label annotations, we use a set-based approach:
-    - Agreement if the sets of labels are identical
-    - Partial agreement computed as Jaccard similarity
+    - Each unique combination of labels is treated as a distinct category
+    - Agreement occurs when both annotators assign the exact same set of labels
     """
     common_instances = []
     for instance_id, annotator_data in instances.items():
@@ -248,10 +261,24 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     if not common_instances:
         return float('nan'), {'error': 'No common instances'}
 
-    # Get all labels
-    all_labels = sorted(get_all_labels(instances, level))
-    label_to_idx = {label: idx for idx, label in enumerate(all_labels)}
-    n_categories = len(all_labels)
+    # Collect all unique label sets (treating each set as a category)
+    all_label_sets = set()
+    instance_label_sets = {}
+
+    for instance_id in common_instances:
+        labels1 = frozenset(get_labels_for_instance(instances[instance_id][annotator1], level))
+        labels2 = frozenset(get_labels_for_instance(instances[instance_id][annotator2], level))
+        all_label_sets.add(labels1)
+        all_label_sets.add(labels2)
+        instance_label_sets[instance_id] = (labels1, labels2)
+
+    # Convert to sorted list for consistent indexing
+    all_categories = sorted([tuple(sorted(ls)) for ls in all_label_sets])
+    category_to_idx = {cat: idx for idx, cat in enumerate(all_categories)}
+    n_categories = len(all_categories)
+
+    if n_categories == 0:
+        return float('nan'), {'error': 'No categories found'}
 
     # Build contingency matrix
     contingency = np.zeros((n_categories, n_categories))
@@ -260,20 +287,18 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     total_comparisons = 0
 
     for instance_id in common_instances:
-        labels1 = get_labels_for_instance(instances[instance_id][annotator1], level)
-        labels2 = get_labels_for_instance(instances[instance_id][annotator2], level)
+        labels1, labels2 = instance_label_sets[instance_id]
 
-        # For set-based comparison
+        # For exact set-based comparison
         if labels1 == labels2:
             total_agreements += 1
         total_comparisons += 1
 
-        # Update contingency for primary label (first in each set)
-        if labels1 and labels2:
-            l1 = sorted(labels1)[0]
-            l2 = sorted(labels2)[0]
-            if l1 in label_to_idx and l2 in label_to_idx:
-                contingency[label_to_idx[l1], label_to_idx[l2]] += 1
+        # Update contingency matrix using the full label set as the category
+        cat1 = tuple(sorted(labels1))
+        cat2 = tuple(sorted(labels2))
+        if cat1 in category_to_idx and cat2 in category_to_idx:
+            contingency[category_to_idx[cat1], category_to_idx[cat2]] += 1
 
     # Compute Cohen's Kappa
     n = np.sum(contingency)
@@ -294,8 +319,14 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     else:
         kappa = 1.0 if p_o == 1.0 else 0.0
 
+    # Get individual labels for reporting
+    individual_labels = sorted(get_all_labels(instances, level))
+
     stats = {
         'n_instances': len(common_instances),
+        'n_categories': n_categories,
+        'categories': [list(cat) for cat in all_categories],
+        'individual_labels': individual_labels,
         'observed_agreement': p_o,
         'expected_agreement': p_e,
         'exact_set_agreement': total_agreements / total_comparisons if total_comparisons > 0 else 0

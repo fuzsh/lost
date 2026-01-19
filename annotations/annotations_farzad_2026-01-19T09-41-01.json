@@ -32,6 +32,27 @@
       ],
       "notes": "",
       "lastModified": "2026-01-19T09:40:52.583Z"
+    },
+    "seen_6212": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T1",
+          "subcategory": "T1a",
+          "subcategoryName": "Parallel routes",
+          "timestamp": "2026-01-19T09:36:25.164Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3b",
+          "subcategoryName": "Object hallucination",
+          "timestamp": "2026-01-19T09:36:30.347Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-19T09:40:52.583Z"
     }
   }
 }
