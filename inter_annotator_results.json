@@ -1,166 +1,57 @@
 {
-  "fleiss_kappa": {
-    "dimension": {
-      "kappa": 1.0,
-      "stats": {
-        "n_instances": 2,
-        "n_raters": 2,
-        "n_categories": 1,
-        "categories": [
-          [
-            "A",
-            "T"
-          ]
-        ],
-        "individual_labels": [
-          "A",
-          "T"
-        ],
-        "observed_agreement": 1.0,
-        "expected_agreement": 1.0
-      }
-    },
-    "category": {
-      "kappa": 0.2,
-      "stats": {
-        "n_instances": 2,
-        "n_raters": 2,
-        "n_categories": 3,
-        "categories": [
-          [
-            "A3",
-            "T1"
-          ],
-          [
-            "A5",
-            "T1"
-          ],
-          [
-            "A5",
-            "T2"
-          ]
-        ],
-        "individual_labels": [
-          "A3",
-          "A5",
-          "T1",
-          "T2"
-        ],
-        "observed_agreement": 0.5,
-        "expected_agreement": 0.375
-      }
-    },
-    "subcategory": {
-      "kappa": -0.6,
-      "stats": {
-        "n_instances": 2,
-        "n_raters": 2,
-        "n_categories": 3,
-        "categories": [
-          [
-            "A3b",
-            "T1a"
-          ],
-          [
-            "A5c",
-            "T1a"
-          ],
-          [
-            "A5d",
-            "T1a"
-          ]
-        ],
-        "individual_labels": [
-          "A3b",
-          "A5c",
-          "A5d",
-          "T1a"
-        ],
-        "observed_agreement": 0.0,
-        "expected_agreement": 0.375
-      }
-    }
-  },
-  "pairwise_kappa": {
+  "per_annotation_kappa": {
     "kim_vs_farzad": {
       "dimension": {
-        "kappa": 1.0,
+        "kappa": 0.6,
         "stats": {
-          "n_instances": 2,
-          "n_categories": 1,
+          "n_annotation_pairs": 4,
+          "n_categories": 2,
           "categories": [
-            [
-              "A",
-              "T"
-            ]
-          ],
-          "individual_labels": [
             "A",
             "T"
           ],
-          "observed_agreement": 1.0,
-          "expected_agreement": 1.0,
-          "exact_set_agreement": 1.0
+          "observed_agreement": 0.75,
+          "expected_agreement": 0.375,
+          "raw_agreement": 0.75,
+          "agreements": 3,
+          "total_pairs": 4
         }
       },
       "category": {
-        "kappa": 0.3333333333333333,
+        "kappa": 0.38461538461538464,
         "stats": {
-          "n_instances": 2,
-          "n_categories": 3,
+          "n_annotation_pairs": 4,
+          "n_categories": 4,
           "categories": [
-            [
-              "A3",
-              "T1"
-            ],
-            [
-              "A5",
-              "T1"
-            ],
-            [
-              "A5",
-              "T2"
-            ]
-          ],
-          "individual_labels": [
             "A3",
             "A5",
             "T1",
             "T2"
           ],
           "observed_agreement": 0.5,
-          "expected_agreement": 0.25,
-          "exact_set_agreement": 0.5
+          "expected_agreement": 0.1875,
+          "raw_agreement": 0.5,
+          "agreements": 2,
+          "total_pairs": 4
         }
       },
       "subcategory": {
-        "kappa": 0.0,
+        "kappa": 0.14285714285714285,
         "stats": {
-          "n_instances": 2,
-          "n_categories": 3,
+          "n_annotation_pairs": 4,
+          "n_categories": 5,
           "categories": [
-            [
-              "A3b",
-              "T1a"
-            ],
-            [
-              "A5c",
-              "T1a"
-            ],
-            [
-              "A5d",
-              "T1a"
-            ]
-          ],
-          "individual_labels": [
             "A3b",
             "A5c",
             "A5d",
-            "T1a"
+            "T1a",
+            "T2a"
           ],
-          "observed_agreement": 0.0,
-          "expected_agreement": 0.0,
-          "exact_set_agreement": 0.0
+          "observed_agreement": 0.25,
+          "expected_agreement": 0.125,
+          "raw_agreement": 0.25,
+          "agreements": 1,
+          "total_pairs": 4
         }
       }
     }
@@ -170,10 +61,10 @@
     "leaf_level_disagreement": [
       "seen_6211"
     ],
-    "mid_level_disagreement": [
+    "mid_level_disagreement": [],
+    "top_level_disagreement": [
       "seen_6212"
-    ],
-    "top_level_disagreement": []
+    ]
   },
   "resolution": {
     "complete_agreement_count": 0,
@@ -193,6 +84,100 @@
     ],
     "adjudicator_cases": [
       "seen_6212"
+    ]
+  },
+  "detailed_disagreements": {
+    "complete_agreement": [],
+    "leaf_level": [
+      {
+        "instance_id": "seen_6211",
+        "disagreement_type": "Subcategory disagreement (same category)",
+        "annotators": {
+          "kim": [
+            {
+              "dimension": "T",
+              "category": "T1",
+              "subcategory": "T1a",
+              "name": "Parallel routes"
+            },
+            {
+              "dimension": "A",
+              "category": "A5",
+              "subcategory": "A5c",
+              "name": "Object hallucination"
+            }
+          ],
+          "farzad": [
+            {
+              "dimension": "T",
+              "category": "T1",
+              "subcategory": "T1a",
+              "name": "Parallel routes"
+            },
+            {
+              "dimension": "A",
+              "category": "A5",
+              "subcategory": "A5d",
+              "name": "Object hallucination"
+            }
+          ]
+        },
+        "conflicts": [
+          {
+            "dimension": "A",
+            "kim": "A5/A5c",
+            "farzad": "A5/A5d",
+            "conflict_level": "subcategory"
+          }
+        ]
+      }
+    ],
+    "mid_level": [],
+    "top_level": [
+      {
+        "instance_id": "seen_6212",
+        "disagreement_type": "Dimension disagreement",
+        "annotators": {
+          "kim": [
+            {
+              "dimension": "T",
+              "category": "T2",
+              "subcategory": "T2a",
+              "name": "Parallel routes"
+            }
+          ],
+          "farzad": [
+            {
+              "dimension": "T",
+              "category": "T1",
+              "subcategory": "T1a",
+              "name": "Parallel routes"
+            },
+            {
+              "dimension": "A",
+              "category": "A3",
+              "subcategory": "A3b",
+              "name": "Object hallucination"
+            }
+          ]
+        },
+        "conflicts": [
+          {
+            "kim": [
+              "T"
+            ],
+            "farzad": [
+              "A",
+              "T"
+            ],
+            "only_kim": [],
+            "only_farzad": [
+              "A"
+            ],
+            "conflict_level": "dimension"
+          }
+        ]
+      }
     ]
   }
 }

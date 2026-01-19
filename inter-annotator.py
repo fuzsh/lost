@@ -335,6 +335,134 @@ def compute_pairwise_cohens_kappa(instances: Dict[str, Dict[str, List[Dict]]],
     return float(kappa), stats
 
 
+def compute_per_annotation_kappa(instances: Dict[str, Dict[str, List[Dict]]],
+                                  annotator1: str,
+                                  annotator2: str,
+                                  level: str) -> Tuple[float, Dict]:
+    """
+    Compute Cohen's Kappa between two annotators at a given level using
+    per-annotation comparison (rather than set-based).
+
+    This approach pairs up individual annotations from each annotator and
+    compares them one-to-one. For multi-label instances, annotations are
+    matched by their dimension (T, A, L, E) to ensure comparable pairs.
+
+    This is more appropriate when:
+    - Each annotator assigns multiple independent error types per instance
+    - You want to measure agreement on individual error identification
+    """
+    common_instances = []
+    for instance_id, annotator_data in instances.items():
+        if annotator1 in annotator_data and annotator2 in annotator_data:
+            common_instances.append(instance_id)
+
+    if not common_instances:
+        return float('nan'), {'error': 'No common instances'}
+
+    # Collect all annotation pairs by matching on dimension
+    all_labels = set()
+    annotation_pairs = []  # List of (label1, label2) tuples
+
+    for instance_id in common_instances:
+        anns1 = instances[instance_id][annotator1]
+        anns2 = instances[instance_id][annotator2]
+
+        # Group annotations by dimension for matching
+        anns1_by_dim = {}
+        anns2_by_dim = {}
+
+        for ann in anns1:
+            dim = ann['dimension']
+            if dim not in anns1_by_dim:
+                anns1_by_dim[dim] = []
+            anns1_by_dim[dim].append(ann)
+
+        for ann in anns2:
+            dim = ann['dimension']
+            if dim not in anns2_by_dim:
+                anns2_by_dim[dim] = []
+            anns2_by_dim[dim].append(ann)
+
+        # Match annotations within each dimension
+        all_dims = set(anns1_by_dim.keys()) | set(anns2_by_dim.keys())
+
+        for dim in all_dims:
+            list1 = anns1_by_dim.get(dim, [])
+            list2 = anns2_by_dim.get(dim, [])
+
+            # Extract labels at the specified level
+            if level == 'dimension':
+                labels1 = [ann['dimension'] for ann in list1]
+                labels2 = [ann['dimension'] for ann in list2]
+            elif level == 'category':
+                labels1 = [ann['category'] for ann in list1]
+                labels2 = [ann['category'] for ann in list2]
+            elif level == 'subcategory':
+                labels1 = [ann['subcategory'] for ann in list1]
+                labels2 = [ann['subcategory'] for ann in list2]
+
+            # Pair up annotations (use None for missing pairs)
+            max_len = max(len(labels1), len(labels2))
+            for i in range(max_len):
+                l1 = labels1[i] if i < len(labels1) else None
+                l2 = labels2[i] if i < len(labels2) else None
+                annotation_pairs.append((l1, l2))
+                if l1:
+                    all_labels.add(l1)
+                if l2:
+                    all_labels.add(l2)
+
+    if not annotation_pairs:
+        return float('nan'), {'error': 'No annotation pairs found'}
+
+    # Add None as a category for missing annotations
+    all_labels.add(None)
+    all_labels_list = sorted([l for l in all_labels if l is not None]) + [None]
+    label_to_idx = {label: idx for idx, label in enumerate(all_labels_list)}
+    n_categories = len(all_labels_list)
+
+    # Build contingency matrix
+    contingency = np.zeros((n_categories, n_categories))
+
+    for l1, l2 in annotation_pairs:
+        contingency[label_to_idx[l1], label_to_idx[l2]] += 1
+
+    # Compute Cohen's Kappa
+    n = np.sum(contingency)
+    if n == 0:
+        return float('nan'), {'error': 'Empty contingency matrix'}
+
+    # Observed agreement (diagonal sum)
+    p_o = np.trace(contingency) / n
+
+    # Expected agreement
+    row_sums = np.sum(contingency, axis=1)
+    col_sums = np.sum(contingency, axis=0)
+    p_e = np.sum(row_sums * col_sums) / (n * n)
+
+    # Cohen's Kappa
+    if 1 - p_e > 0:
+        kappa = (p_o - p_e) / (1 - p_e)
+    else:
+        kappa = 1.0 if p_o == 1.0 else 0.0
+
+    # Count agreements
+    agreements = sum(1 for l1, l2 in annotation_pairs if l1 == l2)
+
+    stats = {
+        'n_annotation_pairs': len(annotation_pairs),
+        'n_categories': n_categories - 1,  # Exclude None for reporting
+        'categories': [l for l in all_labels_list if l is not None],
+        'observed_agreement': p_o,
+        'expected_agreement': p_e,
+        'raw_agreement': agreements / len(annotation_pairs) if annotation_pairs else 0,
+        'agreements': agreements,
+        'total_pairs': len(annotation_pairs)
+    }
+
+    return float(kappa), stats
+
+
 def analyze_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
                           annotator_names: List[str]) -> Dict:
     """
@@ -455,6 +583,175 @@ def resolve_disagreements(disagreement_analysis: Dict,
         resolved['adjudicator_cases'].append(instance_id)
 
     return resolved
+
+
+def get_detailed_disagreements(instances: Dict[str, Dict[str, List[Dict]]],
+                                disagreement_analysis: Dict) -> Dict:
+    """
+    Generate detailed disagreement information showing what each annotator said.
+
+    Returns a dictionary with detailed conflict information for each instance.
+    """
+    details = {
+        'complete_agreement': [],
+        'leaf_level': [],
+        'mid_level': [],
+        'top_level': []
+    }
+
+    # Complete agreement cases
+    for instance_id in disagreement_analysis['complete_agreement']:
+        annotator_data = instances[instance_id]
+        case = {
+            'instance_id': instance_id,
+            'annotators': {}
+        }
+        for annotator, annotations in annotator_data.items():
+            case['annotators'][annotator] = [
+                f"{ann['subcategory']} ({ann['subcategoryName']})"
+                for ann in annotations
+            ]
+        details['complete_agreement'].append(case)
+
+    # Leaf-level disagreements (same category, different subcategory)
+    for instance_id in disagreement_analysis['leaf_level_disagreement']:
+        annotator_data = instances[instance_id]
+        case = {
+            'instance_id': instance_id,
+            'disagreement_type': 'Subcategory disagreement (same category)',
+            'annotators': {},
+            'conflicts': []
+        }
+
+        # Collect annotations by dimension
+        annotations_by_dim = {}
+        for annotator, annotations in annotator_data.items():
+            case['annotators'][annotator] = []
+            for ann in annotations:
+                case['annotators'][annotator].append({
+                    'dimension': ann['dimension'],
+                    'category': ann['category'],
+                    'subcategory': ann['subcategory'],
+                    'name': ann.get('subcategoryName', '')
+                })
+                dim = ann['dimension']
+                if dim not in annotations_by_dim:
+                    annotations_by_dim[dim] = {}
+                if annotator not in annotations_by_dim[dim]:
+                    annotations_by_dim[dim][annotator] = []
+                annotations_by_dim[dim][annotator].append(ann)
+
+        # Find specific conflicts
+        for dim, ann_by_annotator in annotations_by_dim.items():
+            annotators = list(ann_by_annotator.keys())
+            if len(annotators) >= 2:
+                for i, ann1_name in enumerate(annotators):
+                    for ann2_name in annotators[i+1:]:
+                        anns1 = ann_by_annotator[ann1_name]
+                        anns2 = ann_by_annotator[ann2_name]
+                        for a1 in anns1:
+                            for a2 in anns2:
+                                if a1['subcategory'] != a2['subcategory']:
+                                    case['conflicts'].append({
+                                        'dimension': dim,
+                                        ann1_name: f"{a1['category']}/{a1['subcategory']}",
+                                        ann2_name: f"{a2['category']}/{a2['subcategory']}",
+                                        'conflict_level': 'subcategory' if a1['category'] == a2['category'] else 'category'
+                                    })
+
+        details['leaf_level'].append(case)
+
+    # Mid-level disagreements (same dimension, different category)
+    for instance_id in disagreement_analysis['mid_level_disagreement']:
+        annotator_data = instances[instance_id]
+        case = {
+            'instance_id': instance_id,
+            'disagreement_type': 'Category disagreement (same dimension)',
+            'annotators': {},
+            'conflicts': []
+        }
+
+        annotations_by_dim = {}
+        for annotator, annotations in annotator_data.items():
+            case['annotators'][annotator] = []
+            for ann in annotations:
+                case['annotators'][annotator].append({
+                    'dimension': ann['dimension'],
+                    'category': ann['category'],
+                    'subcategory': ann['subcategory'],
+                    'name': ann.get('subcategoryName', '')
+                })
+                dim = ann['dimension']
+                if dim not in annotations_by_dim:
+                    annotations_by_dim[dim] = {}
+                if annotator not in annotations_by_dim[dim]:
+                    annotations_by_dim[dim][annotator] = []
+                annotations_by_dim[dim][annotator].append(ann)
+
+        # Find specific conflicts
+        for dim, ann_by_annotator in annotations_by_dim.items():
+            annotators = list(ann_by_annotator.keys())
+            if len(annotators) >= 2:
+                for i, ann1_name in enumerate(annotators):
+                    for ann2_name in annotators[i+1:]:
+                        anns1 = ann_by_annotator[ann1_name]
+                        anns2 = ann_by_annotator[ann2_name]
+                        for a1 in anns1:
+                            for a2 in anns2:
+                                if a1['category'] != a2['category']:
+                                    case['conflicts'].append({
+                                        'dimension': dim,
+                                        ann1_name: f"{a1['category']}/{a1['subcategory']}",
+                                        ann2_name: f"{a2['category']}/{a2['subcategory']}",
+                                        'conflict_level': 'category'
+                                    })
+
+        details['mid_level'].append(case)
+
+    # Top-level disagreements (different dimensions)
+    for instance_id in disagreement_analysis['top_level_disagreement']:
+        annotator_data = instances[instance_id]
+        case = {
+            'instance_id': instance_id,
+            'disagreement_type': 'Dimension disagreement',
+            'annotators': {},
+            'conflicts': []
+        }
+
+        dims_by_annotator = {}
+        for annotator, annotations in annotator_data.items():
+            case['annotators'][annotator] = []
+            dims_by_annotator[annotator] = set()
+            for ann in annotations:
+                case['annotators'][annotator].append({
+                    'dimension': ann['dimension'],
+                    'category': ann['category'],
+                    'subcategory': ann['subcategory'],
+                    'name': ann.get('subcategoryName', '')
+                })
+                dims_by_annotator[annotator].add(ann['dimension'])
+
+        # Find dimension-level conflicts
+        annotators = list(dims_by_annotator.keys())
+        if len(annotators) >= 2:
+            for i, ann1_name in enumerate(annotators):
+                for ann2_name in annotators[i+1:]:
+                    dims1 = dims_by_annotator[ann1_name]
+                    dims2 = dims_by_annotator[ann2_name]
+                    only_in_1 = dims1 - dims2
+                    only_in_2 = dims2 - dims1
+                    if only_in_1 or only_in_2:
+                        case['conflicts'].append({
+                            ann1_name: sorted(dims1),
+                            ann2_name: sorted(dims2),
+                            f'only_{ann1_name}': sorted(only_in_1),
+                            f'only_{ann2_name}': sorted(only_in_2),
+                            'conflict_level': 'dimension'
+                        })
+
+        details['top_level'].append(case)
+
+    return details
 
 
 def interpret_kappa(kappa: float) -> str:
@@ -681,45 +978,36 @@ def main():
 
     # Store results
     results = {
-        'fleiss_kappa': {},
-        'pairwise_kappa': {},
+        'per_annotation_kappa': {},
         'disagreement_analysis': None,
-        'resolution': None
+        'resolution': None,
+        'detailed_disagreements': None
     }
 
-    # Compute Fleiss' Kappa at each level
-    print("\n" + "=" * 70)
-    print("Fleiss' Kappa Analysis")
-    print("=" * 70)
-
-    for level in ['dimension', 'category', 'subcategory']:
-        kappa, stats = compute_fleiss_kappa(instances, annotator_names, level)
-        results['fleiss_kappa'][level] = {'kappa': kappa, 'stats': stats}
-
-        print(f"\n{level.upper()} Level:")
-        print(f"  Fleiss' Kappa: {kappa:.4f}")
-        print(f"  Interpretation: {interpret_kappa(kappa)}")
-        print(f"  Observed Agreement: {stats.get('observed_agreement', 0):.4f}")
-        print(f"  Expected Agreement: {stats.get('expected_agreement', 0):.4f}")
-        print(f"  Number of instances: {stats.get('n_instances', 0)}")
-        print(f"  Number of categories: {stats.get('n_categories', 0)}")
-
-    # Compute pairwise Cohen's Kappa if multiple annotators
+    # Compute pairwise Cohen's Kappa (per-annotation) if multiple annotators
     if len(annotator_names) >= 2:
+        # Per-annotation kappa (matches individual annotations within dimensions)
         print("\n" + "=" * 70)
-        print("Pairwise Cohen's Kappa Analysis")
+        print("Pairwise Cohen's Kappa Analysis (Per-Annotation)")
         print("=" * 70)
+        print("Note: Per-annotation approach compares individual annotations,")
+        print("matching by dimension. More appropriate for multi-label instances.")
+
+        results['per_annotation_kappa'] = {}
 
         for ann1, ann2 in combinations(annotator_names, 2):
             print(f"\n{ann1} vs {ann2}:")
             pair_key = f"{ann1}_vs_{ann2}"
-            results['pairwise_kappa'][pair_key] = {}
+            results['per_annotation_kappa'][pair_key] = {}
 
             for level in ['dimension', 'category', 'subcategory']:
-                kappa, stats = compute_pairwise_cohens_kappa(instances, ann1, ann2, level)
-                results['pairwise_kappa'][pair_key][level] = {'kappa': kappa, 'stats': stats}
+                kappa, stats = compute_per_annotation_kappa(instances, ann1, ann2, level)
+                results['per_annotation_kappa'][pair_key][level] = {'kappa': kappa, 'stats': stats}
 
-                print(f"  {level.capitalize()}: κ = {kappa:.4f} ({interpret_kappa(kappa)})")
+                agreement_pct = stats.get('raw_agreement', 0) * 100
+                n_pairs = stats.get('n_annotation_pairs', 0)
+                print(f"  {level.capitalize()}: κ = {kappa:.4f} ({interpret_kappa(kappa)}) " +
+                      f"[{agreement_pct:.1f}% agreement, {n_pairs} pairs]")
 
     # Analyze disagreements
     print("\n" + "=" * 70)
@@ -757,16 +1045,75 @@ def main():
     print(f"  Resolved by deepest common ancestor: {resolution['ancestor_resolved_count']}")
     print(f"  Required adjudicator: {resolution['adjudicator_required_count']}")
 
-    # Generate LaTeX tables
-    print("\n" + "=" * 70)
-    print("LaTeX Output for Paper")
-    print("=" * 70)
+    # Get and display detailed disagreements
+    detailed = get_detailed_disagreements(instances, disagreement_analysis)
+    results['detailed_disagreements'] = detailed
 
-    latex_table = generate_latex_table(results)
-    print(latex_table)
+    # Display detailed conflict information
+    print("\n" + "-" * 70)
+    print("Detailed Disagreement Information")
+    print("-" * 70)
 
-    resolution_text = generate_resolution_latex_table(resolution, total_instances)
-    print(resolution_text)
+    # Complete agreements
+    if detailed['complete_agreement']:
+        print(f"\n[COMPLETE AGREEMENT] ({len(detailed['complete_agreement'])} instances)")
+        for case in detailed['complete_agreement']:
+            print(f"\n  Instance: {case['instance_id']}")
+            for annotator, labels in case['annotators'].items():
+                print(f"    {annotator}: {', '.join(labels)}")
+
+    # Leaf-level (subcategory) disagreements
+    if detailed['leaf_level']:
+        print(f"\n[LEAF-LEVEL DISAGREEMENT - Subcategory] ({len(detailed['leaf_level'])} instances)")
+        for case in detailed['leaf_level']:
+            print(f"\n  Instance: {case['instance_id']}")
+            print(f"  Type: {case['disagreement_type']}")
+            print("  Annotations:")
+            for annotator, anns in case['annotators'].items():
+                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+                print(f"    {annotator}: {', '.join(ann_strs)}")
+            if case['conflicts']:
+                print("  Conflicts:")
+                for conflict in case['conflicts']:
+                    annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
+                    conflict_str = f"    [{conflict.get('dimension', '?')}] "
+                    conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
+                    print(conflict_str)
+
+    # Mid-level (category) disagreements
+    if detailed['mid_level']:
+        print(f"\n[MID-LEVEL DISAGREEMENT - Category] ({len(detailed['mid_level'])} instances)")
+        for case in detailed['mid_level']:
+            print(f"\n  Instance: {case['instance_id']}")
+            print(f"  Type: {case['disagreement_type']}")
+            print("  Annotations:")
+            for annotator, anns in case['annotators'].items():
+                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+                print(f"    {annotator}: {', '.join(ann_strs)}")
+            if case['conflicts']:
+                print("  Conflicts:")
+                for conflict in case['conflicts']:
+                    annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
+                    conflict_str = f"    [{conflict.get('dimension', '?')}] "
+                    conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
+                    print(conflict_str)
+
+    # Top-level (dimension) disagreements
+    if detailed['top_level']:
+        print(f"\n[TOP-LEVEL DISAGREEMENT - Dimension] ({len(detailed['top_level'])} instances)")
+        for case in detailed['top_level']:
+            print(f"\n  Instance: {case['instance_id']}")
+            print(f"  Type: {case['disagreement_type']}")
+            print("  Annotations:")
+            for annotator, anns in case['annotators'].items():
+                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+                print(f"    {annotator}: {', '.join(ann_strs)}")
+            if case['conflicts']:
+                print("  Conflicts:")
+                for conflict in case['conflicts']:
+                    for key, val in conflict.items():
+                        if key != 'conflict_level':
+                            print(f"    {key}: {val}")
 
     # Save results to JSON
     output_file = os.path.join(script_dir, "inter_annotator_results.json")
@@ -793,24 +1140,6 @@ def main():
         json.dump(serializable_results, f, indent=2)
 
     print(f"\nResults saved to: {output_file}")
-
-    # Summary statistics
-    print("\n" + "=" * 70)
-    print("Summary Statistics for Paper")
-    print("=" * 70)
-
-    print(f"""
-Key findings:
-- Dimension-level Fleiss' κ: {results['fleiss_kappa']['dimension']['kappa']:.2f}
-- Category-level Fleiss' κ: {results['fleiss_kappa']['category']['kappa']:.2f}
-- Subcategory-level Fleiss' κ: {results['fleiss_kappa']['subcategory']['kappa']:.2f}
-
-Disagreement resolution:
-- Total instances: {total_instances}
-- Complete agreement: {resolution['complete_agreement_count']} ({resolution['complete_agreement_count']/total_instances*100:.0f}%)
-- Ancestor resolution: {resolution['ancestor_resolved_count']} ({resolution['ancestor_resolved_count']/total_instances*100:.0f}%)
-- Adjudicator required: {resolution['adjudicator_required_count']} ({resolution['adjudicator_required_count']/total_instances*100:.0f}%)
-""" if total_instances > 0 else "\nNo instances with multiple annotators found yet.")
 
     return results
 

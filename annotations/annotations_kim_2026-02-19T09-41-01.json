@@ -39,16 +39,9 @@
         {
           "dimension": "T",
           "category": "T2",
-          "subcategory": "T1a",
+          "subcategory": "T2a",
           "subcategoryName": "Parallel routes",
           "timestamp": "2026-01-19T09:36:25.164Z"
-        },
-        {
-          "dimension": "A",
-          "category": "A5",
-          "subcategory": "A5c",
-          "subcategoryName": "Object hallucination",
-          "timestamp": "2026-01-19T09:36:30.347Z"
         }
       ],
       "notes": "",
