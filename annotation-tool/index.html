@@ -750,15 +750,19 @@
                         { code: "T2b", name: "Post-turn reference", description: "Landmark visible only after turn" },
                         { code: "T2c", name: "Opposite-side displacement", description: "Landmark on wrong side for turn" }
                     ]},
-                    { code: "T3", name: "Scale mismatch", subcategories: [
+                    { code: "T3", name: "Connectivity Violation", subcategories: [
+                        { code: "T3a", name: "T-Junction Impossibility", description: "e.g. 'Turn right' at T-Junction with only right/straight" },
+                        { code: "T3b", name: "Dead-end conflicts", description: "e.g. 'Continue straight' at cul-de-sac" },
+                    ]},
+                    { code: "T4", name: "Scale mismatch", subcategories: [
                         { code: "T3a", name: "Distance underestimation", description: "e.g., 'Quick walk' for 1km route" },
                         { code: "T3b", name: "Landmark density", description: "Unexpected landmark density" }
                     ]},
-                    { code: "T4", name: "Stop-location errors", subcategories: [
-                        { code: "T4a", name: "Stop-too-late (overshoot)", description: "Stopping past the target" },
-                        { code: "T4b", name: "Stop-too-early (undershoot)", description: "Stopping before the target" },
-                        { code: "T4c", name: "Missed stopping cue", description: "Fails to recognize stop landmark" }
-                    ]},
+                    // { code: "T4", name: "Stop-location errors", subcategories: [
+                    //     { code: "T4a", name: "Stop-too-late (overshoot)", description: "Stopping past the target" },
+                    //     { code: "T4b", name: "Stop-too-early (undershoot)", description: "Stopping before the target" },
+                    //     { code: "T4c", name: "Missed stopping cue", description: "Fails to recognize stop landmark" }
+                    // ]},
                     { code: "T5", name: "Junction complexity", subcategories: [
                         { code: "T5a", name: "Five-way or more intersections", description: "Complex multi-way junctions" },
                         { code: "T5b", name: "Offset intersections", description: "Non-aligned intersections" },
@@ -789,9 +793,10 @@
                         { code: "A4b", name: "Information overload", description: "Too many POIs cause confusion" },
                         { code: "A4c", name: "Visibility threshold miscalibration", description: "Wrong visibility thresholds" }
                     ]},
-                    { code: "A5", name: "Perception failures", subcategories: [
-                        { code: "A5a", name: "Spatial relation errors", description: "Incorrect spatial relationships" },
-                        { code: "A5b", name: "Object hallucination", description: "Detecting non-existent objects" }
+                    { code: "A5", name: "Stop-location errors", subcategories: [
+                        { code: "A5a", name: "Stop-too-late (overshoot)", description: "Stopping past the target" },
+                        { code: "A5b", name: "Stop-too-early (undershoot)", description: "Stopping before the target" },
+                        { code: "A5c", name: "Missed stopping cue", description: "Fails to recognize stop landmark" }
                     ]},
                     { code: "A6", name: "Planning and reasoning", subcategories: [
                         { code: "A6a", name: "Goal confusion", description: "Continues wrong sequence" },
