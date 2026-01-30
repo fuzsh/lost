@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotation Explorer</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success-color: #16a34a;
+            --warning-color: #ca8a04;
+            --danger-color: #dc2626;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            transition: width 0.3s ease;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+        .btn-secondary { background: var(--border-color); color: var(--text-primary); }
+        .btn-secondary:hover:not(:disabled) { background: #cbd5e1; }
+        .btn-success { background: var(--success-color); color: white; }
+        .btn-warning { background: var(--warning-color); color: white; }
+        .btn-danger { background: var(--danger-color); color: white; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .jump-input {
+            width: 80px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .card-title .badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .badge-primary { background: #dbeafe; color: #1e40af; }
+        .badge-success { background: #dcfce7; color: #166534; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
+        .badge-info { background: #e0e7ff; color: #3730a3; }
+
+        .instruction-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .instruction-text mark.landmark {
+            background: #fef08a;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .subgoals-list { list-style: none; }
+
+        .subgoal-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .subgoal-item.completed { border-left-color: var(--success-color); background: #f0fdf4; }
+        .subgoal-item.in-progress { border-left-color: var(--warning-color); background: #fffbeb; }
+
+        .subgoal-number {
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-right: 8px;
+        }
+
+        .subgoal-status {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .reasoning-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .step-reasoning {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #fefce8;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .step-status {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .step-status.completed { background: #dcfce7; color: #166534; }
+        .step-status.incomplete { background: #fee2e2; color: #991b1b; }
+
+        .step-subgoal {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .step-reasoning-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .images-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 800px) {
+            .images-container { grid-template-columns: 1fr; }
+        }
+
+        .image-wrapper {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-label {
+            padding: 8px 12px;
+            background: #f1f5f9;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: zoom-in;
+        }
+
+        .image-placeholder {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            color: var(--text-secondary);
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .annotation-panel { position: sticky; top: 20px; }
+
+        .response-section {
+            margin-bottom: 15px;
+        }
+
+        .response-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .response-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .response-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .response-tag.agent { background: #fef3c7; color: #92400e; }
+        .response-tag.execution { background: #fee2e2; color: #991b1b; }
+        .response-tag.confidence { background: #dbeafe; color: #1e40af; }
+        .response-tag.default { background: #e0e7ff; color: #3730a3; }
+
+        .confidence-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .confidence-bar {
+            flex: 1;
+            height: 10px;
+            background: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .confidence-value {
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 32px;
+            text-align: right;
+        }
+
+        .notes-display {
+            padding: 12px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .no-data {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        .structured-output {
+            font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+            font-size: 0.825rem;
+            line-height: 1.6;
+            padding: 15px;
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .record-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .record-status.completed { background: #dcfce7; color: #166534; }
+        .record-status.pending { background: #fef3c7; color: #92400e; }
+        .record-status.discarded { background: #fee2e2; color: #991b1b; }
+        .record-status.draft { background: #e0e7ff; color: #3730a3; }
+
+        .filter-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            background: white;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal h2 { margin-bottom: 20px; }
+
+        .modal label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .file-input-wrapper { margin-bottom: 20px; }
+
+        .file-drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-drop-zone:hover { border-color: var(--primary-color); background: #f8fafc; }
+        .file-drop-zone.loaded { border-color: var(--success-color); background: #f0fdf4; }
+
+        .image-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            cursor: zoom-out;
+        }
+
+        .image-modal-overlay.active { display: flex; }
+        .image-modal-overlay img { max-width: 95%; max-height: 95%; object-fit: contain; }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #1e293b;
+            color: white;
+            border-radius: 8px;
+            z-index: 1002;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .loading-overlay.hidden { display: none; }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error-message {
+            color: var(--danger-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 8px 12px;
+            font-size: 0.875rem;
+        }
+
+        .field-key {
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: right;
+            padding: 4px 0;
+        }
+
+        .field-val {
+            padding: 4px 0;
+            word-break: break-word;
+        }
+
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p style="margin-top: 20px; color: var(--text-secondary);">Loading annotation data...</p>
+    </div>
+
+    <div class="modal-overlay active" id="setupModal">
+        <div class="modal">
+            <h2>Annotation Explorer</h2>
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">Load annotation data to browse and review annotated records.</p>
+            <div class="file-input-wrapper">
+                <label>Annotation Data (JSON) *</label>
+                <div class="file-drop-zone" id="dataDropZone">
+                    <p style="font-size: 1.1rem; margin-bottom: 6px;">Click or drag to load annotation data</p>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">Accepts JSON array format from annotation_data folder</p>
+                    <input type="file" id="dataFileInput" accept=".json" style="display: none;" />
+                </div>
+            </div>
+            <button class="btn btn-primary" id="startBtn" onclick="startExplorer()" style="width: 100%;" disabled>Start Exploring</button>
+        </div>
+    </div>
+
+    <div class="image-modal-overlay" id="imageModal" onclick="closeImageModal()">
+        <img id="modalImage" src="" alt="Enlarged image" />
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="container" id="mainContainer" style="display: none;">
+        <div class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <h1>Annotation Explorer</h1>
+                <div>
+                    <button class="btn btn-secondary" onclick="exportFilteredData()">Export Filtered</button>
+                    <button class="btn btn-secondary" onclick="loadNewData()">Load New Data</button>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span>Viewing:</span>
+                    <span class="stat-value"><span id="currentIndex">0</span> / <span id="totalCount">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <span>Completed:</span>
+                    <span class="stat-value" id="completedCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Pending:</span>
+                    <span class="stat-value" id="pendingCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Discarded:</span>
+                    <span class="stat-value" id="discardedCount">0</span>
+                </div>
+            </div>
+            <div class="nav-controls">
+                <button class="btn btn-secondary" id="prevBtn" onclick="navigate(-1)">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="navigate(1)">Next</button>
+                <span style="margin-left: 10px;">Jump to:</span>
+                <input type="number" class="jump-input" id="jumpInput" min="1" onkeypress="handleJumpKeypress(event)" />
+                <button class="btn btn-secondary" onclick="jumpToIndex()">Go</button>
+                <span style="margin-left: 20px;">Record ID:</span>
+                <input type="text" class="jump-input" id="jumpIdInput" style="width: 150px;" placeholder="e.g., 2622" onkeypress="handleJumpIdKeypress(event)" />
+                <button class="btn btn-secondary" onclick="jumpToId()">Go</button>
+                <span style="margin-left: 20px;">Filter:</span>
+                <select class="filter-select" id="statusFilter" onchange="applyFilter()">
+                    <option value="all">All Statuses</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                    <option value="discarded">Discarded</option>
+                    <option value="draft">Draft</option>
+                </select>
+                <select class="filter-select" id="responseFilter" onchange="applyFilter()">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="card">
+                    <div class="card-title">
+                        Navigation Instruction
+                        <span class="badge badge-primary" id="recordIdBadge">ID: -</span>
+                        <span id="recordStatusContainer"></span>
+                    </div>
+                    <div class="instruction-text" id="instructionText">Loading...</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Images</div>
+                    <div class="images-container">
+                        <div class="image-wrapper">
+                            <div class="image-label">Online Source (Route Map)</div>
+                            <div id="onlineImageContainer">
+                                <div class="image-placeholder">No image</div>
+                            </div>
+                        </div>
+                        <div class="image-wrapper">
+                            <div class="image-label">Visualize Area (Generated)</div>
+                            <div id="visualizeImageContainer">
+                                <div class="image-placeholder">No image</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Step-by-Step Reasoning</div>
+                    <div class="reasoning-container" id="reasoningContainer">
+                        <p class="no-data">No reasoning data available.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Sub-Goals</div>
+                    <ul class="subgoals-list" id="subgoalsList"></ul>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="card annotation-panel">
+                    <div class="card-title">Annotation Results</div>
+
+                    <div id="responsesContainer">
+                        <p class="no-data">No annotation responses.</p>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="card-title" style="font-size: 0.9rem;">Notes</div>
+                        <div id="notesContainer">
+                            <p class="no-data">No notes.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="card-title" style="font-size: 0.9rem;">Structured Output</div>
+                        <div id="structuredOutputContainer">
+                            <p class="no-data">No structured output.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="card-title" style="font-size: 0.9rem;">Record Metadata</div>
+                        <div id="metadataContainer">
+                            <p class="no-data">No metadata.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const IMAGES_BASE_PATH = 'https://fuzsh.github.io/lost/annotation_data/';
+
+        let state = {
+            allRecords: [],
+            filteredRecords: [],
+            currentIndex: 0,
+            statusFilter: 'all',
+            responseFilter: 'all'
+        };
+
+        // Setup file input on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropZone = document.getElementById('dataDropZone');
+            const fileInput = document.getElementById('dataFileInput');
+
+            dropZone.onclick = () => fileInput.click();
+
+            dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--primary-color)'; };
+            dropZone.ondragleave = () => { dropZone.style.borderColor = ''; };
+            dropZone.ondrop = (e) => {
+                e.preventDefault();
+                dropZone.style.borderColor = '';
+                if (e.dataTransfer.files.length) handleDataFile(e.dataTransfer.files[0]);
+            };
+
+            fileInput.onchange = (e) => {
+                if (e.target.files.length) handleDataFile(e.target.files[0]);
+            };
+        });
+
+        function handleDataFile(file) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    let records;
+                    if (Array.isArray(parsed)) {
+                        records = parsed;
+                    } else if (parsed.records && Array.isArray(parsed.records)) {
+                        records = parsed.records;
+                    } else if (parsed.data && Array.isArray(parsed.data)) {
+                        records = parsed.data;
+                    } else {
+                        alert('Unrecognized format. Expected a JSON array of records.');
+                        return;
+                    }
+                    state.allRecords = records;
+                    state.filteredRecords = records;
+                    state.currentIndex = 0;
+
+                    document.getElementById('dataDropZone').classList.add('loaded');
+                    document.getElementById('dataDropZone').innerHTML = `<p style="color: var(--success-color); font-size: 1.1rem;">Loaded ${records.length} records</p>`;
+                    document.getElementById('startBtn').disabled = false;
+                    buildResponseFilterOptions(records);
+                } catch (err) {
+                    alert('Failed to parse JSON: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function buildResponseFilterOptions(records) {
+            const categories = new Set();
+            records.forEach(r => {
+                if (r.responses) {
+                    Object.keys(r.responses).forEach(key => {
+                        const entries = r.responses[key];
+                        if (Array.isArray(entries)) {
+                            entries.forEach(entry => {
+                                if (Array.isArray(entry.value)) {
+                                    entry.value.forEach(v => categories.add(v));
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+            const select = document.getElementById('responseFilter');
+            select.innerHTML = '<option value="all">All Categories</option>';
+            Array.from(categories).sort().forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                select.appendChild(opt);
+            });
+        }
+
+        function startExplorer() {
+            if (state.allRecords.length === 0) { alert('No data loaded'); return; }
+            document.getElementById('setupModal').classList.remove('active');
+            document.getElementById('mainContainer').style.display = 'block';
+            applyFilter();
+        }
+
+        function applyFilter() {
+            state.statusFilter = document.getElementById('statusFilter').value;
+            state.responseFilter = document.getElementById('responseFilter').value;
+
+            let filtered = state.allRecords;
+
+            if (state.statusFilter !== 'all') {
+                filtered = filtered.filter(r => r.status === state.statusFilter);
+            }
+
+            if (state.responseFilter !== 'all') {
+                filtered = filtered.filter(r => {
+                    if (!r.responses) return false;
+                    return Object.values(r.responses).some(entries => {
+                        if (!Array.isArray(entries)) return false;
+                        return entries.some(entry => Array.isArray(entry.value) && entry.value.includes(state.responseFilter));
+                    });
+                });
+            }
+
+            state.filteredRecords = filtered;
+            state.currentIndex = 0;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const records = state.filteredRecords;
+            const total = records.length;
+
+            document.getElementById('currentIndex').textContent = total > 0 ? state.currentIndex + 1 : 0;
+            document.getElementById('totalCount').textContent = total;
+
+            // Stats from all records
+            let completed = 0, pending = 0, discarded = 0;
+            state.allRecords.forEach(r => {
+                if (r.status === 'completed') completed++;
+                else if (r.status === 'pending') pending++;
+                else if (r.status === 'discarded') discarded++;
+            });
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('pendingCount').textContent = pending;
+            document.getElementById('discardedCount').textContent = discarded;
+
+            if (total > 0) {
+                document.getElementById('progressFill').style.width = `${((state.currentIndex + 1) / total) * 100}%`;
+            } else {
+                document.getElementById('progressFill').style.width = '0%';
+            }
+
+            document.getElementById('prevBtn').disabled = state.currentIndex <= 0;
+            document.getElementById('nextBtn').disabled = state.currentIndex >= total - 1;
+
+            if (total === 0) {
+                clearDisplay();
+                return;
+            }
+
+            const record = records[state.currentIndex];
+            renderRecord(record);
+        }
+
+        function clearDisplay() {
+            document.getElementById('recordIdBadge').textContent = 'ID: -';
+            document.getElementById('recordStatusContainer').innerHTML = '';
+            document.getElementById('instructionText').innerHTML = '<span class="no-data">No records match the current filter.</span>';
+            document.getElementById('onlineImageContainer').innerHTML = '<div class="image-placeholder">No image</div>';
+            document.getElementById('visualizeImageContainer').innerHTML = '<div class="image-placeholder">No image</div>';
+            document.getElementById('reasoningContainer').innerHTML = '<p class="no-data">No data.</p>';
+            document.getElementById('subgoalsList').innerHTML = '';
+            document.getElementById('responsesContainer').innerHTML = '<p class="no-data">No data.</p>';
+            document.getElementById('notesContainer').innerHTML = '<p class="no-data">No notes.</p>';
+            document.getElementById('structuredOutputContainer').innerHTML = '<p class="no-data">No data.</p>';
+            document.getElementById('metadataContainer').innerHTML = '<p class="no-data">No metadata.</p>';
+        }
+
+        function renderRecord(record) {
+            const fields = record.fields || {};
+            const responses = record.responses || {};
+            const id = record.id || fields.id || '-';
+
+            // ID and status
+            document.getElementById('recordIdBadge').textContent = `ID: ${id}`;
+            const statusClass = record.status === 'completed' ? 'completed' : record.status === 'pending' ? 'pending' : record.status === 'discarded' ? 'discarded' : 'draft';
+            document.getElementById('recordStatusContainer').innerHTML = `<span class="record-status ${statusClass}">${record.status || 'unknown'}</span>`;
+
+            // Instruction text
+            const instrHighlighted = fields.instruction_highlighted || '';
+            const instrText = fields.instruction_text || '';
+            if (instrHighlighted) {
+                document.getElementById('instructionText').innerHTML = instrHighlighted;
+            } else if (instrText) {
+                document.getElementById('instructionText').textContent = instrText;
+            } else {
+                document.getElementById('instructionText').innerHTML = '<span class="no-data">No instruction text available.</span>';
+            }
+
+            // Images
+            updateImages(fields);
+
+            // Parse structured data from fields
+            const parsedData = parseStructuredFields(fields);
+
+            // Sub-goals
+            renderSubGoals(parsedData.subGoals);
+
+            // Reasoning
+            renderReasoning(parsedData.stepReasoning);
+
+            // Responses (annotation results)
+            renderResponses(responses);
+
+            // Notes - check fields for notes or any notes-like field
+            renderNotes(fields, responses);
+
+            // Structured output
+            renderStructuredOutput(fields);
+
+            // Metadata
+            renderMetadata(record);
+        }
+
+        function parseStructuredFields(fields) {
+            let subGoals = [];
+            let stepReasoning = [];
+
+            // Try to parse from structured_output field
+            const structuredOutput = fields.structured_output || '';
+            if (structuredOutput) {
+                // Parse sub-goals
+                const sgMatch = structuredOutput.match(/SUB-GOALS:\s*-+\s*([\s\S]*?)(?=\nSTEP-BY-STEP|\n\n[A-Z]|$)/);
+                if (sgMatch) {
+                    const sgLines = sgMatch[1].trim().split('\n');
+                    sgLines.forEach(line => {
+                        const m = line.match(/\[(\d+)\]\s*(.*)/);
+                        if (m) {
+                            subGoals.push({ description: m[2].trim(), status: '' });
+                        }
+                    });
+                }
+
+                // Parse step reasoning
+                const stepBlocks = structuredOutput.split(/(?=Step\s+\d+:)/gi);
+                stepBlocks.forEach(block => {
+                    const stepMatch = block.match(/Step\s+(\d+):/i);
+                    if (stepMatch) {
+                        const stepNum = parseInt(stepMatch[1]);
+                        const statusMatch = block.match(/Status:\s*(\w+)/i);
+                        const subGoalMatch = block.match(/Sub-goal(?:\s*\[(\d+)\])?:\s*(.*)/i);
+                        const reasoningMatch = block.match(/Reasoning:\s*([\s\S]*?)(?=(?:Step\s+\d+:|$))/i);
+                        const targetMatch = block.match(/(?:Target|Next[_ ]place):\s*(.*)/i);
+
+                        stepReasoning.push({
+                            step_number: stepNum,
+                            status: statusMatch ? statusMatch[1] : '',
+                            sub_goal: subGoalMatch ? subGoalMatch[2].trim() : '',
+                            sub_goal_index: subGoalMatch && subGoalMatch[1] ? parseInt(subGoalMatch[1]) - 1 : stepNum - 1,
+                            reasoning: reasoningMatch ? reasoningMatch[1].trim() : '',
+                            next_place: targetMatch ? targetMatch[1].trim() : '',
+                            is_completed: statusMatch ? statusMatch[1].toUpperCase() === 'COMPLETED' : false
+                        });
+                    }
+                });
+            }
+
+            // Also check for direct sub_goals and step_reasoning fields
+            if (fields.sub_goals) {
+                try {
+                    const parsed = typeof fields.sub_goals === 'string' ? JSON.parse(fields.sub_goals) : fields.sub_goals;
+                    if (Array.isArray(parsed)) subGoals = parsed;
+                } catch (e) {}
+            }
+
+            if (fields.step_reasoning) {
+                try {
+                    const parsed = typeof fields.step_reasoning === 'string' ? JSON.parse(fields.step_reasoning) : fields.step_reasoning;
+                    if (Array.isArray(parsed)) stepReasoning = parsed;
+                } catch (e) {}
+            }
+
+            return { subGoals, stepReasoning };
+        }
+
+        function updateImages(fields) {
+            const onlineContainer = document.getElementById('onlineImageContainer');
+            const visualizeContainer = document.getElementById('visualizeImageContainer');
+
+            // Check various possible field names for images
+            const onlineUrl = fields.online_url || fields.image_url || (fields.images && fields.images.online_url) || '';
+            const visualizePath = fields.visualize_path || (fields.images && fields.images.visualize_path) || '';
+
+            if (onlineUrl) {
+                onlineContainer.innerHTML = `<img src="${escapeHtml(onlineUrl)}" alt="Route map" onclick="openImageModal(this.src)" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Failed to load</div>'" />`;
+            } else {
+                onlineContainer.innerHTML = '<div class="image-placeholder">No image available</div>';
+            }
+
+            if (visualizePath) {
+                const fullPath = visualizePath.startsWith('http') ? visualizePath : IMAGES_BASE_PATH + visualizePath;
+                visualizeContainer.innerHTML = `<img src="${escapeHtml(fullPath)}" alt="Visualization" onclick="openImageModal(this.src)" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Failed to load</div>'" />`;
+            } else {
+                visualizeContainer.innerHTML = '<div class="image-placeholder">No image available</div>';
+            }
+        }
+
+        function renderSubGoals(subGoals) {
+            const list = document.getElementById('subgoalsList');
+            list.innerHTML = '';
+            if (!subGoals || subGoals.length === 0) {
+                list.innerHTML = '<li class="no-data" style="padding: 12px;">No sub-goals available.</li>';
+                return;
+            }
+            subGoals.forEach((sg, idx) => {
+                const li = document.createElement('li');
+                li.className = 'subgoal-item';
+                const status = (sg.status || '').toUpperCase();
+                if (status === 'COMPLETED') li.classList.add('completed');
+                else if (status === 'IN_PROGRESS') li.classList.add('in-progress');
+                const statusClass = status === 'COMPLETED' ? 'badge-success' : status === 'IN_PROGRESS' ? 'badge-warning' : 'badge-primary';
+                li.innerHTML = `<span class="subgoal-number">${idx + 1}.</span>${escapeHtml(sg.description || '')}${status ? `<span class="badge ${statusClass} subgoal-status">${status}</span>` : ''}`;
+                list.appendChild(li);
+            });
+        }
+
+        function renderReasoning(steps) {
+            const container = document.getElementById('reasoningContainer');
+            container.innerHTML = '';
+            if (!steps || steps.length === 0) {
+                container.innerHTML = '<p class="no-data">No reasoning data available.</p>';
+                return;
+            }
+            steps.forEach(step => {
+                const div = document.createElement('div');
+                div.className = 'step-reasoning';
+                div.innerHTML = `
+                    <div class="step-header">
+                        <span>Step ${step.step_number}</span>
+                        <span class="step-status ${step.is_completed ? 'completed' : 'incomplete'}">${step.status || (step.is_completed ? 'COMPLETED' : 'INCOMPLETE')}</span>
+                    </div>
+                    ${step.sub_goal ? `<div class="step-subgoal">Sub-goal [${(step.sub_goal_index || 0) + 1}]: ${escapeHtml(step.sub_goal)}</div>` : ''}
+                    ${step.next_place ? `<div class="step-subgoal">Target: ${escapeHtml(step.next_place)}</div>` : ''}
+                    ${step.reasoning ? `<div class="step-reasoning-text">${escapeHtml(step.reasoning.substring(0, 800))}${step.reasoning.length > 800 ? '...' : ''}</div>` : ''}
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderResponses(responses) {
+            const container = document.getElementById('responsesContainer');
+            container.innerHTML = '';
+
+            if (!responses || Object.keys(responses).length === 0) {
+                container.innerHTML = '<p class="no-data">No annotation responses.</p>';
+                return;
+            }
+
+            Object.keys(responses).forEach(key => {
+                const entries = responses[key];
+                if (!Array.isArray(entries) || entries.length === 0) return;
+
+                const section = document.createElement('div');
+                section.className = 'response-section';
+
+                const label = document.createElement('div');
+                label.className = 'response-label';
+                label.textContent = key.replace(/_/g, ' ');
+                section.appendChild(label);
+
+                entries.forEach(entry => {
+                    if (Array.isArray(entry.value)) {
+                        // Category tags
+                        const tagsDiv = document.createElement('div');
+                        tagsDiv.className = 'response-tags';
+                        entry.value.forEach(v => {
+                            const tag = document.createElement('span');
+                            const tagClass = key.toLowerCase().includes('agent') ? 'agent' :
+                                           key.toLowerCase().includes('execution') ? 'execution' :
+                                           key.toLowerCase().includes('confidence') ? 'confidence' : 'default';
+                            tag.className = `response-tag ${tagClass}`;
+                            tag.textContent = v;
+                            tagsDiv.appendChild(tag);
+                        });
+                        section.appendChild(tagsDiv);
+                    } else if (typeof entry.value === 'number') {
+                        // Confidence score with bar
+                        const barContainer = document.createElement('div');
+                        barContainer.className = 'confidence-bar-container';
+                        const maxVal = key.toLowerCase().includes('confidence') ? 10 : 100;
+                        const pct = Math.min((entry.value / maxVal) * 100, 100);
+                        const color = pct >= 70 ? 'var(--success-color)' : pct >= 40 ? 'var(--warning-color)' : 'var(--danger-color)';
+                        barContainer.innerHTML = `
+                            <div class="confidence-bar"><div class="confidence-fill" style="width: ${pct}%; background: ${color};"></div></div>
+                            <span class="confidence-value" style="color: ${color};">${entry.value}</span>
+                        `;
+                        section.appendChild(barContainer);
+                    } else if (typeof entry.value === 'string') {
+                        const textDiv = document.createElement('div');
+                        textDiv.className = 'notes-display';
+                        textDiv.textContent = entry.value;
+                        section.appendChild(textDiv);
+                    }
+
+                    // Show user_id if present
+                    if (entry.user_id) {
+                        const userDiv = document.createElement('div');
+                        userDiv.style.cssText = 'font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;';
+                        userDiv.textContent = `Annotator: ${entry.user_id.substring(0, 8)}...`;
+                        section.appendChild(userDiv);
+                    }
+                });
+
+                container.appendChild(section);
+            });
+        }
+
+        function renderNotes(fields, responses) {
+            const container = document.getElementById('notesContainer');
+            const notes = fields.notes || fields.annotation_notes || '';
+
+            // Also check responses for notes
+            let responseNotes = '';
+            if (responses && responses.notes) {
+                const notesEntries = responses.notes;
+                if (Array.isArray(notesEntries)) {
+                    notesEntries.forEach(entry => {
+                        if (typeof entry.value === 'string' && entry.value.trim()) {
+                            responseNotes += entry.value + '\n';
+                        }
+                    });
+                }
+            }
+
+            const combined = (notes + '\n' + responseNotes).trim();
+            if (combined) {
+                container.innerHTML = `<div class="notes-display">${escapeHtml(combined)}</div>`;
+            } else {
+                container.innerHTML = '<p class="no-data">No notes.</p>';
+            }
+        }
+
+        function renderStructuredOutput(fields) {
+            const container = document.getElementById('structuredOutputContainer');
+            const output = fields.structured_output || '';
+            if (output) {
+                container.innerHTML = `<div class="structured-output">${escapeHtml(output)}</div>`;
+            } else {
+                container.innerHTML = '<p class="no-data">No structured output available.</p>';
+            }
+        }
+
+        function renderMetadata(record) {
+            const container = document.getElementById('metadataContainer');
+            const metadata = record.metadata || {};
+            const fields = record.fields || {};
+
+            // Gather extra fields to show
+            const extraFields = {};
+            if (record._server_id) extraFields['Server ID'] = record._server_id;
+            if (fields.data_split) extraFields['Data Split'] = fields.data_split;
+            if (fields.instruction_id) extraFields['Instruction ID'] = fields.instruction_id;
+
+            Object.keys(metadata).forEach(k => {
+                extraFields[k] = typeof metadata[k] === 'object' ? JSON.stringify(metadata[k]) : metadata[k];
+            });
+
+            if (Object.keys(extraFields).length === 0) {
+                container.innerHTML = '<p class="no-data">No metadata available.</p>';
+                return;
+            }
+
+            let html = '<div class="field-grid">';
+            Object.entries(extraFields).forEach(([k, v]) => {
+                html += `<div class="field-key">${escapeHtml(k)}:</div><div class="field-val">${escapeHtml(String(v))}</div>`;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Navigation
+        function navigate(dir) {
+            const newIdx = state.currentIndex + dir;
+            if (newIdx >= 0 && newIdx < state.filteredRecords.length) {
+                state.currentIndex = newIdx;
+                updateDisplay();
+            }
+        }
+
+        function jumpToIndex() {
+            const idx = parseInt(document.getElementById('jumpInput').value) - 1;
+            if (idx >= 0 && idx < state.filteredRecords.length) {
+                state.currentIndex = idx;
+                updateDisplay();
+            } else {
+                showToast('Invalid index');
+            }
+            document.getElementById('jumpInput').value = '';
+        }
+
+        function jumpToId() {
+            const id = document.getElementById('jumpIdInput').value.trim();
+            if (!id) return;
+            const idx = state.filteredRecords.findIndex(r => {
+                const rid = r.id || (r.fields && r.fields.id) || '';
+                return String(rid) === id || String(rid).includes(id);
+            });
+            if (idx >= 0) {
+                state.currentIndex = idx;
+                updateDisplay();
+            } else {
+                showToast('Record not found');
+            }
+            document.getElementById('jumpIdInput').value = '';
+        }
+
+        function handleJumpKeypress(e) { if (e.key === 'Enter') jumpToIndex(); }
+        function handleJumpIdKeypress(e) { if (e.key === 'Enter') jumpToId(); }
+
+        // Export
+        function exportFilteredData() {
+            if (state.filteredRecords.length === 0) { showToast('No records to export'); return; }
+            const data = {
+                exported_at: new Date().toISOString(),
+                filters: { status: state.statusFilter, response: state.responseFilter },
+                total: state.filteredRecords.length,
+                records: state.filteredRecords
+            };
+            downloadJSON(data, `explorer_export_${new Date().toISOString().split('T')[0]}.json`);
+        }
+
+        function downloadJSON(data, filename) {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function loadNewData() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('setupModal').classList.add('active');
+            // Reset drop zone
+            document.getElementById('dataDropZone').classList.remove('loaded');
+            document.getElementById('dataDropZone').innerHTML = `
+                <p style="font-size: 1.1rem; margin-bottom: 6px;">Click or drag to load annotation data</p>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">Accepts JSON array format from annotation_data folder</p>
+                <input type="file" id="dataFileInput" accept=".json" style="display: none;" />
+            `;
+            document.getElementById('startBtn').disabled = true;
+            // Re-attach event listeners
+            const dropZone = document.getElementById('dataDropZone');
+            const fileInput = document.getElementById('dataFileInput');
+            dropZone.onclick = () => fileInput.click();
+            dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--primary-color)'; };
+            dropZone.ondragleave = () => { dropZone.style.borderColor = ''; };
+            dropZone.ondrop = (e) => {
+                e.preventDefault();
+                dropZone.style.borderColor = '';
+                if (e.dataTransfer.files.length) handleDataFile(e.dataTransfer.files[0]);
+            };
+            fileInput.onchange = (e) => {
+                if (e.target.files.length) handleDataFile(e.target.files[0]);
+            };
+        }
+
+        // Image modal
+        function openImageModal(src) { document.getElementById('modalImage').src = src; document.getElementById('imageModal').classList.add('active'); }
+        function closeImageModal() { document.getElementById('imageModal').classList.remove('active'); }
+
+        // Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // Utility
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+            if (e.key === 'Escape') closeImageModal();
+        });
+    </script>
+</body>
+</html>
