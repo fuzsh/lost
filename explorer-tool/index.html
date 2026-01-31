@@ -411,48 +411,6 @@
             background: white;
         }
 
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .modal h2 { margin-bottom: 20px; }
-
-        .modal label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .file-input-wrapper { margin-bottom: 20px; }
-
-        .file-drop-zone {
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 30px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .file-drop-zone:hover { border-color: var(--primary-color); background: #f8fafc; }
-        .file-drop-zone.loaded { border-color: var(--success-color); background: #f0fdf4; }
-
         .image-modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -542,25 +500,9 @@
     </style>
 </head>
 <body>
-    <div class="loading-overlay hidden" id="loadingOverlay">
+    <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
         <p style="margin-top: 20px; color: var(--text-secondary);">Loading annotation data...</p>
-    </div>
-
-    <div class="modal-overlay active" id="setupModal">
-        <div class="modal">
-            <h2>Annotation Explorer</h2>
-            <p style="margin-bottom: 20px; color: var(--text-secondary);">Load annotation data to browse and review annotated records.</p>
-            <div class="file-input-wrapper">
-                <label>Annotation Data (JSON) *</label>
-                <div class="file-drop-zone" id="dataDropZone">
-                    <p style="font-size: 1.1rem; margin-bottom: 6px;">Click or drag to load annotation data</p>
-                    <p style="font-size: 0.8rem; color: var(--text-secondary);">Accepts JSON array format from annotation_data folder</p>
-                    <input type="file" id="dataFileInput" accept=".json" style="display: none;" />
-                </div>
-            </div>
-            <button class="btn btn-primary" id="startBtn" onclick="startExplorer()" style="width: 100%;" disabled>Start Exploring</button>
-        </div>
     </div>
 
     <div class="image-modal-overlay" id="imageModal" onclick="closeImageModal()">
@@ -575,7 +517,6 @@
                 <h1>Annotation Explorer</h1>
                 <div>
                     <button class="btn btn-secondary" onclick="exportFilteredData()">Export Filtered</button>
-                    <button class="btn btn-secondary" onclick="loadNewData()">Load New Data</button>
                 </div>
             </div>
             <div class="progress-bar">
@@ -698,6 +639,7 @@
     </div>
 
     <script>
+        const DATA_URL = '../annotation_data/explorer_annotations.json';
         const IMAGES_BASE_PATH = 'https://fuzsh.github.io/lost/annotation_data/';
 
         let state = {
@@ -708,56 +650,46 @@
             responseFilter: 'all'
         };
 
-        // Setup file input on load
+        // Auto-load data on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const dropZone = document.getElementById('dataDropZone');
-            const fileInput = document.getElementById('dataFileInput');
-
-            dropZone.onclick = () => fileInput.click();
-
-            dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--primary-color)'; };
-            dropZone.ondragleave = () => { dropZone.style.borderColor = ''; };
-            dropZone.ondrop = (e) => {
-                e.preventDefault();
-                dropZone.style.borderColor = '';
-                if (e.dataTransfer.files.length) handleDataFile(e.dataTransfer.files[0]);
-            };
-
-            fileInput.onchange = (e) => {
-                if (e.target.files.length) handleDataFile(e.target.files[0]);
-            };
+            loadData();
         });
 
-        function handleDataFile(file) {
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const parsed = JSON.parse(e.target.result);
-                    let records;
-                    if (Array.isArray(parsed)) {
-                        records = parsed;
-                    } else if (parsed.records && Array.isArray(parsed.records)) {
-                        records = parsed.records;
-                    } else if (parsed.data && Array.isArray(parsed.data)) {
-                        records = parsed.data;
-                    } else {
-                        alert('Unrecognized format. Expected a JSON array of records.');
-                        return;
-                    }
-                    state.allRecords = records;
-                    state.filteredRecords = records;
-                    state.currentIndex = 0;
-
-                    document.getElementById('dataDropZone').classList.add('loaded');
-                    document.getElementById('dataDropZone').innerHTML = `<p style="color: var(--success-color); font-size: 1.1rem;">Loaded ${records.length} records</p>`;
-                    document.getElementById('startBtn').disabled = false;
-                    buildResponseFilterOptions(records);
-                } catch (err) {
-                    alert('Failed to parse JSON: ' + err.message);
+        async function loadData() {
+            const loading = document.getElementById('loadingOverlay');
+            loading.classList.remove('hidden');
+            try {
+                const response = await fetch(DATA_URL);
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                const parsed = await response.json();
+                let records;
+                if (Array.isArray(parsed)) {
+                    records = parsed;
+                } else if (parsed.records && Array.isArray(parsed.records)) {
+                    records = parsed.records;
+                } else if (parsed.data && Array.isArray(parsed.data)) {
+                    records = parsed.data;
+                } else {
+                    throw new Error('Unrecognized format. Expected a JSON array of records.');
                 }
-            };
-            reader.readAsText(file);
+                state.allRecords = records;
+                state.filteredRecords = records;
+                state.currentIndex = 0;
+                buildResponseFilterOptions(records);
+                document.getElementById('mainContainer').style.display = 'block';
+                loading.classList.add('hidden');
+                applyFilter();
+                showToast(`Loaded ${records.length} records`);
+            } catch (err) {
+                loading.innerHTML = `
+                    <div class="error-message">
+                        <h2 style="margin-bottom: 10px;">Failed to load annotation data</h2>
+                        <p>${escapeHtml(err.message)}</p>
+                        <p style="margin-top: 10px; color: var(--text-secondary);">Expected file at: ${escapeHtml(DATA_URL)}</p>
+                        <button class="btn btn-primary" style="margin-top: 20px;" onclick="loadData()">Retry</button>
+                    </div>
+                `;
+            }
         }
 
         function buildResponseFilterOptions(records) {
@@ -784,13 +716,6 @@
                 opt.textContent = cat;
                 select.appendChild(opt);
             });
-        }
-
-        function startExplorer() {
-            if (state.allRecords.length === 0) { alert('No data loaded'); return; }
-            document.getElementById('setupModal').classList.remove('active');
-            document.getElementById('mainContainer').style.display = 'block';
-            applyFilter();
         }
 
         function applyFilter() {
@@ -1228,33 +1153,6 @@
             a.download = filename;
             a.click();
             URL.revokeObjectURL(a.href);
-        }
-
-        function loadNewData() {
-            document.getElementById('mainContainer').style.display = 'none';
-            document.getElementById('setupModal').classList.add('active');
-            // Reset drop zone
-            document.getElementById('dataDropZone').classList.remove('loaded');
-            document.getElementById('dataDropZone').innerHTML = `
-                <p style="font-size: 1.1rem; margin-bottom: 6px;">Click or drag to load annotation data</p>
-                <p style="font-size: 0.8rem; color: var(--text-secondary);">Accepts JSON array format from annotation_data folder</p>
-                <input type="file" id="dataFileInput" accept=".json" style="display: none;" />
-            `;
-            document.getElementById('startBtn').disabled = true;
-            // Re-attach event listeners
-            const dropZone = document.getElementById('dataDropZone');
-            const fileInput = document.getElementById('dataFileInput');
-            dropZone.onclick = () => fileInput.click();
-            dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--primary-color)'; };
-            dropZone.ondragleave = () => { dropZone.style.borderColor = ''; };
-            dropZone.ondrop = (e) => {
-                e.preventDefault();
-                dropZone.style.borderColor = '';
-                if (e.dataTransfer.files.length) handleDataFile(e.dataTransfer.files[0]);
-            };
-            fileInput.onchange = (e) => {
-                if (e.target.files.length) handleDataFile(e.target.files[0]);
-            };
         }
 
         // Image modal
