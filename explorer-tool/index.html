@@ -527,17 +527,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-title">
+                Navigation Instruction
+                <span class="badge badge-primary" id="recordIdBadge">ID: -</span>
+                <span id="recordStatusContainer"></span>
+            </div>
+            <div class="instruction-text" id="instructionText">Loading...</div>
+        </div>
+
         <div class="main-content">
             <div class="left-column">
-                <div class="card">
-                    <div class="card-title">
-                        Navigation Instruction
-                        <span class="badge badge-primary" id="recordIdBadge">ID: -</span>
-                        <span id="recordStatusContainer"></span>
-                    </div>
-                    <div class="instruction-text" id="instructionText">Loading...</div>
-                </div>
-
                 <div class="card">
                     <div class="card-title">Images</div>
                     <div class="images-container">
@@ -562,12 +562,11 @@
                         <p class="no-data">No reasoning data available.</p>
                     </div>
                 </div>
-
             </div>
 
             <div class="right-column">
                 <div class="card annotation-panel">
-                    <div class="card-title">Annotation Results</div>
+                    <div class="card-title">Error Analysis</div>
 
                     <div id="responsesContainer">
                         <p class="no-data">No annotation responses.</p>
@@ -642,6 +641,7 @@
             records.forEach(r => {
                 if (r.responses) {
                     Object.keys(r.responses).forEach(key => {
+                        if (key.toLowerCase().includes('configuration') || key.toLowerCase().includes('config')) return;
                         const entries = r.responses[key];
                         if (Array.isArray(entries)) {
                             entries.forEach(entry => {
@@ -728,7 +728,6 @@
             document.getElementById('reasoningContainer').innerHTML = '<p class="no-data">No data.</p>';
             document.getElementById('responsesContainer').innerHTML = '<p class="no-data">No data.</p>';
             document.getElementById('notesContainer').innerHTML = '<p class="no-data">No notes.</p>';
-            document.getElementById('structuredOutputContainer').innerHTML = '<p class="no-data">No data.</p>';
         }
 
         function renderRecord(record) {
@@ -884,6 +883,7 @@
             }
 
             Object.keys(responses).forEach(key => {
+                if (key.toLowerCase().includes('configuration') || key.toLowerCase().includes('config')) return;
                 const entries = responses[key];
                 if (!Array.isArray(entries) || entries.length === 0) return;
 
