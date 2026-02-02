@@ -2,33 +2,26 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-    <!-- Replace the content tag with appropriate information -->
     <meta name="description"
-          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems.">
+          content="We present a taxonomy of navigation instruction failures and an annotated dataset of over 450 failure traces from GROKE, a vision-free evaluation framework for graph-based navigation.">
     <meta property="og:title"
           content="When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation"/>
     <meta property="og:description"
-          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems."/>
-    <meta property="og:url" content="https://kimia-abedini.github.io/Genom-Agent/"/>
-    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-    <meta property="og:image" content="static/image/GenomAgent.png"/>
+          content="We present a taxonomy of navigation instruction failures and an annotated dataset of over 450 failure traces from GROKE, a vision-free evaluation framework for graph-based navigation."/>
+    <meta property="og:url" content="https://fuzsh.github.io/lost/"/>
+    <meta property="og:image" content="static/images/og-image.png"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="500"/>
-
 
     <meta name="twitter:title"
           content="When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation">
     <meta name="twitter:description"
-          content=" We propose GenomAgent, a multi-agent framework designed to advance genomic Question Answering by overcoming the rigidity and scalability limitations of single-agent systems.">
-    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-    <meta name="twitter:image" content="static/images/GenomAgent.png">
+          content="We present a taxonomy of navigation instruction failures and an annotated dataset of over 450 failure traces from GROKE, a vision-free evaluation framework for graph-based navigation.">
+    <meta name="twitter:image" content="static/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- Keywords for your paper to be indexed by-->
     <meta name="keywords"
-          content="GeneGPT, Genomic Question Answering, Large Language Models, GeneTuring, Multi-Agent Systems, Bioinformatics, Genomics, AI in Healthcare, Biomedical Research">
+          content="Vision-and-Language Navigation, VLN, Navigation Failure Analysis, Spatial Reasoning, OpenStreetMap, GROKE, Failure Taxonomy, LLM, Embodied AI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     <title>When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation</title>
     <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -64,17 +57,17 @@
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
                         <span class="author-block">
-                            <a href="mailto:farzad.shami@aalto.fi" target="_blank">Farzad Shami<sup>🚲</sup></a>,</span>
+                            <a href="mailto:farzad.shami@aalto.fi" target="_blank">Farzad Shami</a><sup>1</sup>,</span>
                         <span class="author-block">
-                            <a href="mailto:kimia1999abedini@gmail.com" target="_blank">Kimia Abedini<sup>🛴</sup></a>,</span>
+                            <a href="mailto:kimia1999abedini@gmail.com" target="_blank">Kimia Abedini</a><sup>2</sup>,</span>
                         <span class="author-block">
-                            <a href="mailto:seyed.h.hosseini@aalto.fi" target="_blank">Seyed Hosein Hoesini<sup>🚲</sup></a>,</span>
+                            <a href="mailto:seyed.h.hosseini@aalto.fi" target="_blank">Seyed Hossein Hosseini</a><sup>1</sup>,</span>
                         <span class="author-block">
-                            <a href="mailto:henrikki.tenkanen@aalto.fi" target="_blank">Henrikki Tenkanen<sup>🚲</sup></a></span>
+                            <a href="mailto:henrikki.tenkanen@aalto.fi" target="_blank">Henrikki Tenkanen</a><sup>1</sup></span>
                     </div>
 
                     <div class="is-size-5 publication-authors">
-                        <span class="author-block">Aalto University (🚲 Built Environment; 🛴Computer Science)</span>
+                        <span class="author-block">Aalto University (<sup>1</sup> Built Environment; <sup>2</sup> Computer Science)</span>
                     </div>
 
                     <div class="column has-text-centered">
@@ -102,7 +95,7 @@
                                     <span class="icon">
                                         <i class="fa-light fa-eye"></i>
                                     </span>
-                                    <span>Data Explore</span>
+                                    <span>Data Explorer</span>
                                 </a>
                             </span>
 
@@ -123,73 +116,103 @@
     </div>
 </section>
 
-<!-- Teaser Image-->
+<!-- Abstract -->
 <section class="hero teaser">
     <div class="container is-max-desktop">
         <div class="hero-body">
-            <h2 class="subtitle has-text-centered">
-                Abstract: Lorem ipsum dolor sit amet, consectetuer
-adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum
-gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula
-augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla
-ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor
-nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci
-eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet
-orci dignissim rutrum.
+            <h2 class="subtitle has-text-justified">
+                <b>Abstract:</b> Vision-and-Language Navigation (VLN) requires agents to interpret natural language instructions for spatial reasoning, yet evaluating instruction quality remains challenging when agents fail. To address this, we present a taxonomy of navigation instruction failures that clusters failure cases into four categories: (i) linguistic properties, (ii) topological constraints, (iii) agent limitations, and (iv) execution barriers. We then introduce a dataset of over 450 annotated failure navigation traces collected from GROKE, a vision-free evaluation framework that utilizes OpenStreetMap (OSM) data. Our analysis demonstrates that agent limitations (74.2%) constitute the dominant error category, with stop-location errors and planning failures as the most frequent subcategories. The dataset and taxonomy together provide actionable insights that enable instruction generation systems to identify and avoid under-specification patterns while allowing evaluation frameworks to systematically distinguish between instruction quality issues and agent-specific artifacts.
             </h2>
         </div>
     </div>
 </section>
-<!-- End teaser Image -->
+<!-- End Abstract -->
 
 
-<!-- Paper abstract -->
+<!-- Task & Motivation -->
 <section class="section hero is-light">
     <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Task & Motivation</h2>
+                <h2 class="title is-3">Task &amp; Motivation</h2>
                 <div class="content has-text-justified">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer
-adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum
-gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula
-augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla
-ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor
-nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci
-eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet
-orci dignissim rutrum.
+                        Large Language Models (LLMs) have demonstrated remarkable capabilities across diverse language understanding tasks, yet their spatial reasoning abilities remain fundamentally limited. In Vision-and-Language Navigation (VLN), this gap manifests through systematic failures in instruction following. When navigation fails, a critical question arises: is the failure attributable to agent limitations, instruction quality, or their interaction?
+                    </p>
+                    <p>
+                        Existing failure analysis frameworks predominantly focus on agent-level diagnostics, assuming that navigation instructions themselves are correct and complete. The instruction-level failure modes&mdash;such as linguistic ambiguity, topological inaccuracy, or insufficient spatial detail&mdash;remain largely unexamined. Vision-free evaluation frameworks like GROKE offer an opportunity to isolate instruction properties from perceptual challenges, enabling direct assessment of whether instructions contain sufficient, correct, and actionable spatial information.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End paper abstract -->
+<!-- End Task & Motivation -->
 
 
+<!-- Taxonomy -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Failure Taxonomy</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We developed a hierarchical taxonomy by analyzing failure patterns and agentic system design methodologies reported in prior navigation research. The taxonomy covers four dimensions:
+                    </p>
+                    <ul>
+                        <li><b>Linguistic (L):</b> Under-specification, over-specification, temporal ambiguity, numerical inconsistency, referential complexity, negation confusion, directional ambiguity, scale/distance vagueness, and landmark co-reference.</li>
+                        <li><b>Topological (T):</b> Path ambiguity, landmark displacement, scale mismatch, stop-location errors, and junction complexity.</li>
+                        <li><b>Agent (A):</b> POI grounding failure, heading initialization, sub-goal segmentation, context window saturation, perception failures, planning and reasoning errors, memory and state tracking, and multi-agent coordination.</li>
+                        <li><b>Execution (E):</b> Looping behavior, exploration inefficiency, action execution errors, timing and temporal errors, and verification failures.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Taxonomy -->
+
+
+<!-- Key Findings -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Key Findings</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Our analysis of 492 failed navigation instances reveals a clear distribution of error sources:
+                    </p>
+                    <ul>
+                        <li><b>Agent Limitations (74.2%)</b> are the dominant error category. Stop-location errors (49.9% of agent failures) and planning/reasoning errors (32.1%) are the most frequent subcategories.</li>
+                        <li><b>Execution Failures (46.5%)</b> are the second most common, with timing and temporal errors (49.8%) dominating this category.</li>
+                        <li><b>Linguistic Properties (23.2%)</b> contribute notably, with over-specification (42.1%) as the leading linguistic failure mode.</li>
+                        <li><b>Topological Constraints (12.4%)</b> appear least frequently, though junction complexity accounts for 73.8% within this dimension.</li>
+                    </ul>
+                    <p>
+                        Notably, half of all samples exhibit errors spanning multiple dimensions, indicating that navigation failures frequently result from compounded issues rather than isolated problems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Key Findings -->
+
+
+<!-- Data Visualization -->
 <section class="section">
     <div class="container is-max-desktop">
         <div class="columns is-vcentered">
-            <!-- Text Section (Left) -->
             <div class="column is-full">
                 <div class="content">
-                    <h2 class="title is-3">Data Visualization</h2>
+                    <h2 class="title is-3">Data Exploration</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer
-adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum
-gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula
-augue eu neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla
-ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor
-nulla, malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci
-eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet
-orci dignissim rutrum.
+                        Our annotated dataset of 492 navigation failure traces can be explored through the interactive <a href="https://fuzsh.github.io/lost/explorer-tool" target="_blank">Data Explorer</a> tool. Each trace includes the agent's reasoning at each step, identified sub-goals, extracted POIs, the map with annotated paths, and the graph network showing the traversed path with marked POIs.
+                    </p>
+                    <p>
+                        Three expert annotators participated in the annotation process, achieving a Cohen's &kappa; of 0.95 at the top level and 0.78 at the mid-level, demonstrating strong inter-annotator reliability.
                     </p>
                 </div>
             </div>
@@ -197,90 +220,19 @@ orci dignissim rutrum.
     </div>
 </section>
 
-
-<!--<section class="section hero is-small is-light">-->
-<!--    <div class="container is-max-desktop">-->
-<!--        <div class="columns is-centered">-->
-<!--            <div class="column is-full">-->
-<!--                <div class="content">-->
-<!--                    <h2 class="title is-3">Experiments</h2>-->
-<!--                    <div class="level-set has-text-justified">-->
-<!--                        <p>-->
-<!--                        <p>-->
-<!--                            Here, we report the performance and cost of <strong>GenomAgent</strong> in GeneTuring tasks-->
-<!--                            compared to GeneGPT's main results.-->
-<!--                            <strong>GenomAgent</strong> achieves substantial improvements in both performance and-->
-<!--                            computational efficiency.-->
-<!--                            Our model attains an average score of 0.93, exceeding the best-performing GeneGPT model-->
-<!--                            (0.83).-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            In simple tasks (nomenclature and genomic location), our system achieves near-perfect-->
-<!--                            performance with a score of 0.98, surpassing GeneGPT-slim's scores of 0.92 for nomenclature-->
-<!--                            and 0.88 for genomic location.-->
-<!--                            Most notably, in alignment tasks, which are the most challenging task for GeneGPT, we-->
-<!--                            achieve a remarkable 28.8% improvement.-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            Computational cost analysis reveals even more striking improvements.-->
-<!--                            <strong>GenomAgent</strong> costs only $2.11 total in all tasks (79.0% reduction from-->
-<!--                            best-performing GeneGPT ($10.06)).-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="hero-body">-->
-<!--            <img src="static/images/results.png" alt="A figure showing our ProbeLog logit descriptors"/>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</section>-->
-
-
-<!--<section class="section hero is-small">-->
-<!--    <div class="container is-max-desktop">-->
-<!--        <div class="columns is-centered">-->
-<!--            <div class="column is-full">-->
-<!--                <div class="content">-->
-<!--                    <h2 class="title is-3">Performance-cost tradeoff on GeneTuring.</h2>-->
-<!--                    <div class="level-set has-text-justified">-->
-<!--                        <p>-->
-<!--                            In addition, we show <strong>GenomAgent</strong> is the optimal selection, as it achieves a-->
-<!--                            high score at minimal computational expense.-->
-<!--                            Bubble size shows normalized cost and High Value Region shows optimal performance at minimal-->
-<!--                            cost.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="hero-body">-->
-<!--            <img src="static/images/trade_off.png"-->
-<!--                 alt="A figure showing our zero-shot ProbeLog logit descriptors"-->
-<!--                 style="display: block; margin-left: auto; margin-right: auto; width: 75%; height: auto;"-->
-<!--            />-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</section>-->
 
 <!--BibTex citation -->
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@misc{.....,
-      title={When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation}, 
-      author={......},
-      year={2026},
+        <pre><code>@misc{shami2025lost,
+      title={When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation},
+      author={Farzad Shami and Kimia Abedini and Seyed Hossein Hosseini and Henrikki Tenkanen},
+      year={2025},
       eprint={2601.10581},
       archivePrefix={arXiv},
       primaryClass={cs.AI},
-      url={.......},
+      url={https://arxiv.org/abs/2601.10581},
 }</code></pre>
     </div>
 </section>
