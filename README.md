@@ -21,6 +21,84 @@ We developed a hierarchical four-axis categorization framework:
 | **Linguistic Properties** | L | 23.2% | Over-specification (L2, 42.1%) |
 | **Topological Constraints** | T | 12.4% | Junction complexity (T5, 73.8%) |
 
+## Detailed Error Counts
+
+### Agent Dimension (n=365)
+| Error Type | Count | % of Agent Errors |
+|------------|-------|-------------------|
+| Stop-location errors | 182 | 49.9% |
+| Planning and reasoning | 117 | 32.1% |
+| POI grounding failure | 100 | 27.4% |
+| Context window saturation | 32 | 8.8% |
+| Sub-goal segmentation | 24 | 6.6% |
+| Heading initialization | 12 | 3.3% |
+| Multi-agent coordination | 11 | 3.0% |
+| Memory and state tracking | 3 | 0.8% |
+
+### Execution Dimension (n=229)
+| Error Type | Count | % of Execution Errors |
+|------------|-------|-----------------------|
+| Timing and temporal | 114 | 49.8% |
+| Verification failures | 90 | 39.3% |
+| Exploration inefficiency | 75 | 32.8% |
+| Action execution errors | 9 | 3.9% |
+| Looping behavior | 1 | 0.4% |
+
+### Linguistic Dimension (n=114)
+| Error Type | Count | % of Linguistic Errors |
+|------------|-------|------------------------|
+| Over-specification | 48 | 42.1% |
+| Under-specification | 28 | 24.6% |
+| Directional ambiguity | 17 | 14.9% |
+| Scale/Distance vagueness | 16 | 14.0% |
+| Referential complexity | 9 | 7.9% |
+| Numerical inconsistency | 7 | 6.1% |
+| Temporal ambiguity | 6 | 5.3% |
+| Negation confusion | 2 | 1.8% |
+| Landmark co-reference | 1 | 0.9% |
+
+### Topological Dimension (n=61)
+| Error Type | Count | % of Topological Errors |
+|------------|-------|-------------------------|
+| Junction complexity | 45 | 73.8% |
+| Path ambiguity | 11 | 18.0% |
+| Landmark displacement | 3 | 4.9% |
+| Scale mismatch | 3 | 4.9% |
+| Connectivity Violation | 1 | 1.6% |
+
+---
+
+## Key Co-occurrence Statistics
+
+### Dimension-Level Co-occurrences
+| Dimension Pair | Count |
+|----------------|-------|
+| Agent + Execution | 153 |
+| Agent + Linguistic | 72 |
+| Execution + Linguistic | 41 |
+| Execution + Topological | 25 |
+| Agent + Topological | 24 |
+| Linguistic + Topological | 14 |
+
+### Most Frequent Agent → Execution Cascades
+| Agent Error | Execution Error | Count |
+|-------------|-----------------|-------|
+| Planning and reasoning | Verification failures | 45 |
+| Planning and reasoning | Timing and temporal | 36 |
+| POI grounding failure | Verification failures | 30 |
+| Planning and reasoning | Exploration inefficiency | 29 |
+| Stop-location errors | Verification failures | 22 |
+| POI grounding failure | Exploration inefficiency | 22 |
+
+### Most Frequent Linguistic → Agent Cascades
+| Linguistic Error | Agent Error | Count |
+|------------------|-------------|-------|
+| Over-specification | Stop-location errors | 22 |
+| Over-specification | POI grounding failure | 16 |
+| Scale/Distance vagueness | Stop-location errors | 8 |
+| Over-specification | Planning and reasoning | 8 |
+| Under-specification | Planning and reasoning | 6 |
+
 ### Linguistic (L)
 - **L1** Under-specification: Spatial under-specification, landmark under-specification, missing stopping criteria
 - **L2** Over-specification: Visual-only features (e.g., "red building" not in OSM), transient objects
