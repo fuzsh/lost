@@ -4,7 +4,7 @@
 
 Aalto University
 
-[[Paper]](https://arxiv.org/abs/2601.07375) [[Project Page]](https://fuzsh.github.io/lost/) [[Data Explorer]](https://fuzsh.github.io/lost/explorer-tool/)
+[[Paper]](static/pdf/WhenAgentsGetLost.pdf) [[Project Page]](https://fuzsh.github.io/lost/) [[Data Explorer]](https://fuzsh.github.io/lost/explorer-tool/)
 
 ## Abstract
 
