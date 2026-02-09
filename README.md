@@ -166,6 +166,8 @@ The dataset contains **492 annotated navigation failure traces** collected from 
 
 ## Citation
 
+Groke Original Paper: 
+
 ```bibtex
 @misc{shami2026grokevisionfreenavigationinstruction,
       title={GROKE: Vision-Free Navigation Instruction Evaluation via Graph Reasoning on OpenStreetMap}, 
