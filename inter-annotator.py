@@ -766,65 +766,65 @@ def main():
     print("-" * 70)
 
     # Complete agreements
-    if detailed['complete_agreement']:
-        print(f"\n[COMPLETE AGREEMENT] ({len(detailed['complete_agreement'])} instances)")
-        for case in detailed['complete_agreement']:
-            print(f"\n  Instance: {case['instance_id']}")
-            for annotator, labels in case['annotators'].items():
-                print(f"    {annotator}: {', '.join(labels)}")
+    # if detailed['complete_agreement']:
+    #     print(f"\n[COMPLETE AGREEMENT] ({len(detailed['complete_agreement'])} instances)")
+    #     for case in detailed['complete_agreement']:
+    #         print(f"\n  Instance: {case['instance_id']}")
+    #         for annotator, labels in case['annotators'].items():
+    #             print(f"    {annotator}: {', '.join(labels)}")
 
     # Leaf-level (subcategory) disagreements
-    if detailed['leaf_level']:
-        print(f"\n[LEAF-LEVEL DISAGREEMENT - Subcategory] ({len(detailed['leaf_level'])} instances)")
-        for case in detailed['leaf_level']:
-            print(f"\n  Instance: {case['instance_id']}")
-            print(f"  Type: {case['disagreement_type']}")
-            print("  Annotations:")
-            for annotator, anns in case['annotators'].items():
-                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
-                print(f"    {annotator}: {', '.join(ann_strs)}")
-            if case['conflicts']:
-                print("  Conflicts:")
-                for conflict in case['conflicts']:
-                    annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
-                    conflict_str = f"    [{conflict.get('dimension', '?')}] "
-                    conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
-                    print(conflict_str)
+    # if detailed['leaf_level']:
+    #     print(f"\n[LEAF-LEVEL DISAGREEMENT - Subcategory] ({len(detailed['leaf_level'])} instances)")
+    #     for case in detailed['leaf_level']:
+    #         print(f"\n  Instance: {case['instance_id']}")
+    #         print(f"  Type: {case['disagreement_type']}")
+    #         print("  Annotations:")
+    #         for annotator, anns in case['annotators'].items():
+    #             ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+    #             print(f"    {annotator}: {', '.join(ann_strs)}")
+    #         if case['conflicts']:
+    #             print("  Conflicts:")
+    #             for conflict in case['conflicts']:
+    #                 annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
+    #                 conflict_str = f"    [{conflict.get('dimension', '?')}] "
+    #                 conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
+    #                 print(conflict_str)
 
     # Mid-level (category) disagreements
-    if detailed['mid_level']:
-        print(f"\n[MID-LEVEL DISAGREEMENT - Category] ({len(detailed['mid_level'])} instances)")
-        for case in detailed['mid_level']:
-            print(f"\n  Instance: {case['instance_id']}")
-            print(f"  Type: {case['disagreement_type']}")
-            print("  Annotations:")
-            for annotator, anns in case['annotators'].items():
-                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
-                print(f"    {annotator}: {', '.join(ann_strs)}")
-            if case['conflicts']:
-                print("  Conflicts:")
-                for conflict in case['conflicts']:
-                    annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
-                    conflict_str = f"    [{conflict.get('dimension', '?')}] "
-                    conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
-                    print(conflict_str)
+    # if detailed['mid_level']:
+    #     print(f"\n[MID-LEVEL DISAGREEMENT - Category] ({len(detailed['mid_level'])} instances)")
+    #     for case in detailed['mid_level']:
+    #         print(f"\n  Instance: {case['instance_id']}")
+    #         print(f"  Type: {case['disagreement_type']}")
+    #         print("  Annotations:")
+    #         for annotator, anns in case['annotators'].items():
+    #             ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+    #             print(f"    {annotator}: {', '.join(ann_strs)}")
+    #         if case['conflicts']:
+    #             print("  Conflicts:")
+    #             for conflict in case['conflicts']:
+    #                 annotators = [k for k in conflict.keys() if k not in ['dimension', 'conflict_level']]
+    #                 conflict_str = f"    [{conflict.get('dimension', '?')}] "
+    #                 conflict_str += " vs ".join([f"{ann}={conflict[ann]}" for ann in annotators])
+    #                 print(conflict_str)
 
-    # Top-level (dimension) disagreements
-    if detailed['top_level']:
-        print(f"\n[TOP-LEVEL DISAGREEMENT - Dimension] ({len(detailed['top_level'])} instances)")
-        for case in detailed['top_level']:
-            print(f"\n  Instance: {case['instance_id']}")
-            print(f"  Type: {case['disagreement_type']}")
-            print("  Annotations:")
-            for annotator, anns in case['annotators'].items():
-                ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
-                print(f"    {annotator}: {', '.join(ann_strs)}")
-            if case['conflicts']:
-                print("  Conflicts:")
-                for conflict in case['conflicts']:
-                    for key, val in conflict.items():
-                        if key != 'conflict_level':
-                            print(f"    {key}: {val}")
+    # # Top-level (dimension) disagreements
+    # if detailed['top_level']:
+    #     print(f"\n[TOP-LEVEL DISAGREEMENT - Dimension] ({len(detailed['top_level'])} instances)")
+    #     for case in detailed['top_level']:
+    #         print(f"\n  Instance: {case['instance_id']}")
+    #         print(f"  Type: {case['disagreement_type']}")
+    #         print("  Annotations:")
+    #         for annotator, anns in case['annotators'].items():
+    #             ann_strs = [f"{a['dimension']}/{a['category']}/{a['subcategory']}" for a in anns]
+    #             print(f"    {annotator}: {', '.join(ann_strs)}")
+    #         if case['conflicts']:
+    #             print("  Conflicts:")
+    #             for conflict in case['conflicts']:
+    #                 for key, val in conflict.items():
+    #                     if key != 'conflict_level':
+    #                         print(f"    {key}: {val}")
 
     # Save results to JSON
     output_file = os.path.join(script_dir, "inter_annotator_results.json")

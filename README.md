@@ -1,6 +1,6 @@
 # When Agents Get Lost: Dissecting Failure Modes in Graph-Based Navigation Instruction Evaluation
 
-**Farzad Shami, Kimia Abedini, Seyed Hossein Hosseini, Henrikki Tenkanen**
+**Farzad Shami, Kimia Abedini, Seyed Hossein Hosseini, Nico Van de Weghe, Henrikki Tenkanen**
 
 Aalto University
 
@@ -35,8 +35,8 @@ We developed a hierarchical four-axis categorization framework:
 ### Topological (T)
 - **T1** Path ambiguity: Parallel routes, loop alternatives
 - **T2** Landmark displacement: Premature mention, post-turn reference, opposite-side displacement
-- **T3** Scale mismatch: Distance underestimation, landmark density
-- **T4** Stop-location errors: Stop-too-late (overshoot), stop-too-early (undershoot), missed stopping cue
+- **T3** Connectivity violation: T-junction impossibility, dead-end conflicts
+- **T4** Scale mismatch: Distance underestimation, landmark density
 - **T5** Junction complexity: Five-way+ intersections, offset intersections, roundabout navigation
 
 ### Agent Limitations (A)
@@ -44,7 +44,7 @@ We developed a hierarchical four-axis categorization framework:
 - **A2** Heading initialization: Compass calibration, map orientation mismatch
 - **A3** Sub-goal segmentation: Over-segmentation, under-segmentation, incorrect action primitives
 - **A4** Context window saturation: Token overflow, information overload, visibility threshold miscalibration
-- **A5** Perception failures: Spatial relation errors, object hallucination
+- **A5** Stop-location errors: Stop-too-late (overshoot), stop-too-early (undershoot), missed stopping cue
 - **A6** Planning and reasoning: Goal confusion, cascading failures, premature termination
 - **A7** Memory and state tracking: Visited location amnesia, sub-goal state loss, instruction forgetting
 - **A8** Multi-agent coordination: Incompatible formats, status misalignment

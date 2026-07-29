@@ -12,3 +12,6 @@ __pycache__/
 
 api_key
 step2_results/
+
+latex
+.claude

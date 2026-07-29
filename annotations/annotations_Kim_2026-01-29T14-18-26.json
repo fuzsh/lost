@@ -1,0 +1,7086 @@
+{
+  "schema_version": "1.0.0",
+  "session": {
+    "annotatorName": "KIMIA",
+    "sessionStarted": "2026-01-23T13:09:57.308Z",
+    "exportedAt": "2026-01-29T14:18:26.692Z",
+    "currentIndex": 473
+  },
+  "summary": {
+    "completed": 490,
+    "skipped": 0,
+    "total": 492
+  },
+  "annotations": {
+    "seen_3688": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A1",
+          "subcategory": "A1a",
+          "subcategoryName": "POI similarity failure",
+          "timestamp": "2026-01-26T12:22:15.293Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:25:08.710Z"
+    },
+    "seen_10056": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:25:32.365Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:26:18.072Z"
+    },
+    "seen_3764": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:27:06.546Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:27:27.610Z"
+    },
+    "seen_2622": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:27:45.267Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:27:46.734Z"
+    },
+    "seen_1837": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:28:06.709Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:28:27.312Z"
+    },
+    "seen_3759": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:29:02.600Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:29:03.950Z"
+    },
+    "seen_3945": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T12:31:17.503Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:32:09.836Z"
+    },
+    "seen_11019": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:32:55.203Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:32:58.927Z"
+    },
+    "seen_2928": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:33:15.811Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:33:16.827Z"
+    },
+    "seen_10947": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T12:38:31.641Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:38:33.216Z"
+    },
+    "seen_5613": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:38:58.774Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:39:01.716Z"
+    },
+    "seen_4578": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:39:16.320Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:39:17.236Z"
+    },
+    "seen_4434": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:39:32.116Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:39:33.207Z"
+    },
+    "seen_6844": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:28:40.072Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:28:40.771Z"
+    },
+    "seen_5063": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T12:44:42.188Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:44:45.538Z"
+    },
+    "seen_3342": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:44:58.346Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:45:13.642Z"
+    },
+    "seen_11420": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-26T12:47:48.616Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:47:54.248Z"
+    },
+    "seen_3343": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:48:21.198Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:48:49.514Z"
+    },
+    "seen_5096": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-26T12:49:48.603Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:50:04.754Z"
+    },
+    "seen_12298": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4c",
+          "subcategoryName": "Simultaneous action conflicts",
+          "timestamp": "2026-01-26T12:52:15.684Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:52:21.292Z"
+    },
+    "seen_1652": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T12:52:30.671Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:52:31.429Z"
+    },
+    "seen_6218": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:28:53.492Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:28:54.200Z"
+    },
+    "seen_6871": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:56:50.423Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:56:51.823Z"
+    },
+    "seen_1560": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T12:57:07.965Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:57:09.173Z"
+    },
+    "seen_3478": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T12:57:35.686Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T12:57:38.757Z"
+    },
+    "seen_6211": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-26T13:00:34.930Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:00:37.627Z"
+    },
+    "seen_12704": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:01:01.451Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:01:02.315Z"
+    },
+    "seen_2068": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:01:23.463Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:01:25.030Z"
+    },
+    "seen_7331": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:01:34.405Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:01:35.304Z"
+    },
+    "seen_12897": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T13:02:18.613Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:02:20.338Z"
+    },
+    "seen_6234": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:02:52.854Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:02:55.495Z"
+    },
+    "seen_2498": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E5",
+          "subcategory": "E5a",
+          "subcategoryName": "False positive completion",
+          "timestamp": "2026-01-26T13:04:15.316Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:05:05.720Z"
+    },
+    "seen_5741": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:05:37.982Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:05:40.932Z"
+    },
+    "seen_2607": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:29:07.467Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:29:08.192Z"
+    },
+    "seen_5522": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:18:03.104Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:18:10.321Z"
+    },
+    "seen_4749": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:18:19.017Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:18:20.204Z"
+    },
+    "seen_7214": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T13:24:55.435Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:24:56.427Z"
+    },
+    "seen_10300": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A7",
+          "subcategory": "A7c",
+          "subcategoryName": "Instruction forgetting",
+          "timestamp": "2026-01-26T13:27:49.788Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:27:51.171Z"
+    },
+    "seen_1893": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:28:00.072Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:28:00.821Z"
+    },
+    "seen_10199": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:28:48.592Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:28:50.367Z"
+    },
+    "seen_3257": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:28:59.342Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:29:00.042Z"
+    },
+    "seen_10044": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T13:32:08.541Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:32:09.628Z"
+    },
+    "seen_6144": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:32:23.482Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:32:25.082Z"
+    },
+    "seen_2817": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T13:35:16.952Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:35:18.202Z"
+    },
+    "seen_10105": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T13:35:45.789Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:35:46.556Z"
+    },
+    "seen_11749": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:36:04.860Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:36:05.577Z"
+    },
+    "seen_1697": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-26T13:36:21.693Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:36:24.151Z"
+    },
+    "seen_5069": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T13:36:56.848Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:36:57.605Z"
+    },
+    "seen_1952": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:37:13.806Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:37:14.420Z"
+    },
+    "seen_10723": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T13:38:12.643Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:38:23.809Z"
+    },
+    "seen_5138": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:38:37.493Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:38:40.151Z"
+    },
+    "seen_4300": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T13:38:55.968Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:38:57.046Z"
+    },
+    "seen_4517": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:39:04.880Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:39:05.630Z"
+    },
+    "seen_12675": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T14:30:55.021Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:30:55.879Z"
+    },
+    "seen_12297": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4c",
+          "subcategoryName": "Simultaneous action conflicts",
+          "timestamp": "2026-01-26T13:54:26.542Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:54:27.630Z"
+    },
+    "seen_4249": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:54:39.947Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:54:40.721Z"
+    },
+    "seen_5084": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:54:56.954Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:54:57.988Z"
+    },
+    "seen_4196": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T13:55:32.471Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:55:33.204Z"
+    },
+    "seen_6420": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T13:55:42.495Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:55:45.516Z"
+    },
+    "seen_12569": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T13:56:07.033Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:56:08.804Z"
+    },
+    "seen_7091": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T13:56:32.208Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T13:56:32.962Z"
+    },
+    "seen_10198": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:01:31.156Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:01:32.089Z"
+    },
+    "seen_12781": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1c",
+          "subcategoryName": "Missing stopping criteria",
+          "timestamp": "2026-01-26T14:03:19.493Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:03:21.743Z"
+    },
+    "seen_12157": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T14:03:37.935Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:03:42.176Z"
+    },
+    "seen_4944": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T14:04:34.093Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:04:38.876Z"
+    },
+    "seen_6492": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:05:06.797Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:05:07.685Z"
+    },
+    "seen_11944": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T14:06:16.446Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:06:17.450Z"
+    },
+    "seen_11735": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:06:28.617Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:06:29.261Z"
+    },
+    "seen_7021": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-26T14:07:10.729Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:07:12.337Z"
+    },
+    "seen_2091": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:07:30.929Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:07:31.696Z"
+    },
+    "seen_7224": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:07:41.717Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:07:42.541Z"
+    },
+    "seen_6407": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:08:49.711Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:08:50.328Z"
+    },
+    "seen_11930": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:08:59.774Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:09:00.493Z"
+    },
+    "seen_5274": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:09:11.936Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:09:12.615Z"
+    },
+    "seen_3816": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-26T14:09:23.045Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:09:23.824Z"
+    },
+    "seen_3789": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:19:02.200Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:19:03.634Z"
+    },
+    "seen_12373": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:19:16.200Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:19:17.496Z"
+    },
+    "seen_2145": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:19:25.713Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:19:28.296Z"
+    },
+    "seen_10756": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:19:38.371Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:19:39.071Z"
+    },
+    "seen_7070": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:19:47.246Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:19:47.945Z"
+    },
+    "seen_6395": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T14:20:06.412Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:20:07.145Z"
+    },
+    "seen_5384": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:20:13.908Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:20:14.563Z"
+    },
+    "seen_11300": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:20:19.137Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:20:19.887Z"
+    },
+    "seen_2038": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-26T14:20:30.087Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:20:31.335Z"
+    },
+    "seen_1607": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:22:02.395Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:03.189Z"
+    },
+    "seen_11587": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:22:10.053Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:10.740Z"
+    },
+    "seen_1631": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:22:20.307Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:21.240Z"
+    },
+    "seen_5192": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:22:26.632Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:27.332Z"
+    },
+    "seen_5575": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-26T14:22:35.524Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:36.190Z"
+    },
+    "seen_11031": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:22:46.741Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:22:47.390Z"
+    },
+    "seen_3481": {
+      "status": "in_progress",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:31:26.379Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:31:26.379Z"
+    },
+    "seen_11258": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:26:50.680Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:26:51.334Z"
+    },
+    "seen_3015": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:26:58.318Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:26:58.976Z"
+    },
+    "seen_3283": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:27:06.784Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:07.501Z"
+    },
+    "seen_2125": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:27:14.510Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:15.134Z"
+    },
+    "seen_5377": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:27:22.976Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:23.659Z"
+    },
+    "seen_12278": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:27:38.835Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:40.059Z"
+    },
+    "seen_5503": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:27:45.818Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:46.784Z"
+    },
+    "seen_2329": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-26T14:27:53.972Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:27:55.430Z"
+    },
+    "seen_3205": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:28:01.321Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:28:01.930Z"
+    },
+    "seen_10841": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-26T14:28:10.038Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:28:10.763Z"
+    },
+    "seen_11604": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-26T14:28:18.572Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-26T14:28:19.222Z"
+    },
+    "seen_2405": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:50:35.242Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:50:36.308Z"
+    },
+    "seen_2703": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-27T07:50:55.862Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:50:57.237Z"
+    },
+    "seen_6685": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T07:51:04.237Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:51:05.260Z"
+    },
+    "seen_11337": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T07:51:12.245Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:51:13.104Z"
+    },
+    "seen_3357": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:51:19.270Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:51:20.004Z"
+    },
+    "seen_3002": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L9",
+          "subcategory": "L9b",
+          "subcategoryName": "Partial references",
+          "timestamp": "2026-01-27T07:52:48.069Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:52:48.903Z"
+    },
+    "seen_4068": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:52:58.619Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:52:59.270Z"
+    },
+    "seen_11631": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T07:53:07.677Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:08.403Z"
+    },
+    "seen_2304": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:53:15.277Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:15.886Z"
+    },
+    "seen_5391": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T07:53:23.065Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:23.765Z"
+    },
+    "seen_5647": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:53:36.265Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:37.081Z"
+    },
+    "seen_11136": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:53:44.344Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:45.448Z"
+    },
+    "seen_4512": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:53:51.452Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:53:51.977Z"
+    },
+    "seen_11594": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:53:59.866Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:00.644Z"
+    },
+    "seen_4671": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:54:05.560Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:06.260Z"
+    },
+    "seen_4477": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:54:12.993Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:13.727Z"
+    },
+    "seen_1700": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:54:24.151Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:25.202Z"
+    },
+    "seen_3748": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:54:30.143Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:30.757Z"
+    },
+    "seen_11453": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:54:37.384Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:38.026Z"
+    },
+    "seen_2667": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:54:53.489Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:54:54.164Z"
+    },
+    "seen_4697": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T07:55:03.997Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:55:04.963Z"
+    },
+    "seen_2974": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:55:09.422Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:55:10.322Z"
+    },
+    "seen_2341": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:55:14.972Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:55:15.605Z"
+    },
+    "seen_12495": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:55:20.005Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:55:20.539Z"
+    },
+    "seen_11185": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5c",
+          "subcategoryName": "Roundabout navigation",
+          "timestamp": "2026-01-27T07:56:21.796Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:56:23.004Z"
+    },
+    "seen_5865": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:56:30.446Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:56:31.504Z"
+    },
+    "seen_12751": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-27T07:56:41.938Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:56:42.746Z"
+    },
+    "seen_10729": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T07:56:50.500Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:56:51.168Z"
+    },
+    "seen_7076": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:56:58.470Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:56:59.079Z"
+    },
+    "seen_6119": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-27T07:57:24.612Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:57:26.804Z"
+    },
+    "seen_7289": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-27T07:57:38.796Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:57:39.463Z"
+    },
+    "seen_2361": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:57:45.021Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:57:45.671Z"
+    },
+    "seen_6167": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:57:51.204Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:57:51.846Z"
+    },
+    "seen_10929": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T07:57:58.504Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:57:59.163Z"
+    },
+    "seen_11743": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:58:13.288Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:13.988Z"
+    },
+    "seen_5452": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:58:27.321Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:27.888Z"
+    },
+    "seen_3167": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:58:32.904Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:33.555Z"
+    },
+    "seen_10660": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T07:58:40.629Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:41.254Z"
+    },
+    "seen_4460": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:58:47.770Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:48.388Z"
+    },
+    "seen_2242": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T07:58:53.112Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T07:58:55.404Z"
+    },
+    "seen_10313": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-27T08:01:04.021Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:01:05.182Z"
+    },
+    "seen_6856": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:01:13.216Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:01:13.866Z"
+    },
+    "seen_4768": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:01:18.840Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:01:19.582Z"
+    },
+    "seen_3677": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:01:26.032Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:01:26.765Z"
+    },
+    "seen_4742": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:01:33.207Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:01:33.779Z"
+    },
+    "seen_3719": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T08:02:03.661Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:02:04.794Z"
+    },
+    "seen_6887": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:02:12.798Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:02:14.165Z"
+    },
+    "seen_7010": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:02:18.615Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:02:19.190Z"
+    },
+    "seen_4029": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:02:30.241Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:02:31.065Z"
+    },
+    "seen_7182": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L9",
+          "subcategory": "L9b",
+          "subcategoryName": "Partial references",
+          "timestamp": "2026-01-27T08:05:25.930Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:05:27.272Z"
+    },
+    "seen_4117": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:05:36.869Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:05:37.672Z"
+    },
+    "seen_6561": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:08:58.699Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:08:59.391Z"
+    },
+    "seen_5581": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:09:06.932Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:09:07.616Z"
+    },
+    "seen_2668": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-27T08:09:17.362Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:09:18.095Z"
+    },
+    "seen_6161": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:09:34.095Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:09:46.245Z"
+    },
+    "seen_5507": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:09:51.436Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:09:52.095Z"
+    },
+    "seen_1997": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-27T08:11:28.302Z"
+        }
+      ],
+      "notes": "Instruction and the desired route are different.",
+      "lastModified": "2026-01-27T08:12:09.626Z"
+    },
+    "seen_11245": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T08:13:01.643Z"
+        },
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:13:07.898Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:13:08.856Z"
+    },
+    "seen_4847": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-27T08:13:16.863Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:13:17.439Z"
+    },
+    "seen_5995": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:13:22.789Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:13:23.456Z"
+    },
+    "seen_4078": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:14:17.617Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:18.226Z"
+    },
+    "seen_2837": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:14:22.700Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:23.359Z"
+    },
+    "seen_10475": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:14:31.809Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:32.584Z"
+    },
+    "seen_5055": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:14:36.592Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:37.201Z"
+    },
+    "seen_4521": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:14:42.967Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:43.450Z"
+    },
+    "seen_10592": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:14:59.059Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:14:59.709Z"
+    },
+    "seen_2132": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:15:06.350Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:08.200Z"
+    },
+    "seen_4835": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:15:13.608Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:14.167Z"
+    },
+    "seen_4130": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:15:20.201Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:20.984Z"
+    },
+    "seen_7364": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:15:26.042Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:26.567Z"
+    },
+    "seen_11844": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:15:31.334Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:32.033Z"
+    },
+    "seen_4531": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:15:39.581Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:40.508Z"
+    },
+    "seen_4981": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:15:45.333Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:46.033Z"
+    },
+    "seen_3403": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:15:50.516Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:51.167Z"
+    },
+    "seen_3263": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:15:56.462Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:15:57.479Z"
+    },
+    "seen_12082": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:16:02.570Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:05.446Z"
+    },
+    "seen_2306": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T08:16:17.504Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:16:33.154Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:33.646Z"
+    },
+    "seen_3290": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:16:40.012Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:40.729Z"
+    },
+    "seen_7169": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:16:47.495Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:48.145Z"
+    },
+    "seen_4485": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:16:53.129Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:53.753Z"
+    },
+    "seen_5273": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:16:58.829Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:16:59.437Z"
+    },
+    "seen_1846": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:17:04.213Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:17:04.837Z"
+    },
+    "seen_12823": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L8",
+          "subcategory": "L8a",
+          "subcategoryName": "Temporal vagueness",
+          "timestamp": "2026-01-27T08:18:05.042Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:18:49.124Z"
+    },
+    "seen_10646": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:18:57.200Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:18:58.133Z"
+    },
+    "seen_3138": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:19:11.991Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:19:12.566Z"
+    },
+    "seen_4755": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:19:20.766Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:19:21.341Z"
+    },
+    "seen_5087": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A7",
+          "subcategory": "A7b",
+          "subcategoryName": "Sub-goal state loss",
+          "timestamp": "2026-01-27T08:20:43.177Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:20:43.944Z"
+    },
+    "seen_11247": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:20:51.886Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:20:52.594Z"
+    },
+    "seen_1731": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:20:58.128Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:20:58.853Z"
+    },
+    "seen_12287": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:21:17.044Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:21:18.211Z"
+    },
+    "seen_11942": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:21:22.427Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:21:23.628Z"
+    },
+    "seen_3145": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:24:10.997Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:24:11.805Z"
+    },
+    "seen_5945": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:24:19.247Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:24:19.930Z"
+    },
+    "seen_12226": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:24:31.743Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:24:32.376Z"
+    },
+    "seen_1865": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:24:37.502Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:24:38.034Z"
+    },
+    "seen_1717": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T08:25:41.467Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:25:42.134Z"
+    },
+    "seen_3252": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-27T08:26:08.304Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:26:09.463Z"
+    },
+    "seen_3070": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:26:30.980Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:26:31.662Z"
+    },
+    "seen_6016": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1b",
+          "subcategoryName": "Landmark under-specification",
+          "timestamp": "2026-01-27T08:27:45.579Z"
+        }
+      ],
+      "notes": "Instruction and the desired route are different.",
+      "lastModified": "2026-01-27T08:27:51.942Z"
+    },
+    "seen_4059": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:28:06.463Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:28:07.095Z"
+    },
+    "seen_4291": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:28:12.458Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:28:14.715Z"
+    },
+    "seen_2654": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:30:23.690Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:24.307Z"
+    },
+    "seen_5102": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:30:29.273Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:29.870Z"
+    },
+    "seen_11476": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:30:39.120Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:40.315Z"
+    },
+    "seen_2280": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:30:46.898Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:47.723Z"
+    },
+    "seen_10702": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T08:30:53.290Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:53.906Z"
+    },
+    "seen_5498": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:30:58.369Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:30:58.935Z"
+    },
+    "seen_3578": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:31:09.286Z"
+        },
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T08:31:21.427Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:31:39.297Z"
+    },
+    "seen_6820": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T08:31:48.501Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:31:49.168Z"
+    },
+    "seen_10337": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:32:43.751Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:32:44.368Z"
+    },
+    "seen_6162": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:32:52.234Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:32:53.051Z"
+    },
+    "seen_2732": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:33:42.651Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:33:44.592Z"
+    },
+    "seen_4315": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T08:35:33.871Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:35:34.813Z"
+    },
+    "seen_4508": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:35:43.900Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:35:44.525Z"
+    },
+    "seen_11520": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:35:53.108Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:35:53.641Z"
+    },
+    "seen_7345": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A8",
+          "subcategory": "A8b",
+          "subcategoryName": "Status misalignment",
+          "timestamp": "2026-01-27T08:37:37.449Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:37:39.215Z"
+    },
+    "seen_5256": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L5",
+          "subcategory": "L5a",
+          "subcategoryName": "Deictic references",
+          "timestamp": "2026-01-27T08:38:29.025Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E3",
+          "subcategory": "E3a",
+          "subcategoryName": "Turn angle errors",
+          "timestamp": "2026-01-27T08:38:53.111Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:38:53.844Z"
+    },
+    "seen_2637": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-27T08:40:06.302Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:41:53.299Z"
+    },
+    "seen_4420": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:42:00.257Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:42:00.807Z"
+    },
+    "seen_2468": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3b",
+          "subcategoryName": "Under-segmentation",
+          "timestamp": "2026-01-27T08:45:34.314Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:45:34.998Z"
+    },
+    "seen_12496": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:45:42.039Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:45:42.631Z"
+    },
+    "seen_11144": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:47:48.113Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:47:48.863Z"
+    },
+    "seen_10553": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:50:43.775Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:50:44.774Z"
+    },
+    "seen_12834": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:50:50.463Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:50:51.407Z"
+    },
+    "seen_4205": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5c",
+          "subcategoryName": "Roundabout navigation",
+          "timestamp": "2026-01-27T08:51:07.020Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T08:51:15.696Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:51:16.624Z"
+    },
+    "seen_7180": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T08:51:21.115Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:51:21.691Z"
+    },
+    "seen_1624": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1b",
+          "subcategoryName": "Landmark under-specification",
+          "timestamp": "2026-01-27T08:52:12.448Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:52:13.107Z"
+    },
+    "seen_4716": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A8",
+          "subcategory": "A8b",
+          "subcategoryName": "Status misalignment",
+          "timestamp": "2026-01-27T08:53:10.250Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T08:53:16.298Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T08:53:16.931Z"
+    },
+    "seen_4836": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T12:48:04.917Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:48:06.158Z"
+    },
+    "seen_2627": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T12:48:18.888Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:48:19.792Z"
+    },
+    "seen_2616": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T12:48:46.545Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:48:50.587Z"
+    },
+    "seen_7253": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T12:49:00.018Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:49:01.195Z"
+    },
+    "seen_12817": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T12:49:09.833Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:49:10.508Z"
+    },
+    "unseen_9993": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T12:49:23.833Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:49:24.716Z"
+    },
+    "unseen_2296": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-27T12:50:09.841Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:50:10.633Z"
+    },
+    "unseen_2754": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T12:50:20.854Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:50:21.566Z"
+    },
+    "unseen_1974": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T12:50:30.530Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:50:31.324Z"
+    },
+    "unseen_12893": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-27T12:51:51.181Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:51:51.882Z"
+    },
+    "unseen_6926": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T12:53:46.868Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:53:47.526Z"
+    },
+    "unseen_4730": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T12:53:53.385Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:53:54.776Z"
+    },
+    "unseen_12374": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-27T12:54:00.793Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:54:01.510Z"
+    },
+    "unseen_1728": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T12:54:13.632Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:54:24.826Z"
+    },
+    "unseen_11285": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-27T12:54:34.330Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:54:35.164Z"
+    },
+    "unseen_3903": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:54:43.076Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:54:43.718Z"
+    },
+    "unseen_6569": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T12:54:49.651Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:54:50.801Z"
+    },
+    "unseen_4856": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:10.592Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:11.284Z"
+    },
+    "unseen_2509": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:16.500Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:17.067Z"
+    },
+    "unseen_3502": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:21.067Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:21.684Z"
+    },
+    "unseen_11349": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:26.534Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:27.150Z"
+    },
+    "unseen_10875": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:31.204Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:31.779Z"
+    },
+    "unseen_6740": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:56:34.962Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:35.563Z"
+    },
+    "unseen_2713": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T12:56:42.618Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:43.229Z"
+    },
+    "unseen_3896": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T12:56:59.131Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:56:59.808Z"
+    },
+    "unseen_2200": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T12:57:04.208Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:57:04.833Z"
+    },
+    "unseen_11219": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-27T12:57:20.200Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T12:57:21.225Z"
+    },
+    "unseen_10346": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T13:03:18.199Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:03:19.007Z"
+    },
+    "unseen_12275": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:04:02.178Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:02.795Z"
+    },
+    "unseen_11220": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:04:07.611Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:08.544Z"
+    },
+    "unseen_5140": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:04:12.694Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:13.303Z"
+    },
+    "unseen_11935": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T13:04:19.675Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:20.311Z"
+    },
+    "unseen_12649": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-27T13:04:32.728Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:33.561Z"
+    },
+    "unseen_10726": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:04:37.994Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:38.661Z"
+    },
+    "unseen_4326": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:04:42.494Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:04:43.111Z"
+    },
+    "unseen_3848": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T13:05:06.844Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:05:07.461Z"
+    },
+    "unseen_3701": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T13:05:15.011Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:05:15.894Z"
+    },
+    "unseen_11514": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T13:05:24.340Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:05:25.044Z"
+    },
+    "unseen_3653": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T4",
+          "subcategory": "T3b",
+          "subcategoryName": "Landmark density",
+          "timestamp": "2026-01-27T13:06:53.497Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:06:54.265Z"
+    },
+    "unseen_10805": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T3",
+          "subcategory": "T3a",
+          "subcategoryName": "T-Junction Impossibility",
+          "timestamp": "2026-01-27T13:07:29.251Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:07:29.835Z"
+    },
+    "unseen_5052": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-27T13:07:34.993Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:07:35.618Z"
+    },
+    "unseen_4349": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-27T13:10:35.492Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:10:36.292Z"
+    },
+    "unseen_5665": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-27T13:10:52.392Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:10:53.184Z"
+    },
+    "unseen_6558": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-27T13:10:58.508Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-27T13:10:59.151Z"
+    },
+    "unseen_10184": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-28T08:53:27.926Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:53:28.834Z"
+    },
+    "unseen_4757": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T08:54:27.442Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:54:28.117Z"
+    },
+    "unseen_1663": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T08:54:33.376Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:54:34.009Z"
+    },
+    "unseen_4879": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-28T08:54:38.951Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:54:39.584Z"
+    },
+    "unseen_6472": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T08:54:47.459Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:54:48.870Z"
+    },
+    "unseen_11173": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-28T08:54:56.018Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:54:57.951Z"
+    },
+    "unseen_7361": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L8",
+          "subcategory": "L8b",
+          "subcategoryName": "Perceptual scale",
+          "timestamp": "2026-01-28T08:55:46.069Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:55:56.954Z"
+    },
+    "unseen_7327": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T08:56:08.084Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T08:56:08.775Z"
+    },
+    "unseen_5649": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-28T09:00:57.412Z"
+        },
+        {
+          "dimension": "L",
+          "category": "L5",
+          "subcategory": "L5b",
+          "subcategoryName": "Implicit reference",
+          "timestamp": "2026-01-28T09:01:18.363Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:01:19.187Z"
+    },
+    "unseen_3642": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:01:25.563Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:01:26.170Z"
+    },
+    "unseen_1492": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-28T09:02:36.370Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:02:37.749Z"
+    },
+    "unseen_12393": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-28T09:03:30.557Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:03:31.949Z"
+    },
+    "unseen_12762": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:05:03.735Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:05:04.361Z"
+    },
+    "unseen_2227": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:05:09.627Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:05:10.207Z"
+    },
+    "unseen_11729": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-28T09:05:21.569Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:05:22.494Z"
+    },
+    "unseen_1998": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-28T09:05:38.511Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:05:39.127Z"
+    },
+    "unseen_12695": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:05:43.602Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:05:44.077Z"
+    },
+    "unseen_11809": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T4",
+          "subcategory": "T3b",
+          "subcategoryName": "Landmark density",
+          "timestamp": "2026-01-28T09:06:18.731Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:06:19.890Z"
+    },
+    "unseen_11424": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-28T09:06:48.578Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:06:49.710Z"
+    },
+    "unseen_3066": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-28T09:07:07.647Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:08.614Z"
+    },
+    "unseen_2990": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T09:07:15.214Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:15.898Z"
+    },
+    "unseen_7351": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-28T09:07:23.056Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:24.131Z"
+    },
+    "unseen_7020": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:07:29.456Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:29.998Z"
+    },
+    "unseen_12424": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-28T09:07:44.315Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:44.947Z"
+    },
+    "unseen_11845": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-28T09:07:54.331Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:07:57.481Z"
+    },
+    "unseen_10331": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-28T09:08:04.456Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:08:05.310Z"
+    },
+    "unseen_6920": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-28T09:08:16.647Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:08:17.364Z"
+    },
+    "unseen_6631": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-28T09:11:26.093Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:11:26.817Z"
+    },
+    "unseen_12335": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:11:33.455Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:11:34.205Z"
+    },
+    "unseen_10316": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-28T09:11:42.047Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:11:43.934Z"
+    },
+    "unseen_10531": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-28T09:11:50.201Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:11:50.889Z"
+    },
+    "unseen_6204": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-28T09:14:50.187Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:14:50.887Z"
+    },
+    "unseen_4910": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-28T09:14:58.638Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:14:59.271Z"
+    },
+    "unseen_10670": {
+      "status": "in_progress",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:15:04.687Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:18:54.316Z"
+    },
+    "unseen_11110": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:15:09.320Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:15:09.853Z"
+    },
+    "unseen_2199": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:15:13.570Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:15:14.062Z"
+    },
+    "unseen_4464": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T09:15:20.503Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:15:21.137Z"
+    },
+    "unseen_11705": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-28T09:21:47.556Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:21:48.148Z"
+    },
+    "unseen_12074": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T09:21:59.873Z"
+        },
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-28T09:22:02.564Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:22:03.556Z"
+    },
+    "unseen_10892": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-28T09:34:07.230Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:34:08.087Z"
+    },
+    "unseen_10740": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:34:15.603Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:34:16.557Z"
+    },
+    "unseen_7212": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-28T09:34:27.682Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:34:28.449Z"
+    },
+    "unseen_2660": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-28T09:34:36.124Z"
+        },
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-28T09:35:07.232Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:35:08.099Z"
+    },
+    "unseen_3330": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T09:35:13.040Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:35:14.432Z"
+    },
+    "unseen_6948": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-28T09:35:22.311Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E3",
+          "subcategory": "E3a",
+          "subcategoryName": "Turn angle errors",
+          "timestamp": "2026-01-28T09:44:08.347Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:09.846Z"
+    },
+    "unseen_11140": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:44:15.680Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:16.371Z"
+    },
+    "unseen_5272": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-28T09:44:24.859Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:25.459Z"
+    },
+    "unseen_12473": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E3",
+          "subcategory": "E3b",
+          "subcategoryName": "Distance errors",
+          "timestamp": "2026-01-28T09:44:36.313Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:37.113Z"
+    },
+    "unseen_4571": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-28T09:44:42.388Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:43.384Z"
+    },
+    "unseen_7215": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5b",
+          "subcategoryName": "Offset intersections",
+          "timestamp": "2026-01-28T09:44:50.967Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T09:44:51.488Z"
+    },
+    "unseen_7343": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A7",
+          "subcategory": "A7b",
+          "subcategoryName": "Sub-goal state loss",
+          "timestamp": "2026-01-28T12:05:36.877Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T12:05:40.010Z"
+    },
+    "unseen_10589": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T2",
+          "subcategory": "T2b",
+          "subcategoryName": "Post-turn reference",
+          "timestamp": "2026-01-28T12:08:18.705Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-28T12:08:19.479Z"
+    },
+    "unseen_12561": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-29T07:43:25.731Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:43:26.698Z"
+    },
+    "unseen_6793": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7c",
+          "subcategoryName": "Cardinal-relative mismatch",
+          "timestamp": "2026-01-29T07:44:07.648Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:44:10.903Z"
+    },
+    "unseen_11937": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T07:44:19.865Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:44:20.598Z"
+    },
+    "unseen_11461": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T07:44:36.428Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:44:37.095Z"
+    },
+    "unseen_10708": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T07:44:44.248Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:45:10.697Z"
+    },
+    "unseen_7393": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A8",
+          "subcategory": "A8b",
+          "subcategoryName": "Status misalignment",
+          "timestamp": "2026-01-29T07:46:10.005Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:46:10.905Z"
+    },
+    "unseen_4333": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T07:51:34.433Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:51:35.661Z"
+    },
+    "unseen_11192": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T07:51:49.233Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:51:50.052Z"
+    },
+    "unseen_10657": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T07:54:44.334Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:54:45.109Z"
+    },
+    "unseen_4772": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T07:54:56.901Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T07:55:04.550Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:55:05.168Z"
+    },
+    "unseen_10709": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A4",
+          "subcategory": "A4b",
+          "subcategoryName": "Information overload",
+          "timestamp": "2026-01-29T07:56:57.096Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:56:57.746Z"
+    },
+    "unseen_11921": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T07:57:02.829Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:57:03.446Z"
+    },
+    "unseen_5847": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T07:57:08.951Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:57:12.976Z"
+    },
+    "unseen_7154": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T07:57:18.312Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:57:19.163Z"
+    },
+    "unseen_5699": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T07:57:45.041Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:57:51.958Z"
+    },
+    "unseen_11929": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T07:57:57.241Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:59:08.041Z"
+    },
+    "unseen_10987": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T07:59:13.586Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:59:14.220Z"
+    },
+    "unseen_10551": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T07:59:50.640Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T07:59:52.353Z"
+    },
+    "unseen_3876": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:00:02.311Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:00:02.945Z"
+    },
+    "unseen_2385": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T08:00:10.386Z"
+        },
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T08:00:14.644Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:00:15.319Z"
+    },
+    "unseen_3793": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T08:01:33.998Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:01:35.353Z"
+    },
+    "unseen_10119": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T08:01:54.464Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:01:55.156Z"
+    },
+    "unseen_6731": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:01:59.873Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:00.572Z"
+    },
+    "unseen_3987": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:02:15.160Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:15.835Z"
+    },
+    "unseen_3528": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:02:19.676Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:20.226Z"
+    },
+    "unseen_11270": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:02:24.084Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:24.585Z"
+    },
+    "unseen_4185": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:02:31.160Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:31.748Z"
+    },
+    "unseen_4357": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:02:35.685Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:02:36.259Z"
+    },
+    "unseen_10858": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:03:00.259Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:03:01.076Z"
+    },
+    "unseen_12861": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:03:05.118Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:03:05.751Z"
+    },
+    "unseen_6646": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:03:09.581Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:03:10.134Z"
+    },
+    "unseen_2375": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:03:13.109Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:03:14.218Z"
+    },
+    "unseen_3887": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-29T08:07:33.787Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:07:38.403Z"
+    },
+    "unseen_12456": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:07:43.137Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:07:43.728Z"
+    },
+    "unseen_1924": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:07:48.245Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:07:48.803Z"
+    },
+    "unseen_12717": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:07:53.736Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:07:54.362Z"
+    },
+    "unseen_10156": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:08:04.166Z"
+        },
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-29T08:08:10.499Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:08:11.549Z"
+    },
+    "unseen_2219": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3c",
+          "subcategoryName": "Incorrect action primitives",
+          "timestamp": "2026-01-29T08:10:14.482Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:10:15.106Z"
+    },
+    "unseen_3972": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A4",
+          "subcategory": "A4b",
+          "subcategoryName": "Information overload",
+          "timestamp": "2026-01-29T08:10:28.824Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-29T08:10:40.694Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:10:41.735Z"
+    },
+    "unseen_4502": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:10:45.819Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:10:46.393Z"
+    },
+    "unseen_10258": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Implicit sequencing",
+          "timestamp": "2026-01-29T08:15:43.137Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:15:43.862Z"
+    },
+    "unseen_5099": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:15:54.287Z"
+        },
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-29T08:15:58.428Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:15:59.137Z"
+    },
+    "unseen_7185": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:16:05.841Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:16:06.349Z"
+    },
+    "unseen_5669": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:16:47.732Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:16:48.224Z"
+    },
+    "unseen_6332": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:17:00.353Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:17:00.832Z"
+    },
+    "unseen_2619": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:17:04.190Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:17:04.757Z"
+    },
+    "unseen_3184": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:17:08.207Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:17:08.832Z"
+    },
+    "unseen_12833": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T08:17:17.296Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:17:17.828Z"
+    },
+    "unseen_12164": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T08:17:23.836Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:17:24.457Z"
+    },
+    "unseen_7013": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T08:18:10.878Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:18:11.928Z"
+    },
+    "unseen_12617": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:18:16.261Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:18:16.777Z"
+    },
+    "unseen_3772": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T08:18:23.040Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:18:23.723Z"
+    },
+    "unseen_6049": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1b",
+          "subcategoryName": "Landmark under-specification",
+          "timestamp": "2026-01-29T08:28:25.568Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:28:28.818Z"
+    },
+    "unseen_4490": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3b",
+          "subcategoryName": "Under-segmentation",
+          "timestamp": "2026-01-29T08:29:41.339Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:29:41.934Z"
+    },
+    "unseen_3511": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T08:39:16.216Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:39:16.799Z"
+    },
+    "unseen_11755": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:39:23.766Z"
+        },
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-29T08:39:40.066Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:39:40.657Z"
+    },
+    "unseen_11306": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:39:45.286Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:39:45.752Z"
+    },
+    "unseen_1573": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T08:39:49.419Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:39:50.011Z"
+    },
+    "unseen_7322": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:39:54.261Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:39:54.928Z"
+    },
+    "unseen_3098": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:39:59.935Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E1",
+          "subcategory": "E1b",
+          "subcategoryName": "Cycle loops",
+          "timestamp": "2026-01-29T08:40:09.832Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:40:10.502Z"
+    },
+    "unseen_10395": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:40:14.198Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:40:15.098Z"
+    },
+    "unseen_10963": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-29T08:41:12.077Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:41:15.880Z"
+    },
+    "unseen_3917": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T08:41:19.639Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:41:20.148Z"
+    },
+    "unseen_5215": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T08:41:32.477Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:41:32.943Z"
+    },
+    "unseen_12888": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3b",
+          "subcategoryName": "Under-segmentation",
+          "timestamp": "2026-01-29T08:47:07.171Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T08:47:08.662Z"
+    },
+    "unseen_10202": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T09:40:36.312Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:40:36.970Z"
+    },
+    "unseen_5148": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T09:40:45.787Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:40:46.345Z"
+    },
+    "unseen_11345": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T09:40:51.970Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:40:52.487Z"
+    },
+    "unseen_12221": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-29T09:42:13.403Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:42:14.161Z"
+    },
+    "unseen_2167": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T09:42:17.953Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:42:18.503Z"
+    },
+    "unseen_6955": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T09:42:24.338Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A4",
+          "subcategory": "A4c",
+          "subcategoryName": "Visibility threshold miscalibration",
+          "timestamp": "2026-01-29T09:43:42.420Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:43:43.119Z"
+    },
+    "unseen_4339": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T09:43:52.902Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:43:53.586Z"
+    },
+    "unseen_7230": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T09:43:58.402Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:43:58.961Z"
+    },
+    "unseen_10287": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L9",
+          "subcategory": "L9b",
+          "subcategoryName": "Partial references",
+          "timestamp": "2026-01-29T09:53:52.979Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:53:54.303Z"
+    },
+    "unseen_1632": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T09:54:00.382Z"
+        },
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T09:54:38.762Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:54:39.328Z"
+    },
+    "unseen_1888": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T09:54:44.415Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:54:45.324Z"
+    },
+    "unseen_10838": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1a",
+          "subcategoryName": "Spatial under-specification",
+          "timestamp": "2026-01-29T09:56:39.703Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:56:44.786Z"
+    },
+    "unseen_12337": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T09:56:50.111Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:56:51.119Z"
+    },
+    "unseen_4741": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T09:56:57.027Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:56:57.669Z"
+    },
+    "unseen_6401": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T09:57:02.903Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:57:03.544Z"
+    },
+    "unseen_12850": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T09:57:10.127Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T09:57:10.949Z"
+    },
+    "unseen_12761": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6b",
+          "subcategoryName": "Cascading failures",
+          "timestamp": "2026-01-29T10:24:22.694Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-29T10:24:27.799Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:24:28.438Z"
+    },
+    "unseen_12346": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T10:24:34.355Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:24:35.155Z"
+    },
+    "unseen_12518": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T10:25:18.237Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:25:20.233Z"
+    },
+    "unseen_1900": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T10:25:44.892Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:30:15.616Z"
+    },
+    "unseen_5893": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T10:30:21.399Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:38:02.485Z"
+    },
+    "unseen_5075": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T10:38:47.468Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:38:48.892Z"
+    },
+    "unseen_12422": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T10:38:54.034Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:38:55.076Z"
+    },
+    "unseen_4426": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T10:38:59.134Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:38:59.805Z"
+    },
+    "unseen_11155": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T10:39:03.330Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:39:03.857Z"
+    },
+    "unseen_4435": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T10:39:07.405Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:39:07.963Z"
+    },
+    "unseen_4475": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T10:39:10.980Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:39:11.542Z"
+    },
+    "unseen_2312": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T10:39:15.146Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T10:39:15.905Z"
+    },
+    "unseen_12801": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:18:20.440Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:18:21.169Z"
+    },
+    "unseen_11439": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T13:18:33.685Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:19:01.590Z"
+    },
+    "unseen_5792": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:19:07.173Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:19:07.773Z"
+    },
+    "unseen_2649": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-29T13:20:39.680Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:20:40.343Z"
+    },
+    "unseen_4588": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T13:20:48.639Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:20:49.430Z"
+    },
+    "unseen_11141": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T13:20:53.693Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:20:54.243Z"
+    },
+    "unseen_6993": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:20:59.043Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:20:59.568Z"
+    },
+    "unseen_10102": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:21:09.072Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:21:10.322Z"
+    },
+    "unseen_10466": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A7",
+          "subcategory": "A7c",
+          "subcategoryName": "Instruction forgetting",
+          "timestamp": "2026-01-29T13:21:57.068Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:21:58.376Z"
+    },
+    "unseen_6170": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:22:02.809Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:03.434Z"
+    },
+    "unseen_4655": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:22:10.880Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:11.447Z"
+    },
+    "unseen_12891": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T13:22:15.317Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:16.034Z"
+    },
+    "unseen_10327": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:22:20.526Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:21.228Z"
+    },
+    "unseen_4965": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:22:30.593Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:31.971Z"
+    },
+    "unseen_3670": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:22:38.130Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:38.659Z"
+    },
+    "unseen_3120": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T13:22:42.759Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:43.496Z"
+    },
+    "unseen_12186": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:22:47.346Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:48.330Z"
+    },
+    "unseen_7377": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:22:51.788Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:22:52.388Z"
+    },
+    "unseen_4329": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A4",
+          "subcategory": "A4b",
+          "subcategoryName": "Information overload",
+          "timestamp": "2026-01-29T13:26:27.573Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:26:28.228Z"
+    },
+    "unseen_6749": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:26:33.995Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:26:34.778Z"
+    },
+    "unseen_12179": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:26:41.378Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:26:42.061Z"
+    },
+    "unseen_10548": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:26:48.128Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:26:49.057Z"
+    },
+    "unseen_6236": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T13:26:59.211Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:26:59.890Z"
+    },
+    "unseen_6544": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7b",
+          "subcategoryName": "Conflicting cues",
+          "timestamp": "2026-01-29T13:28:49.123Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:28:49.840Z"
+    },
+    "unseen_6802": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:28:55.416Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:28:56.032Z"
+    },
+    "unseen_5827": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6b",
+          "subcategoryName": "Cascading failures",
+          "timestamp": "2026-01-29T13:31:00.619Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:31:01.219Z"
+    },
+    "unseen_10627": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:31:06.893Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:31:07.485Z"
+    },
+    "unseen_6347": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:31:10.827Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:31:11.410Z"
+    },
+    "unseen_4886": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:31:24.439Z"
+        },
+        {
+          "dimension": "L",
+          "category": "L9",
+          "subcategory": "L9b",
+          "subcategoryName": "Partial references",
+          "timestamp": "2026-01-29T13:34:13.305Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:34:14.867Z"
+    },
+    "unseen_10663": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T13:39:23.713Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:39:24.499Z"
+    },
+    "unseen_4977": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:39:31.275Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:39:32.350Z"
+    },
+    "unseen_5955": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:39:36.566Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:39:37.537Z"
+    },
+    "unseen_11398": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T13:41:45.236Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:41:45.945Z"
+    },
+    "unseen_6605": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T13:41:51.795Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Over-segmentation",
+          "timestamp": "2026-01-29T13:42:59.574Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:43:01.315Z"
+    },
+    "unseen_10238": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T13:48:25.684Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:48:26.809Z"
+    },
+    "unseen_4505": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:48:47.918Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:48:48.750Z"
+    },
+    "unseen_2593": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "T",
+          "category": "T5",
+          "subcategory": "T5a",
+          "subcategoryName": "Five-way or more intersections",
+          "timestamp": "2026-01-29T13:48:58.067Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:49:01.242Z"
+    },
+    "unseen_2762": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T13:49:44.984Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A8",
+          "subcategory": "A8b",
+          "subcategoryName": "Status misalignment",
+          "timestamp": "2026-01-29T13:49:50.166Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:49:58.684Z"
+    },
+    "unseen_6023": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4b",
+          "subcategoryName": "Delayed actions",
+          "timestamp": "2026-01-29T13:50:05.608Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:50:06.350Z"
+    },
+    "unseen_2825": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:50:10.337Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:50:11.079Z"
+    },
+    "unseen_6833": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T13:50:15.787Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:50:16.496Z"
+    },
+    "unseen_5645": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T13:50:21.613Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:50:22.221Z"
+    },
+    "unseen_7138": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-29T13:50:28.739Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:50:29.904Z"
+    },
+    "unseen_10452": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L1",
+          "subcategory": "L1b",
+          "subcategoryName": "Landmark under-specification",
+          "timestamp": "2026-01-29T13:51:34.829Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:51:35.570Z"
+    },
+    "unseen_11122": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-29T13:51:39.604Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:51:40.187Z"
+    },
+    "unseen_2449": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T13:51:46.262Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:51:46.916Z"
+    },
+    "unseen_11830": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T13:51:51.930Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:51:52.479Z"
+    },
+    "unseen_6429": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T13:51:56.762Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T13:52:18.591Z"
+    },
+    "unseen_11723": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T14:01:23.760Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:01:29.410Z"
+    },
+    "unseen_10792": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:01:37.060Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:01:37.926Z"
+    },
+    "unseen_3225": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A3",
+          "subcategory": "A3a",
+          "subcategoryName": "Compass calibration",
+          "timestamp": "2026-01-29T14:01:42.068Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:01:42.560Z"
+    },
+    "unseen_5212": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:01:46.276Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:01:47.401Z"
+    },
+    "unseen_4407": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T14:02:03.801Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A8",
+          "subcategory": "A8b",
+          "subcategoryName": "Status misalignment",
+          "timestamp": "2026-01-29T14:02:09.702Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:02:28.835Z"
+    },
+    "unseen_6962": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T14:03:13.880Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:03:17.164Z"
+    },
+    "unseen_3925": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3c",
+          "subcategoryName": "Missed stopping cue",
+          "timestamp": "2026-01-29T14:03:39.551Z"
+        },
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:03:59.626Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:04:00.251Z"
+    },
+    "unseen_5523": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T14:04:05.743Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:04:09.367Z"
+    },
+    "unseen_3869": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:04:19.234Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:04:19.726Z"
+    },
+    "unseen_12243": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T14:07:19.333Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:07:19.925Z"
+    },
+    "unseen_10666": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6c",
+          "subcategoryName": "Premature termination",
+          "timestamp": "2026-01-29T14:09:15.270Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:16.603Z"
+    },
+    "unseen_6413": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:09:26.232Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:26.949Z"
+    },
+    "unseen_11130": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:09:36.282Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:37.749Z"
+    },
+    "unseen_2888": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T14:09:43.357Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:45.007Z"
+    },
+    "unseen_10542": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:09:49.766Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:50.882Z"
+    },
+    "unseen_6013": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:09:53.957Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:09:54.691Z"
+    },
+    "unseen_4907": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6b",
+          "subcategoryName": "Cascading failures",
+          "timestamp": "2026-01-29T14:11:44.303Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:11:45.027Z"
+    },
+    "unseen_12860": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "L",
+          "category": "L7",
+          "subcategory": "L7a",
+          "subcategoryName": "Relative direction confusion",
+          "timestamp": "2026-01-29T14:14:48.672Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:14:49.289Z"
+    },
+    "unseen_1848": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:14:54.364Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:14:54.897Z"
+    },
+    "unseen_2923": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E2",
+          "subcategory": "E2a",
+          "subcategoryName": "Random walk",
+          "timestamp": "2026-01-29T14:15:03.097Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:15:04.767Z"
+    },
+    "unseen_10520": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:15:14.193Z"
+        },
+        {
+          "dimension": "A",
+          "category": "A6",
+          "subcategory": "A6a",
+          "subcategoryName": "Goal confusion",
+          "timestamp": "2026-01-29T14:17:55.284Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:17:55.909Z"
+    },
+    "unseen_10489": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:18:00.525Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:18:01.084Z"
+    },
+    "unseen_10933": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3b",
+          "subcategoryName": "Stop-too-early (undershoot)",
+          "timestamp": "2026-01-29T14:18:05.275Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:18:05.900Z"
+    },
+    "unseen_4208": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "A",
+          "category": "L3",
+          "subcategory": "L3a",
+          "subcategoryName": "Stop-too-late (overshoot)",
+          "timestamp": "2026-01-29T14:18:10.826Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:18:11.334Z"
+    },
+    "unseen_6209": {
+      "status": "completed",
+      "annotations": [
+        {
+          "dimension": "E",
+          "category": "E4",
+          "subcategory": "E4a",
+          "subcategoryName": "Premature actions",
+          "timestamp": "2026-01-29T14:18:19.275Z"
+        }
+      ],
+      "notes": "",
+      "lastModified": "2026-01-29T14:18:19.859Z"
+    }
+  }
+}
